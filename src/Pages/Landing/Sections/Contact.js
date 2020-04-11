@@ -1,6 +1,6 @@
 import React from 'react'
 //Config
-import contactInfo from '../../../config/contact'
+import contactInfo from 'config/contact'
 
 //Components
 import ContactBox from '../Components/ContactBox'
