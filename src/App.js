@@ -1,14 +1,14 @@
 import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import Landing from './Pages/Landing'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">Header</header>
-      {[1, 2, 3, 4, 5].map((n) => (
-        <div>{'componente ' + n}</div>
-      ))}
-      <footer>Footer</footer>
-    </div>
+    <Router>
+      {/* <Layout> */}
+      <Route path="/" component={Landing} />
+      {/* </Layout> */}
+    </Router>
   )
 }
 
