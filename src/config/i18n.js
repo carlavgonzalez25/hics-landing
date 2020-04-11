@@ -2,12 +2,12 @@ export default {
   resources: {
     en: {
       translation: {
-        office: 'office',
+        office: '{{place}} office',
       },
     },
     es: {
       translation: {
-        office: 'Oficina',
+        office: 'Oficina en {{place}}',
       },
     },
   },
