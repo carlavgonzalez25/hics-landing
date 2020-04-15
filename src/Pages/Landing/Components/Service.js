@@ -11,13 +11,17 @@ const Service = ({ img, title, text, layout }) => {
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      height: '400px',
+      maxHeight: '500px',
+      minHeight: '280px',
     },
     ctText: {
       padding: '3rem ',
     },
     p: {
       display: 'flex',
+    },
+    accent: {
+      color: '#01A5E0',
     },
   }))
 
@@ -28,13 +32,17 @@ const Service = ({ img, title, text, layout }) => {
     <Grid container direction={layout ? 'row' : 'row-reverse'}>
       <Grid item xs={12} md={6} className={classes.img}></Grid>
       <Grid item xs={12} md={6} className={classes.ctText}>
-        <Typography variant="h3">{title}</Typography>
-        <Typography variant="p" className={classes.p}>
+        <Typography variant="h4" className={classes.accent}>
+          {title}
+        </Typography>
+        <Typography variant="body1" className={classes.p}>
           {text}
         </Typography>
 
         <a href="/">
-          <Typography variant="p">{t('services.knowMore')}</Typography>
+          <Typography variant="body1" className={classes.accent}>
+            {t('services.knowMore')}
+          </Typography>
         </a>
       </Grid>
     </Grid>

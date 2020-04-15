@@ -21,7 +21,7 @@ const OurServices = () => {
 
   return (
     <Grid container justify="center" alignItems="center" className={classes.container}>
-      <Typography variant="h3" className={classes.title}>
+      <Typography variant="h4" className={classes.title}>
         {t('services.title')}
       </Typography>
       <Service

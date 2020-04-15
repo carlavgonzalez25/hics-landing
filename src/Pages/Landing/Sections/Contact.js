@@ -9,23 +9,33 @@ import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 
 import { makeStyles } from '@material-ui/core/styles'
-import { servicios_1 } from 'img'
+import { bg_services } from 'img'
 
 const useStyles = makeStyles((theme) => ({
   title: {
     margin: '1rem 0 2rem 0',
+    color: '#FFF',
   },
   ctGral: {
     justifyContent: 'center',
-    backgroundImage: `url(${servicios_1})`,
-    backgroundPosition: 'center',
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
+
     margin: ' 7rem 0',
+    [theme.breakpoints.up('md')]: {
+      backgroundImage: `url(${bg_services})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+    },
   },
   ctContactBox: {
     justifyContent: 'center',
-    padding: '0 4rem',
+    padding: '0 1rem',
+    [theme.breakpoints.up('md')]: {
+      padding: '0 3rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '0 8rem',
+    },
   },
 }))
 

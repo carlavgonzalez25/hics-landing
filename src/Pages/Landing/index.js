@@ -5,6 +5,7 @@ import OurServices from './Sections/OurServices'
 import Contact from './Sections/Contact'
 import Partners from './Sections/Partners'
 import Footer from './Sections/Footer'
+import 'style.css'
 
 function Landing() {
   return (
