@@ -16,6 +16,11 @@ export default {
         },
         contact: {
           title: 'Contact',
+          name: 'Lastname and Name',
+          mail: 'Email',
+          tel: 'Telephone (optional)',
+          motive: 'Why do you want to contact us?',
+          send: 'Send',
         },
       },
     },
@@ -38,6 +43,11 @@ export default {
         },
         contact: {
           title: 'Contáctenos',
+          name: 'Nombre y Apellido',
+          mail: 'Email',
+          tel: 'Telefono (opcional)',
+          motive: 'Por qué nos queres contactar?',
+          send: 'Enviar',
         },
       },
     },
