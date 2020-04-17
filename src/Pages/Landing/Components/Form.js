@@ -13,8 +13,6 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     margin: '2rem 1rem',
     padding: '2rem',
-    position: 'relative',
-    top: '-233px',
     borderBottom: '2px solid #01A5E0',
     boxShadow: ' 0px 3px 6px #00000029',
     [theme.breakpoints.up('md')]: {

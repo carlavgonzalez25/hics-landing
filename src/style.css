@@ -3,3 +3,10 @@
 a {
   text-decoration: none;
 }
+body {
+  background-color: #fff !important;
+}
+
+ul li {
+  list-style: none;
+}

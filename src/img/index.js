@@ -11,6 +11,7 @@ import icon_mobile from './icon_mobile.png'
 import flag_arg from './flag_argentina.png'
 import flag_usa from './flag_usa.png'
 import flag_rd from './flag_rd.png'
+import logo_vydacapital from './logo_vydacapital.png'
 
 export {
   servicios_1,
@@ -26,4 +27,5 @@ export {
   flag_arg,
   flag_usa,
   flag_rd,
+  logo_vydacapital,
 }

@@ -20,13 +20,15 @@ const useStyles = makeStyles((theme) => ({
   container: {
     justifyContent: 'center',
     margin: '7rem 0 0 0',
-    paddingBottom: '15rem',
+    marginBottom: '1rem',
 
     [theme.breakpoints.up('md')]: {
       backgroundImage: `url(${bg_services})`,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
+      height: '850px',
+      marginBottom: '16rem',
     },
   },
   overlay: {
@@ -62,9 +64,9 @@ const Contact = () => {
             <ContactBox {...info} />
           ))}
         </Grid>
-      </Grid>
-      <Grid container className={classes.containerForm}>
-        <Form></Form>
+        <Grid container className={classes.containerForm}>
+          <Form></Form>
+        </Grid>
       </Grid>
     </Fragment>
   )

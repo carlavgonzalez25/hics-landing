@@ -2,8 +2,8 @@ export default {
   resources: {
     en: {
       translation: {
+        home: 'Home',
         office: '{{place}} office',
-        title: 'the title',
         services: {
           title: 'Services',
           title_construction: 'Construction',
@@ -22,12 +22,15 @@ export default {
           motive: 'Why do you want to contact us?',
           send: 'Send',
         },
+        partners: {
+          title: 'Partners',
+        },
       },
     },
     es: {
       translation: {
+        home: 'Inicio',
         office: 'Oficina en {{place}}',
-        title: 'el título',
         services: {
           title: 'Servicios',
           title_construction: 'Construcción',
@@ -48,6 +51,9 @@ export default {
           tel: 'Telefono (opcional)',
           motive: 'Por qué nos queres contactar?',
           send: 'Enviar',
+        },
+        partners: {
+          title: 'Partners',
         },
       },
     },
