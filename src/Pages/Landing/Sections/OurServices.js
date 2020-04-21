@@ -20,7 +20,7 @@ const OurServices = () => {
   const classes = useStyles()
 
   return (
-    <Grid container justify="center" alignItems="center" className={classes.container}>
+    <Grid container justify="center" alignItems="center" className={classes.container} id='services'>
       <Typography variant="h4" className={classes.title}>
         {t('services.title')}
       </Typography>

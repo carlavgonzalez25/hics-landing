@@ -1,6 +1,6 @@
 import React from 'react'
 import Header from './Sections/Header'
-import Slider from './Sections/Slider'
+import MySlider from './Sections/Slider'
 import OurServices from './Sections/OurServices'
 import Contact from './Sections/Contact'
 import Partners from './Sections/Partners'
@@ -11,7 +11,7 @@ function Landing() {
   return (
     <div className="Landing">
       <Header />
-      <Slider />
+      <MySlider />
       <OurServices />
       <Contact />
       <Partners />

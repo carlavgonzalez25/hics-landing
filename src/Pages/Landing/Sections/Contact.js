@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 //Config
 import contactInfo from 'config/contact'
 import { useTranslation } from 'react-i18next'
@@ -54,8 +54,7 @@ const Contact = () => {
   const { t } = useTranslation()
   const classes = useStyles()
   return (
-    <Fragment>
-      <Grid container className={classes.container}>
+      <Grid container className={classes.container} id='contact'>
         <Typography variant="h3" className={classes.title}>
           {t('contact.title')}{' '}
         </Typography>
@@ -68,7 +67,6 @@ const Contact = () => {
           <Form></Form>
         </Grid>
       </Grid>
-    </Fragment>
   )
 }
 
