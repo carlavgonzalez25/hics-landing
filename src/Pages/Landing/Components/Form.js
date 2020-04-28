@@ -4,6 +4,9 @@ import TextField from '@material-ui/core/TextField'
 import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import { useTranslation } from 'react-i18next'
+import { setMotive } from 'redux/actions'; 
+import { connect } from "react-redux";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -33,16 +36,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Form = () => {
+
+
+const Form = ({form}) => {
   const { t } = useTranslation()
   const classes = useStyles()
+
+  const handleChange = e => {
+    console.log(e.target.value);
+    setMotive(e.target.value);
+    console.log(" value " + JSON.stringify(form.value))
+  }
 
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField id="name" label={t('contact.name')} style={{ margin: 8 }} fullWidth required margin="normal" />
       <TextField id="mail" label={t('contact.mail')} style={{ margin: 8 }} fullWidth required margin="normal" />
       <TextField id="phone" label={t('contact.tel')} style={{ margin: 8 }} fullWidth margin="normal" />
-      <TextField id="motive" label={t('contact.motive')} style={{ margin: 8 }} fullWidth required margin="normal" />
+      <TextField id="motive" label={t('contact.motive')} style={{ margin: 8 }} fullWidth required margin="normal" onChange={handleChange}/>
       <Button className={classes.button} variant="contained" color="primary">
         <Typography variant="subtitle2" className={classes.p}>
           {t('contact.send')}
@@ -52,4 +63,11 @@ const Form = () => {
   )
 }
 
-export default Form
+const mapStateToProps = state => ({
+  form: state.form
+});
+
+export default connect(mapStateToProps, {
+ setMotive  
+})(Form);
+

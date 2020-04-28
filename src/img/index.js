@@ -1,4 +1,4 @@
-import servicios_1 from './servicios_1.JPG'
+import servicios_1 from './servicios_1.jpg'
 import servicios_2 from './servicios_2.JPG'
 import bg_services from './bg_services.png'
 import office_bsas from './office_bsas.png'
@@ -18,6 +18,9 @@ import language_en from './language_en.png'
 import slide_3 from './slide_3.jpg'
 import slide_2 from './slide_2.jpg'
 import slide_1 from './slide_1.jpg'
+import logo_hicscapital from './logo_hicscapital.png'
+import texto_hicsvidacapital from './hicsvidacapital.png'
+import logo_hicscapital_mobile from './logo_hicscapital_mobile.png'
 
 
 export {
@@ -40,5 +43,8 @@ export {
   language_en,
   slide_2,
   slide_3,
-  slide_1
+  slide_1,
+  logo_hicscapital,
+  texto_hicsvidacapital,
+  logo_hicscapital_mobile
 }

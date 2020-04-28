@@ -28,6 +28,10 @@ const Service = ({ img, title, text, layout }) => {
   const { t } = useTranslation()
   const classes = useStyles()
 
+  const setForm = text => {
+//
+  }
+
   return (
     <Grid container direction={layout ? 'row' : 'row-reverse'}>
       <Grid item xs={12} md={6} className={classes.img}></Grid>
@@ -39,7 +43,7 @@ const Service = ({ img, title, text, layout }) => {
           {text}
         </Typography>
 
-        <a href="/">
+        <a href="#contact" onClick={() => setForm(title)}>
           <Typography variant="body1" className={classes.accent}>
             {t('services.knowMore')}
           </Typography>

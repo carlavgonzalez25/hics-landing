@@ -3,7 +3,7 @@ import i18n from 'i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, AppBar,  Toolbar } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
-import { logo_hicsvyda } from 'img'
+import { logo_hicsvyda, texto_hicsvidacapital, logo_hicscapital_mobile } from 'img'
 import {language_sp, language_en} from 'img'
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -11,30 +11,55 @@ import MenuIcon from '@material-ui/icons/Menu';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: '1',
-    padding: '0 4rem',
+    padding: '0 2rem',
+    [theme.breakpoints.up('md')]: {
+      padding: '0 4rem',
+    },
   },
   toolbar: {
     display: 'flex',
     justifyContent: 'space-around',
-    [theme.breakpoints.up('sm')]: { 
+    [theme.breakpoints.up('md')]: { 
       justifyContent: 'space-between',
     },
   },
   menuButton: {
-    [theme.breakpoints.up('sm')]: { 
+    [theme.breakpoints.up('md')]: { 
       display: 'none'
     }
   },
   logo: {
     width: '50px',
     margin: '0.4rem',
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'unset',
+    },
+  },
+  textoLogo: {
+    marginLeft: '1rem',
+    transform: 'translateY(-50%)',
+    position: 'absolute',
+    top: '50%',
+    display: 'none',
+    [theme.breakpoints.up('md')]: {
+      display: 'unset',
+      width: '125px',
+
+    },
+  },
+  logoMobile: {
+    height: '40px',
+    [theme.breakpoints.up('md')]: {
+      display: 'none',
+    }
   },
   title: {
     flexGrow: 1,
   },
   containerMenu: {
     display: 'none',
-    [theme.breakpoints.up('sm')]: { 
+    [theme.breakpoints.up('md')]: { 
       display: 'flex'
     },
     '& ul': {
@@ -61,7 +86,12 @@ const Header = () => {
       <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon color="primary" />
        </IconButton>
-        <img src={logo_hicsvyda} alt='logo hics vyda' className={classes.logo}/>
+       <div>
+         <img src={logo_hicsvyda} alt='logo hics vyda' className={classes.logo}/>
+         <img src={texto_hicsvidacapital} alt='logo hics vyda' className={classes.textoLogo}/>
+         <img src={logo_hicscapital_mobile} alt='logo hics vida' className={classes.logoMobile}/>
+       </div>
+        
        <div className={classes.containerMenu}> 
          <ul>
            <li><a href='#home'>{t('home')}</a></li>
