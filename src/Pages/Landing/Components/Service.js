@@ -3,8 +3,12 @@ import Grid from '@material-ui/core/Grid'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
+import { setMotive } from 'redux/actions'; 
+import { connect } from "react-redux";
 
-const Service = ({ img, title, text, layout }) => {
+
+
+const Service = ({ img, title, text, layout, setMotive }) => {
   const useStyles = makeStyles((theme) => ({
     img: {
       backgroundImage: `url(${img})`,
@@ -29,7 +33,7 @@ const Service = ({ img, title, text, layout }) => {
   const classes = useStyles()
 
   const setForm = text => {
-//
+  setMotive(text);
   }
 
   return (
@@ -43,7 +47,7 @@ const Service = ({ img, title, text, layout }) => {
           {text}
         </Typography>
 
-        <a href="#contact" onClick={() => setForm(title)}>
+        <a href="#contactForm" onClick={() => setForm(title)}>
           <Typography variant="body1" className={classes.accent}>
             {t('services.knowMore')}
           </Typography>
@@ -53,4 +57,17 @@ const Service = ({ img, title, text, layout }) => {
   )
 }
 
-export default Service
+
+const mapStateToProps = state => ({
+  form: state.form
+});
+
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    setMotive: (value) => dispatch(setMotive(value)) //el nombre que le de al key aqui sera el con el que luego lo uso como props
+  })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Service);
+ 
+ 

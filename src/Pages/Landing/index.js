@@ -7,7 +7,8 @@ import Partners from './Sections/Partners'
 import Footer from './Sections/Footer'
 import 'style.css'
 
-function Landing() {
+function Landing() { 
+ 
   return (
     <div className="Landing">
       <Header />

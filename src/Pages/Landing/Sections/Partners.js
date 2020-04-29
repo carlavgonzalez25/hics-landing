@@ -47,7 +47,7 @@ const Partners = () => {
   console.log(" variable " + 5 + variable);
 
   return (
-    <Grid container className={classes.root}>
+    <Grid container className={classes.root} id='partners'>
       <Typography variant="h3" className={classes.title}>
         {t('partners.title')}
       </Typography>

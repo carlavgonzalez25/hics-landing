@@ -38,22 +38,20 @@ const useStyles = makeStyles((theme) => ({
 
 
 
-const Form = ({form}) => {
+const Form = ({form, setMotive}) => {
   const { t } = useTranslation()
   const classes = useStyles()
 
   const handleChange = e => {
-    console.log(e.target.value);
-    setMotive(e.target.value);
-    console.log(" value " + JSON.stringify(form.value))
+    setMotive(e.target.value);   
   }
 
   return (
-    <form className={classes.root} noValidate autoComplete="off">
+    <form className={classes.root} noValidate autoComplete="off" id='contactForm'>
       <TextField id="name" label={t('contact.name')} style={{ margin: 8 }} fullWidth required margin="normal" />
       <TextField id="mail" label={t('contact.mail')} style={{ margin: 8 }} fullWidth required margin="normal" />
       <TextField id="phone" label={t('contact.tel')} style={{ margin: 8 }} fullWidth margin="normal" />
-      <TextField id="motive" label={t('contact.motive')} style={{ margin: 8 }} fullWidth required margin="normal" onChange={handleChange}/>
+      <TextField id="motive" label={t('contact.motive')} style={{ margin: 8 }} fullWidth required margin="normal" onChange={handleChange} value={form.value}/>
       <Button className={classes.button} variant="contained" color="primary">
         <Typography variant="subtitle2" className={classes.p}>
           {t('contact.send')}
@@ -67,7 +65,13 @@ const mapStateToProps = state => ({
   form: state.form
 });
 
-export default connect(mapStateToProps, {
- setMotive  
-})(Form);
+const mapDispatchToProps = (dispatch) => {
+  return ({
+    setMotive: (value) => dispatch(setMotive(value)) //el nombre que le de al key aqui sera el con el que luego lo uso como props
+  })
+}
 
+export default connect(mapStateToProps, mapDispatchToProps)(Form);
+ 
+ 
+ 

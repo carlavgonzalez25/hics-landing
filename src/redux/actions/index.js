@@ -7,7 +7,8 @@ export const login = (payload) => (dispatch) => {
 
 
 //Form
-export const setMotive = (value) =>  {
- console.log("Accedi aca y value es" + value);
- return dispatch => { dispatch({type: SET_MOTIVE, payload: value})}
-}
+export const setMotive = (payload) => (dispatch) => { 
+  dispatch({type: SET_MOTIVE, payload})
+ }
+ 
+

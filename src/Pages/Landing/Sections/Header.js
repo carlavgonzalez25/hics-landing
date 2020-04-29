@@ -81,7 +81,7 @@ const Header = () => {
   const { t } = useTranslation()
 
   return (
-    <AppBar position="static" color="secondary" className={classes.root}>
+    <AppBar position="static" color="secondary" className={classes.root} id='home'>
       <Toolbar className={classes.toolbar}>
       <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon color="primary" />
