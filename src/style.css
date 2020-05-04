@@ -15,3 +15,13 @@ body {
 ul li {
   list-style: none;
 }
+
+#home {
+  top: 0;
+}
+.sticky {
+  position: fixed !important;
+  top: 0;
+  width: 100% !important;
+  transition: all 0.3s;
+} 

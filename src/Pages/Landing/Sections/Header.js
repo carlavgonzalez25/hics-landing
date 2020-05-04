@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import i18n from 'i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import { Button, AppBar,  Toolbar } from '@material-ui/core'
@@ -7,6 +7,9 @@ import { logo_hicsvyda, texto_hicsvidacapital, logo_hicscapital_mobile } from 'i
 import {language_sp, language_en} from 'img'
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
+import scroll from '../Components/scroll'
+import sticky from '../Components/sticky'
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -76,9 +79,14 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Header = () => {
+  useEffect (()=>{
+    scroll();
+    sticky();
+  })
   const changeLanguage = (lan) => i18n.changeLanguage(lan)
   const classes = useStyles()
   const { t } = useTranslation()
+  //scroll();
 
   return (
     <AppBar position="static" color="secondary" className={classes.root} id='home'>
