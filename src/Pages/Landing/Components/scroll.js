@@ -13,6 +13,8 @@ const scroll = () => {
 
         setTimeout(()=> {
             moveScroll()
+                //aqui dentro si funciona 
+
         }, 5);
     })
 
@@ -25,9 +27,9 @@ const scroll = () => {
                
                 setTimeout(()=> {
                    
-                 //   cont= cont+1;
-                  //  document.getElementById('partners').scrollIntoView();
+                 
                   moveScroll();      
+                  //aqui dentro esto no funciona 
                 }, 5)          
             }
             if (direction !== 0) setTimeout(()=> {
