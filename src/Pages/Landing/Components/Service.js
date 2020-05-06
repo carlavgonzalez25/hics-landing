@@ -3,10 +3,8 @@ import Grid from '@material-ui/core/Grid'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
-import { setMotive } from 'redux/actions'; 
-import { connect } from "react-redux";
-
-
+import { setMotive } from 'redux/actions'
+import { connect } from 'react-redux'
 
 const Service = ({ img, title, text, layout, setMotive }) => {
   const useStyles = makeStyles((theme) => ({
@@ -32,8 +30,8 @@ const Service = ({ img, title, text, layout, setMotive }) => {
   const { t } = useTranslation()
   const classes = useStyles()
 
-  const setForm = text => {
-  setMotive(text);
+  const setForm = (text) => {
+    setMotive(text)
   }
 
   return (
@@ -57,17 +55,14 @@ const Service = ({ img, title, text, layout, setMotive }) => {
   )
 }
 
-
-const mapStateToProps = state => ({
-  form: state.form
-});
+const mapStateToProps = (state) => ({
+  form: state.form,
+})
 
 const mapDispatchToProps = (dispatch) => {
-  return ({
-    setMotive: (value) => dispatch(setMotive(value)) //el nombre que le de al key aqui sera el con el que luego lo uso como props
-  })
+  return {
+    setMotive: (value) => dispatch(setMotive(value)), //el nombre que le de al key aqui sera el con el que luego lo uso como props
+  }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Service);
- 
- 
+export default connect(mapStateToProps, mapDispatchToProps)(Service)

@@ -54,19 +54,19 @@ const Contact = () => {
   const { t } = useTranslation()
   const classes = useStyles()
   return (
-      <Grid container className={classes.container} id='contact'>
-        <Typography variant="h3" className={classes.title}>
-          {t('contact.title')}{' '}
-        </Typography>
-        <Grid container className={classes.containerContactBox}>
-          {contactInfo.map((info) => (
-            <ContactBox {...info} />
-          ))}
-        </Grid>
-        <Grid container className={classes.containerForm}>
-          <Form></Form>
-        </Grid>
+    <Grid container className={classes.container} id="contact">
+      <Typography variant="h3" className={classes.title}>
+        {t('contact.title')}{' '}
+      </Typography>
+      <Grid container className={classes.containerContactBox}>
+        {contactInfo.map((info) => (
+          <ContactBox {...info} />
+        ))}
       </Grid>
+      <Grid container className={classes.containerForm}>
+        <Form></Form>
+      </Grid>
+    </Grid>
   )
 }
 

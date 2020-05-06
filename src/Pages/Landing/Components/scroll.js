@@ -1,66 +1,60 @@
 const scroll = () => {
+  // let sections = ['home', 'services', 'contact', 'contactForm', 'partners'];
 
-   // let sections = ['home', 'services', 'contact', 'contactForm', 'partners']; 
+  let lastScrollTop = window.pageYOffset
+  console.log('PageYOffset es ' + lastScrollTop)
 
-    let lastScrollTop =  window.pageYOffset; 
-    console.log( 'PageYOffset es ' + lastScrollTop);
+  let direction = 0
+  let cont = 0
 
-    let direction = 0; 
-    let cont = 0; 
+  window.addEventListener('click', () => {
+    //  document.getElementById('home').scrollIntoView({behavior: "smooth"});
 
-    window.addEventListener('click', ()=> {
-  //  document.getElementById('home').scrollIntoView({behavior: "smooth"});   
+    setTimeout(() => {
+      moveScroll()
+      //aqui dentro si funciona
+    }, 5)
+  })
 
-        setTimeout(()=> {
+  window.addEventListener(
+    'wheel',
+    () => {
+      let movement = window.pageYOffset || document.documentElement.scrollTop
+      if (movement > lastScrollTop) {
+        if (direction === 0) {
+          direction = 1
+
+          setTimeout(() => {
             moveScroll()
-                //aqui dentro si funciona 
-
-        }, 5);
-    })
-
-    window.addEventListener('wheel', () => {
-        let movement = window.pageYOffset || document.documentElement.scrollTop; 
-        if( movement > lastScrollTop) {
-            if (direction === 0)
-            { 
-                direction = 1;
-               
-                setTimeout(()=> {
-                   
-                 
-                  moveScroll();      
-                  //aqui dentro esto no funciona 
-                }, 5)          
-            }
-            if (direction !== 0) setTimeout(()=> {
-                direction = 0;
-                console.log("scroll -> direction", direction)
-            }, 600)
-            
+            //aqui dentro esto no funciona
+          }, 5)
         }
-            
-         else {
-            if(direction === 0)
-            direction = -1
+        if (direction !== 0)
+          setTimeout(() => {
+            direction = 0
+            console.log('scroll -> direction', direction)
+          }, 600)
+      } else {
+        if (direction === 0) direction = -1
 
-            if (direction !== 0) setTimeout(()=> {
-                    direction = 0;
-                    console.log("scroll -> direction", direction)                    
+        if (direction !== 0)
+          setTimeout(() => {
+            direction = 0
+            console.log('scroll -> direction', direction)
+          }, 600)
+      }
 
-                }, 600)
-        }
+      console.log('Scroll direction ' + direction)
 
-        console.log( "Scroll direction " + direction  );
-        
-        lastScrollTop = movement <= 0 ? 0 : movement;
+      lastScrollTop = movement <= 0 ? 0 : movement
+    },
+    false
+  )
 
-    }, false)
-
-    const moveScroll = () => {
-        document.getElementById('home').scrollIntoView({behavior: "smooth"});   
-        console.log( " ejecuta moveScroll ");
-    }
-  
+  const moveScroll = () => {
+    document.getElementById('home').scrollIntoView({ behavior: 'smooth' })
+    console.log(' ejecuta moveScroll ')
+  }
 }
 
-export default scroll ;
+export default scroll

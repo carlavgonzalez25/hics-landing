@@ -5,10 +5,7 @@ export const login = (payload) => (dispatch) => {
   dispatch({ type: LOGIN, payload })
 }
 
-
 //Form
-export const setMotive = (payload) => (dispatch) => { 
-  dispatch({type: SET_MOTIVE, payload})
- }
- 
-
+export const setMotive = (payload) => (dispatch) => {
+  dispatch({ type: SET_MOTIVE, payload })
+}
