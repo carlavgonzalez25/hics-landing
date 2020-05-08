@@ -6,18 +6,31 @@ import Typography from '@material-ui/core/Typography'
 import { setMotive } from 'redux/actions'
 import { connect } from 'react-redux'
 
-const Service = ({ img, title, text, layout, setMotive }) => {
+const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
   const useStyles = makeStyles((theme) => ({
     img: {
       backgroundImage: `url(${img})`,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      maxHeight: '500px',
-      minHeight: '280px',
+      width: '100vw',
+      height: '100vh',
     },
     ctText: {
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'flex-end',
+      alignContent: 'flex-end',
+      width: '614px',
+      height: '300px',
       padding: '3rem ',
+      marginBottom: '3rem',
+      backgroundColor: '#FFF',
+      marginTop: 'auto',
+      marginLeft: 'auto',
+    },
+    sectionTitle: {
+      textTransform: 'uppercase',
     },
     p: {
       display: 'flex',
@@ -35,16 +48,17 @@ const Service = ({ img, title, text, layout, setMotive }) => {
   }
 
   return (
-    <Grid container direction={layout ? 'row' : 'row-reverse'}>
-      <Grid item xs={12} md={6} className={classes.img}></Grid>
-      <Grid item xs={12} md={6} className={classes.ctText}>
+    <Grid container xs={12} className={classes.img}>
+      <Grid item className={classes.ctText}>
+        <Typography variant="subtitle2" className={classes.sectionTitle}>
+          {sectionTitle}
+        </Typography>
         <Typography variant="h4" className={classes.accent}>
           {title}
         </Typography>
         <Typography variant="body1" className={classes.p}>
           {text}
         </Typography>
-
         <a href="#contactForm" onClick={() => setForm(title)}>
           <Typography variant="body1" className={classes.accent}>
             {t('services.knowMore')}

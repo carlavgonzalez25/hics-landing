@@ -7,13 +7,16 @@ import { logo_hicsvyda, texto_hicsvidacapital, logo_hicscapital_mobile } from 'i
 import { language_sp, language_en } from 'img'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import scroll from '../Components/scroll'
 import sticky from '../Components/sticky'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: '1',
     padding: '0 2rem',
+    position: 'fixed !important',
+    top: '0',
+    width: '100% !important',
+    transition: 'all 0.3s',
     [theme.breakpoints.up('md')]: {
       padding: '0 4rem',
     },
@@ -67,23 +70,22 @@ const useStyles = makeStyles((theme) => ({
       display: 'flex',
       '& li': {
         margin: '0 1rem',
-        '& a': {
+        '& div': {
           color: '#000',
+          cursor: 'pointer',
         },
       },
     },
   },
 }))
 
-const Header = () => {
+const Header = ({ moveScroller }) => {
   useEffect(() => {
-    scroll()
-    sticky()
+    //sticky()
   })
   const changeLanguage = (lan) => i18n.changeLanguage(lan)
   const classes = useStyles()
   const { t } = useTranslation()
-  //scroll();
 
   return (
     <AppBar position="static" color="secondary" className={classes.root} id="home">
@@ -100,13 +102,13 @@ const Header = () => {
         <div className={classes.containerMenu}>
           <ul>
             <li>
-              <a href="#home">{t('home')}</a>
+              <div onClick={() => moveScroller(0)}>{t('home')}</div>
             </li>
             <li>
-              <a href="#services">{t('services.title')}</a>
+              <div onClick={() => moveScroller(1)}>{t('services.title')}</div>
             </li>
             <li>
-              <a href="#contact">{t('contact.title')}</a>
+              <div onClick={() => moveScroller(2)}>{t('contact.title')}</div>
             </li>
           </ul>
           <Button onClick={() => changeLanguage('es')} size="small">

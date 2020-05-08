@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     justifyContent: 'center',
-    margin: '7rem 0 0 0',
+    padding: '5rem 0 0 0',
     marginBottom: '1rem',
 
     [theme.breakpoints.up('md')]: {

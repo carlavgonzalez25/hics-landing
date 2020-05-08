@@ -1,9 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
 
-html {
-  scroll-behavior: smooth;
-}
-
 a {
   text-decoration: none;
   color: inherit;
@@ -19,6 +15,7 @@ ul li {
 #home {
   top: 0;
 }
+
 .sticky {
   position: fixed !important;
   top: 0;

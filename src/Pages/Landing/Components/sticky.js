@@ -1,5 +1,3 @@
-import React from 'react'
-
 const sticky = () => {
   const header = document.getElementById('home')
   let sticky = header.offsetTop
@@ -11,7 +9,7 @@ const sticky = () => {
     else header.classList.remove('sticky')
   }
 
-  window.addEventListener('wheel', () => {
+  window.addEventListener('scroll', () => {
     toggleSticky()
   })
 }

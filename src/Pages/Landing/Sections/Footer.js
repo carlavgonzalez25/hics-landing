@@ -64,6 +64,9 @@ const useStyles = makeStyles((theme) => ({
       borderBottom: 'solid 1px #868686',
     },
   },
+  link: {
+    cursor: 'pointer',
+  },
   button: {
     height: '40px',
     width: '140px',
@@ -78,7 +81,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Footer = () => {
+const Footer = ({ moveScroller }) => {
   const { t } = useTranslation()
 
   const classes = useStyles()
@@ -91,13 +94,19 @@ const Footer = () => {
         <Grid item className={classes.menu}>
           <ul>
             <li>
-              <a href="#home">{t('home')}</a>
+              <div className={classes.link} onClick={() => moveScroller(0)}>
+                {t('home')}
+              </div>
             </li>
             <li>
-              <a href="#services">{t('services.title')}</a>
+              <div className={classes.link} onClick={() => moveScroller(1)}>
+                {t('services.title')}
+              </div>
             </li>
             <li>
-              <a href="#contact">{t('contact.title')}</a>
+              <div className={classes.link} onClick={() => moveScroller(2)}>
+                {t('contact.title')}
+              </div>
             </li>
             <li className={classes.login}>Login</li>
           </ul>

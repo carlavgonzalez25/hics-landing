@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '88vh',
+    height: '100vh',
   },
 }))
 

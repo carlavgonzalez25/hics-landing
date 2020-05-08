@@ -1,23 +1,53 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Header from './Sections/Header'
 import MySlider from './Sections/Slider'
-import OurServices from './Sections/OurServices'
+import Service from './Components/Service'
 import Contact from './Sections/Contact'
 import Partners from './Sections/Partners'
 import Footer from './Sections/Footer'
+import ReactPageScroller from 'react-page-scroller'
+import { useTranslation } from 'react-i18next'
+import { servicios_1, servicios_2 } from 'img'
 import 'style.css'
 
-function Landing() {
+const Landing = () => {
+  const handlePageChange = (number) => {
+    setLocalCurrentPage(number)
+  }
+  const [localCurrentPage, setLocalCurrentPage] = useState(null)
+  const { t } = useTranslation()
+
   return (
     <div className="Landing">
-      <Header />
-      <MySlider />
-      <OurServices />
-      <Contact />
-      <Partners />
-      <Footer />
+      <Header moveScroller={handlePageChange} />
+      <ReactPageScroller pageOnChange={handlePageChange} customPageNumber={localCurrentPage}>
+        <MySlider />
+        <Service
+          title={t('services.title_construction')}
+          text={t('services.text_construction')}
+          img={servicios_1}
+          layout={true}
+          sectionTitle={t('services.title')}
+        />
+        <Service
+          title={t('services.title_urbanDevelopment')}
+          text={t('services.text_urbanDevelopment')}
+          img={servicios_2}
+          layout={false}
+          sectionTitle={t('services.title')}
+        />
+        <Service
+          title={t('services.title_loans')}
+          text={t('services.text_loans')}
+          img={servicios_1}
+          layout={true}
+          sectionTitle={t('services.title')}
+        />
+        <Contact />
+        <Partners />
+        <Footer moveScroller={handlePageChange} />
+      </ReactPageScroller>
     </div>
   )
 }
-
 export default Landing

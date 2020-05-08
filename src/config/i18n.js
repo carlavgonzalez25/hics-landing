@@ -13,7 +13,7 @@ export default {
         },
         office: '{{place}} office',
         services: {
-          title: 'Services',
+          title: 'Our services',
           title_construction: 'Construction',
           text_construction:
             'We invest in the construction of single-family and multi-family homes, in non-speculative areas of growth, generating convenient contributions, under high standards of quality and safety.',
@@ -51,7 +51,7 @@ export default {
         },
         office: 'Oficina en {{place}}',
         services: {
-          title: 'Servicios',
+          title: 'Nuestros servicios',
           title_construction: 'Construcción',
           text_construction:
             'Invertimos en la construcción de viviendas unifamiliares o multifamiliares, en áreas de crecimiento y economía real no especulativa, generando contribuciones convenientes, bajo altos estándares de calidad y seguridad',
