@@ -3,11 +3,10 @@ import Header from './Sections/Header'
 import MySlider from './Sections/Slider'
 import Service from './Components/Service'
 import Contact from './Sections/Contact'
-import Partners from './Sections/Partners'
-import Footer from './Sections/Footer'
+import PartnersFooter from './Sections/PartnersFooter'
 import ReactPageScroller from 'react-page-scroller'
 import { useTranslation } from 'react-i18next'
-import { servicios_1, servicios_2 } from 'img'
+import { servicios_1, servicios_2, servicios_3 } from 'img'
 import 'style.css'
 
 const Landing = () => {
@@ -39,13 +38,13 @@ const Landing = () => {
         <Service
           title={t('services.title_loans')}
           text={t('services.text_loans')}
-          img={servicios_1}
+          img={servicios_3}
           layout={true}
           sectionTitle={t('services.title')}
         />
-        <Contact />
-        <Partners />
-        <Footer moveScroller={handlePageChange} />
+        <Contact layout="office" />
+        <Contact layout="form" />
+        <PartnersFooter moveScroller={handlePageChange} />
       </ReactPageScroller>
     </div>
   )

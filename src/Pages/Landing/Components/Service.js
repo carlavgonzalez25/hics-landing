@@ -21,19 +21,45 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
       flexDirection: 'column',
       justifyContent: 'flex-end',
       alignContent: 'flex-end',
-      width: '614px',
-      height: '300px',
-      padding: '3rem ',
-      marginBottom: '3rem',
+      width: '100%',
+      height: '200px',
+      padding: '1rem',
       backgroundColor: '#FFF',
       marginTop: 'auto',
       marginLeft: 'auto',
+      [theme.breakpoints.up('md')]: {
+        marginBottom: '3rem',
+        padding: '3rem ',
+        width: '614px',
+        height: '300px',
+      },
     },
     sectionTitle: {
       textTransform: 'uppercase',
+      fontFamily: '"Poppins", sans-serif',
+      fontWeight: 500,
+      fontSize: '0.775rem',
+      letterSpacing: '0.00714em',
+      [theme.breakpoints.up('md')]: {
+        fontSize: '0.875rem',
+      },
+    },
+    title: {
+      fontFamily: '"Poppins", sans-serif',
+      fontWeight: 700,
+      fontSize: '1.525rem',
+      [theme.breakpoints.up('md')]: {
+        fontSize: '2.125rem',
+      },
     },
     p: {
       display: 'flex',
+      fontFamily: '"Poppins", sans-serif',
+      fontWeight: 400,
+      fontSize: '0.725rem',
+      [theme.breakpoints.up('md')]: {
+        fontSize: '1rem',
+      },
     },
     accent: {
       color: '#01A5E0',
@@ -50,19 +76,11 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
   return (
     <Grid container xs={12} className={classes.img}>
       <Grid item className={classes.ctText}>
-        <Typography variant="subtitle2" className={classes.sectionTitle}>
-          {sectionTitle}
-        </Typography>
-        <Typography variant="h4" className={classes.accent}>
-          {title}
-        </Typography>
-        <Typography variant="body1" className={classes.p}>
-          {text}
-        </Typography>
+        <Typography className={classes.sectionTitle}>{sectionTitle}</Typography>
+        <Typography className={classes.accent + ' ' + classes.title}>{title}</Typography>
+        <Typography className={classes.p}>{text}</Typography>
         <a href="#contactForm" onClick={() => setForm(title)}>
-          <Typography variant="body1" className={classes.accent}>
-            {t('services.knowMore')}
-          </Typography>
+          <Typography className={classes.accent + ' ' + classes.p}>{t('services.knowMore')}</Typography>
         </a>
       </Grid>
     </Grid>

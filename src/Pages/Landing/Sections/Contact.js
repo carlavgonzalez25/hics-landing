@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 //Config
 import contactInfo from 'config/contact'
 import { useTranslation } from 'react-i18next'
@@ -10,33 +10,46 @@ import Grid from '@material-ui/core/Grid'
 import Form from '../Components/Form'
 
 import { makeStyles } from '@material-ui/core/styles'
-import { bg_services } from 'img'
+import { bg_contactOffice, bg_contactForm } from 'img'
 
 const useStyles = makeStyles((theme) => ({
   title: {
-    margin: '2rem auto 2rem auto',
-    color: '#FFF',
+    color: '#01A5E0',
+    fontSize: '1.525rem',
+    fontWeight: '700',
+    margin: '2.5rem auto 1rem auto',
+    [theme.breakpoints.up('md')]: {
+      color: '#FFF',
+      fontFamily: '"Poppins", sans-serif',
+      fontWeight: '700',
+      fontSize: '3rem',
+      margin: '4rem auto 0rem auto',
+    },
   },
   container: {
     justifyContent: 'center',
-    padding: '5rem 0 0 0',
-    marginBottom: '1rem',
-
+    padding: '2rem 0 0 0',
+    alignContent: 'flex-start',
+  },
+  office: {
     [theme.breakpoints.up('md')]: {
-      backgroundImage: `url(${bg_services})`,
+      backgroundImage: `url(${bg_contactOffice})`,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      height: '850px',
+      height: '100vh',
       marginBottom: '16rem',
     },
   },
-  overlay: {
-    backgroundColor: '#00000059',
-    display: 'flex',
-    flexDirection: 'column',
-    width: 'inherit',
-    height: 'inherit',
+  form: {
+    [theme.breakpoints.up('md')]: {
+      backgroundImage: `url(${bg_contactForm})`,
+      backgroundPosition: 'center',
+      backgroundRepeat: 'no-repeat',
+      backgroundSize: 'cover',
+      height: '100vh',
+      marginBottom: '16rem',
+    },
   },
   containerContactBox: {
     justifyContent: 'center',
@@ -50,23 +63,31 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Contact = () => {
+const Contact = ({ layout }) => {
   const { t } = useTranslation()
   const classes = useStyles()
+
   return (
-    <Grid container className={classes.container} id="contact">
-      <Typography variant="h3" className={classes.title}>
-        {t('contact.title')}{' '}
-      </Typography>
-      <Grid container className={classes.containerContactBox}>
-        {contactInfo.map((info) => (
-          <ContactBox {...info} />
-        ))}
-      </Grid>
-      <Grid container className={classes.containerForm}>
-        <Form></Form>
-      </Grid>
-    </Grid>
+    <Fragment>
+      {layout === 'office' && (
+        <Grid container className={classes.container + ' ' + classes.office} id="contact-office">
+          <Typography className={classes.title}>{t('contact.title')}</Typography>
+          <Grid container className={classes.containerContactBox}>
+            {contactInfo.map((info) => (
+              <ContactBox {...info} />
+            ))}
+          </Grid>
+        </Grid>
+      )}
+      {layout === 'form' && (
+        <Grid container className={classes.container + ' ' + classes.form} id="contact-form">
+          <Typography className={classes.title}>{t('contact.title')}</Typography>
+          <Grid container className={classes.containerForm}>
+            <Form></Form>
+          </Grid>
+        </Grid>
+      )}
+    </Fragment>
   )
 }
 

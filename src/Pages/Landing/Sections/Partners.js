@@ -10,9 +10,19 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
+    height: '51vh',
+    [theme.breakpoints.up('md')]: {
+      height: '60vh',
+    },
   },
   title: {
     margin: 'auto',
+    fontFamily: '"Poppins", sans-serif',
+    fontWeight: '700',
+    fontSize: '1.525rem',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '3rem',
+    },
   },
   item: {
     margin: 'auto',
@@ -34,7 +44,15 @@ const useStyles = makeStyles((theme) => ({
   logoHics: {
     width: '160px',
     [theme.breakpoints.up('md')]: {
-      width: 'unset',
+      width: '250px',
+    },
+  },
+  logoVyda: {
+    width: '160px',
+    marginTop: '1rem',
+    marginLeft: '2rem',
+    [theme.breakpoints.up('md')]: {
+      width: '300px',
     },
   },
 }))
@@ -53,7 +71,7 @@ const Partners = () => {
       </Typography>
       <Grid item className={classes.item}>
         <img src={logo_hicscapital} alt="Logo hics capital" className={classes.img + ' ' + classes.logoHics} />
-        <img src={logo_vydacapital} alt="Logo vyda capital" className={classes.img} />
+        <img src={logo_vydacapital} alt="Logo vyda capital" className={classes.img + ' ' + classes.logoVyda} />
       </Grid>
     </Grid>
   )

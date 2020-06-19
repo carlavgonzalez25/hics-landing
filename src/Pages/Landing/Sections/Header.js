@@ -7,7 +7,6 @@ import { logo_hicsvyda, texto_hicsvidacapital, logo_hicscapital_mobile } from 'i
 import { language_sp, language_en } from 'img'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import sticky from '../Components/sticky'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -87,11 +86,15 @@ const Header = ({ moveScroller }) => {
   const classes = useStyles()
   const { t } = useTranslation()
 
+  const onClick = () => {
+    console.log(' menu click ')
+  }
+
   return (
     <AppBar position="static" color="secondary" className={classes.root} id="home">
       <Toolbar className={classes.toolbar}>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          <MenuIcon color="primary" />
+          <MenuIcon color="primary" onClick={onClick} />
         </IconButton>
         <div>
           <img src={logo_hicsvyda} alt="logo hics vyda" className={classes.logo} />
@@ -108,7 +111,7 @@ const Header = ({ moveScroller }) => {
               <div onClick={() => moveScroller(1)}>{t('services.title')}</div>
             </li>
             <li>
-              <div onClick={() => moveScroller(2)}>{t('contact.title')}</div>
+              <div onClick={() => moveScroller(4)}>{t('contact.title')}</div>
             </li>
           </ul>
           <Button onClick={() => changeLanguage('es')} size="small">

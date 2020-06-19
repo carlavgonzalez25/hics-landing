@@ -1,6 +1,8 @@
-import servicios_1 from './servicios_1.jpg'
-import servicios_2 from './servicios_2.JPG'
-import bg_services from './bg_services.png'
+import servicios_1 from './servicios_1.png'
+import servicios_2 from './servicios_2.png'
+import servicios_3 from './servicios_3.JPG'
+import bg_contactOffice from './bg_contact-office.png'
+import bg_contactForm from './bg_contact-form.png'
 import office_bsas from './office_bsas.png'
 import office_rd from './office_rd.png'
 import office_usa from './office_usa.png'
@@ -15,18 +17,19 @@ import logo_vydacapital from './logo_vydacapital.png'
 import logo_hicsvyda from './logo_hicsvyda.png'
 import language_sp from './language_sp.png'
 import language_en from './language_en.png'
-import slide_3 from './slide_3.jpg'
-import slide_2 from './slide_2.jpg'
-import slide_1 from './slide_1.jpg'
+import slide_3 from './slide_3.png'
+import slide_2 from './slide_2.png'
+import slide_1 from './slide_1.png'
 import logo_hicscapital from './logo_hicscapital.png'
 import texto_hicsvidacapital from './hicsvidacapital.png'
 import logo_hicscapital_mobile from './logo_hicscapital_mobile.png'
 
-
 export {
   servicios_1,
   servicios_2,
-  bg_services,
+  servicios_3,
+  bg_contactOffice,
+  bg_contactForm,
   office_bsas,
   office_rd,
   office_usa,
@@ -46,5 +49,5 @@ export {
   slide_1,
   logo_hicscapital,
   texto_hicsvidacapital,
-  logo_hicscapital_mobile
+  logo_hicscapital_mobile,
 }

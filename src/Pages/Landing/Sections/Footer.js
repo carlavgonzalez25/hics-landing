@@ -44,6 +44,7 @@ const useStyles = makeStyles((theme) => ({
       },
       '& li': {
         marginRight: '2rem',
+        flexGrow: '2',
         color: '#FFF',
         marginBottom: '1rem',
         [theme.breakpoints.up('md')]: {
@@ -104,7 +105,7 @@ const Footer = ({ moveScroller }) => {
               </div>
             </li>
             <li>
-              <div className={classes.link} onClick={() => moveScroller(2)}>
+              <div className={classes.link} onClick={() => moveScroller(4)}>
                 {t('contact.title')}
               </div>
             </li>
