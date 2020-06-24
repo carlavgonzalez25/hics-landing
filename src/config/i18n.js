@@ -35,6 +35,13 @@ export default {
         partners: {
           title: 'Partners',
         },
+        login: {
+          login: 'Login',
+          user: 'Username',
+          pass: 'Password',
+          rememberMe: 'Remember me',
+          forgotPass: 'Forgot my pass',
+        },
       },
     },
     es: {
@@ -71,6 +78,13 @@ export default {
         },
         partners: {
           title: 'Partners',
+        },
+        login: {
+          login: 'Login',
+          user: 'Usuario',
+          pass: 'Contraseña',
+          rememberMe: 'Recordarme',
+          forgotPass: 'Olvidé mi contraseña',
         },
       },
     },

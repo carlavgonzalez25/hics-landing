@@ -1,6 +1,7 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
 import Button from '@material-ui/core/Button'
+import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 import { logo_hicsvyda } from 'img'
@@ -114,9 +115,11 @@ const Footer = ({ moveScroller }) => {
         </Grid>
       </Grid>
       <Grid container className={classes.containerLogin}>
-        <Button className={classes.button} variant="contained" color="primary">
-          Log in
-        </Button>
+        <Link to="/login">
+          <Button className={classes.button} variant="contained" color="primary">
+            Log in
+          </Button>
+        </Link>
       </Grid>
     </footer>
   )
