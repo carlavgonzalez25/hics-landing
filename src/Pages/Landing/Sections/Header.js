@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import i18n from 'i18next'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, AppBar, Toolbar } from '@material-ui/core'
+import { Button, AppBar, Toolbar, useMediaQuery } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import { logo_hicsvyda, texto_hicsvidacapital, logo_hicscapital_mobile } from 'img'
 import { language_sp, language_en } from 'img'
@@ -76,18 +76,44 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  mobileContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    background: theme.palette.secondary.main,
+    position: 'absolute',
+    left: '0',
+    top: '55px',
+    padding: '1rem 1rem 1rem 0.3rem',
+    '& ul': {
+      display: 'flex',
+      flexDirection: 'column',
+      marginBlockStart: '0',
+      marginBlockEnd: '0',
+      paddingInlineStart: '0',
+      '& li': {
+        marginBottom: '0.5rem',
+      },
+    },
+  },
 }))
 
 const Header = ({ moveScroller }) => {
+  const [showMenu, setShowMenu] = useState(false)
+
+  const matches = useMediaQuery((theme) => theme.breakpoints.up('md'))
+
   useEffect(() => {
-    //sticky()
+    window.addEventListener('resize', () => {
+      if (matches) setShowMenu(false)
+    })
   })
+
   const changeLanguage = (lan) => i18n.changeLanguage(lan)
   const classes = useStyles()
   const { t } = useTranslation()
 
   const onClick = () => {
-    console.log(' menu click ')
+    setShowMenu(!showMenu)
   }
 
   return (
@@ -102,7 +128,7 @@ const Header = ({ moveScroller }) => {
           <img src={logo_hicscapital_mobile} alt="logo hics vida" className={classes.logoMobile} />
         </div>
 
-        <div className={classes.containerMenu}>
+        <div className={classes.containerMenu + ' ' + (showMenu && classes.mobileContainer)} id="menuMobile">
           <ul>
             <li>
               <div onClick={() => moveScroller(0)}>{t('home')}</div>
@@ -114,12 +140,14 @@ const Header = ({ moveScroller }) => {
               <div onClick={() => moveScroller(4)}>{t('contact.title')}</div>
             </li>
           </ul>
-          <Button onClick={() => changeLanguage('es')} size="small">
-            <img src={language_sp} alt="spanish language selector" />
-          </Button>
-          <Button onClick={() => changeLanguage('en')} size="small" onPres>
-            <img src={language_en} alt="english language selector" />
-          </Button>
+          <div className={classes.languageContainer}>
+            <Button onClick={() => changeLanguage('es')} size="small">
+              <img src={language_sp} alt="spanish language selector" />
+            </Button>
+            <Button onClick={() => changeLanguage('en')} size="small">
+              <img src={language_en} alt="english language selector" />
+            </Button>
+          </div>
         </div>
       </Toolbar>
     </AppBar>

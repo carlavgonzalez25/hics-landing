@@ -48,7 +48,7 @@ export default {
       translation: {
         home: 'Inicio',
         slider: {
-          slide1: 'CREATING VALUE TOGETHER"',
+          slide1: 'CREATING VALUE TOGETHER',
           slide2:
             'HICS VYDA CAPITAL, es resultado del Joint Venture de HICS CAPITAL Y VYDA CAPITAL, unificando profesionales con mas de 30 años de exitosa experiencia y prestigiosa trayectoria en Negocios de Construcción, Tecnológicos, Créditos Hipotecarios, Gestión de Activos e Inversiones Financieras, complementando mercados, recursos económicos y humanos, para el desarrollo de Inversiones, bajo el mismo espíritu que las originaron: profesionalismo, transparencia, eficiencia, rentabilidad e innovación',
           slide3:
