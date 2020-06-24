@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700;800&display=swap');
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+body {
+  background-color: #fff !important;
+}
+
+ul li {
+  list-style: none;
+}
+
+#home {
+  top: 0;
+}
+
+.sticky {
+  position: fixed !important;
+  top: 0;
+  width: 100% !important;
+  transition: all 0.3s;
+}
