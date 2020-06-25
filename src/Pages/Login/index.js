@@ -14,6 +14,9 @@ import {
 import { Visibility, VisibilityOff } from '@material-ui/icons'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
+import { Redirect } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { login } from 'redux/actions' // importo la accion
 import { logo_hicsvyda, texto_hicsvidacapital, language_sp, language_en } from 'img'
 import i18n from 'i18next'
 
@@ -73,7 +76,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Login = () => {
+const Login = ({ auth, login }) => {
   const { t } = useTranslation()
   const classes = useStyles()
 
@@ -109,6 +112,7 @@ const Login = () => {
     // enviar credenciales
     //validarlas
     //linkear a configurador
+    login(true)
   }
 
   return (
@@ -186,6 +190,7 @@ const Login = () => {
                 >
                   {t('login.login')}
                 </Button>
+                {auth.isAuthenticated && <Redirect to="/panel" />}
               </Grid>
             </Grid>
           </form>
@@ -195,4 +200,14 @@ const Login = () => {
   )
 }
 
-export default Login
+const mapStateToProps = (state) => ({
+  auth: state.auth,
+})
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    login: (value) => dispatch(login(value)), //el nombre que le de al key aqui sera el con el que luego lo uso como props
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login)

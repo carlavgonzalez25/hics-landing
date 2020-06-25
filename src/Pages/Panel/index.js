@@ -7,7 +7,7 @@ import { Grid } from '@material-ui/core'
 
 const Configurator = () => {
   return (
-    <div>
+    <Grid container>
       <Header />
       <Steps />
       <Grid container>
@@ -15,7 +15,7 @@ const Configurator = () => {
           <CardModelo name={models[e].name} rooms={models[e].rooms} />
         ))}
       </Grid>
-    </div>
+    </Grid>
   )
 }
 
