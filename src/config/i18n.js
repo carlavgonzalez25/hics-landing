@@ -42,6 +42,19 @@ export default {
           rememberMe: 'Remember me',
           forgotPass: 'Forgot my pass',
         },
+        panel: {
+          title: "Hics Vyda Capital - Property's Configurator",
+          search: 'Search',
+          steps: 'Steps',
+        },
+        steps: {
+          first: 'Select model',
+          second: 'Configure',
+          third: 'Data Entry',
+        },
+        buttons: {
+          next: 'Next',
+        },
       },
     },
     es: {
@@ -85,6 +98,19 @@ export default {
           pass: 'Contraseña',
           rememberMe: 'Recordarme',
           forgotPass: 'Olvidé mi contraseña',
+        },
+        panel: {
+          title: 'Hics Vyda Capital - Configurador ',
+          search: 'Buscar',
+          steps: 'Pasos',
+        },
+        steps: {
+          first: 'Selección de modelo',
+          second: 'Personalización',
+          third: 'Carga de datos',
+        },
+        buttons: {
+          next: 'Siguiente',
         },
       },
     },

@@ -18,7 +18,7 @@ const MySlider = () => {
   return (
     <div className={classes.root} id="slider">
       {' '}
-      <Slider hasBullets bulletStyle={{ backgroundColor: '#fff' }}>
+      <Slider hasArrows>
         <Slide imgUrl={slide_1} text={t('slider.slide1')} title={true} />
         <Slide imgUrl={slide_2} text={t('slider.slide2')} title={false} />
         <Slide imgUrl={slide_3} text={t('slider.slide3')} title={false} />
