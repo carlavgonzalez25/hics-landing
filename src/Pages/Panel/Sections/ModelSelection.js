@@ -2,14 +2,14 @@ import React, { Fragment } from 'react'
 import models from 'config/models'
 import CardModelo from '../Components/CardModelo'
 
-const Configurator = () => {
+const modelSelection = (props) => {
   return (
     <Fragment>
       {Object.keys(models).map((e) => (
-        <CardModelo name={models[e].name} rooms={models[e].rooms} />
+        <CardModelo key={models[e].id} name={models[e].name} rooms={models[e].rooms} id={models[e].id} {...props} />
       ))}
     </Fragment>
   )
 }
 
-export default Configurator
+export default modelSelection

@@ -54,6 +54,7 @@ export default {
         },
         buttons: {
           next: 'Next',
+          back: 'Back',
         },
       },
     },
@@ -111,6 +112,7 @@ export default {
         },
         buttons: {
           next: 'Siguiente',
+          back: 'Anterior',
         },
       },
     },

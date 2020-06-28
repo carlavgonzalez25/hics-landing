@@ -1,5 +1,5 @@
 import React from 'react'
-import { makeStyles, Grid, Button, Paper } from '@material-ui/core'
+import { makeStyles, Grid, Button } from '@material-ui/core'
 import Search from './Search'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next'

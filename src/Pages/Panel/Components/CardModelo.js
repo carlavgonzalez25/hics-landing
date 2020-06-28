@@ -1,12 +1,8 @@
 import React from 'react'
 import { Grid, Paper } from '@material-ui/core'
-import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 
-import { setModel } from 'redux/actions'
-import { connect } from 'react-redux'
-
-const CardModelo = ({ img, name, rooms, setModel }) => {
+const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete }) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       width: '350px',
@@ -27,7 +23,6 @@ const CardModelo = ({ img, name, rooms, setModel }) => {
       background: 'grey',
     },
     dataContainer: {
-      // background: 'yellow',
       height: '150px',
       width: '100%',
       padding: '1rem 1.2rem',
@@ -48,17 +43,21 @@ const CardModelo = ({ img, name, rooms, setModel }) => {
   }))
 
   const classes = useStyles()
-  const { t } = useTranslation()
+
+  const handleClick = (id) => {
+    handleModel(id)
+    handleComplete()
+  }
 
   return (
-    <Paper container className={classes.root}>
+    <Paper container className={classes.root} onClick={() => handleClick(id)}>
       <Grid item className={classes.imgContainer} />
       <Grid item className={classes.dataContainer}>
         <Grid>{name}</Grid>
         <ul className={classes.list}>
           <Grid container>
             {Object.keys(rooms).map((e) => (
-              <li className={classes.roomContainer}>
+              <li className={classes.roomContainer} key={e}>
                 <span>{e}</span>
                 <span className={classes.quantity}>{rooms[e]}</span>
               </li>
