@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Header from './Components/Header'
 import Steps from './Components/Steps'
 import ModelSelection from './Sections/ModelSelection'
+import DataEntry from './Sections/DataEntry'
 import { Grid, Button, Typography } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core'
@@ -57,11 +58,7 @@ const Panel = () => {
   const handleComplete = () => {
     //Validar en cada etapa si se completo o no
 
-    console.log(' entro a handleComplete ' + activeStep + ' selectModel ' + selectedModel)
-
-    //La primera vez que hago click en el modelo, no se actualiza el state. Revisar
-
-    if (activeStep === 0 && selectedModel !== '') {
+    if (activeStep === 0) {
       // Etapa de seleccion de modelo. Debe haber uno seleccionado
       console.log('Modelos Seleccionado')
 
@@ -92,6 +89,12 @@ const Panel = () => {
       <Steps steps={steps} isStepComplete={isStepComplete} activeStep={activeStep} />
       <Grid container className={classes.cardContainer}>
         {activeStep === 0 && <ModelSelection handleModel={handleModel} handleComplete={handleComplete} />}
+
+        {
+          // el activeStep == 1 debe redirigir al configurador. Ahora esta asi para testear
+        }
+
+        {activeStep === 1 && <DataEntry />}
       </Grid>
       <Grid>
         {allStepsCompleted() ? (

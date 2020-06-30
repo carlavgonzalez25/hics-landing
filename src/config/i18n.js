@@ -52,6 +52,16 @@ export default {
           second: 'Configure',
           third: 'Data Entry',
         },
+        dataEntry: {
+          client: 'Select Client',
+          addClient: 'Add new client',
+          id: 'id',
+          location: 'location',
+          projectData: 'Project Data',
+          alias: 'Alias',
+          observations: 'Observations',
+          land: 'Land',
+        },
         buttons: {
           next: 'Next',
           back: 'Back',
@@ -109,6 +119,16 @@ export default {
           first: 'Selección de modelo',
           second: 'Personalización',
           third: 'Carga de datos',
+        },
+        dataEntry: {
+          client: 'Selecccione un cliente',
+          addClient: 'Agregar nuevo cliente',
+          id: 'id',
+          location: 'Locación',
+          projectData: 'Datos del proyecto',
+          alias: 'Alias',
+          observations: 'Observaciones',
+          land: 'Terreno',
         },
         buttons: {
           next: 'Siguiente',
