@@ -88,13 +88,15 @@ const Panel = () => {
       <Header />
       <Steps steps={steps} isStepComplete={isStepComplete} activeStep={activeStep} />
       <Grid container className={classes.cardContainer}>
-        {activeStep === 0 && <ModelSelection handleModel={handleModel} handleComplete={handleComplete} />}
+        {activeStep === 0 && (
+          <ModelSelection handleModel={handleModel} handleComplete={handleComplete} selectedModel={selectedModel} />
+        )}
 
         {
-          // el activeStep == 1 debe redirigir al configurador. Ahora esta asi para testear
+          // el activeStep == 1 debe redirigir al configurador.
         }
 
-        {activeStep === 1 && <DataEntry />}
+        {activeStep === 2 && <DataEntry />}
       </Grid>
       <Grid>
         {allStepsCompleted() ? (
@@ -109,7 +111,13 @@ const Panel = () => {
               <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
                 {t('buttons.back')}
               </Button>
-              <Button variant="contained" color="primary" onClick={handleNext} className={classes.button}>
+              <Button
+                variant="contained"
+                color="primary"
+                onClick={handleNext}
+                className={classes.button}
+                disabled={!completed[activeStep]}
+              >
                 {t('buttons.next')}
               </Button>
               {activeStep !== steps.length && completed.hasOwnProperty(activeStep) && (

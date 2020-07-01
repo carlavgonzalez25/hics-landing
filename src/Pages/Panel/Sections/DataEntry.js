@@ -19,7 +19,9 @@ import { makeStyles } from '@material-ui/core'
 import users from 'config/users'
 
 const useStyles = makeStyles((theme) => ({
-  root: {},
+  root: {
+    margin: '1rem 3rem',
+  },
   formControl: {
     minWidth: 200,
   },
@@ -27,6 +29,17 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  clientInfo: {
+    marginTop: '2rem',
+    '& ul': {
+      '& li': {
+        marginTop: '1rem',
+        '& span': {
+          margin: '0 1rem',
+        },
+      },
+    },
   },
 }))
 
@@ -48,7 +61,7 @@ const DataEntry = () => {
   }
 
   return (
-    <Grid container>
+    <Grid container className={classes.root}>
       <Grid container direction="column">
         <Grid item className={classes.clientSelection}>
           <Typography> {t('dataEntry.client')}</Typography>
@@ -63,9 +76,22 @@ const DataEntry = () => {
             <AddCircleIcon />
           </IconButton>
         </Grid>
+
         {selectedClient !== '' && (
           <Grid item className={classes.clientInfo}>
-            <p> ACA va la info del cliente</p>
+            <Typography>{t('dataEntry.clientInfo')}</Typography>
+            <ul>
+              <li>
+                <span>{t('dataEntry.id')} </span>
+                <span>{clientList[selectedClient].name}</span>
+              </li>
+              <li>
+                <span>{t('dataEntry.location')} </span>
+                <span>{clientList[selectedClient].address}</span>
+                <span>{clientList[selectedClient].country}</span>
+                <span>{clientList[selectedClient].city}</span>
+              </li>
+            </ul>
           </Grid>
         )}
       </Grid>

@@ -55,6 +55,7 @@ export default {
         dataEntry: {
           client: 'Select Client',
           addClient: 'Add new client',
+          clientInfo: 'Client information',
           id: 'id',
           location: 'location',
           projectData: 'Project Data',
@@ -123,6 +124,7 @@ export default {
         dataEntry: {
           client: 'Selecccione un cliente',
           addClient: 'Agregar nuevo cliente',
+          clientInfo: 'Datos del cliente',
           id: 'id',
           location: 'Locación',
           projectData: 'Datos del proyecto',

@@ -2,7 +2,7 @@ import React from 'react'
 import { Grid, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
 
-const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete }) => {
+const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete, selectedModel }) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       width: '350px',
@@ -12,6 +12,9 @@ const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete }) => {
         boxShadow: '2px 2px 2px grey',
         transform: 'translate(-1px, -1px)',
       },
+    },
+    selected: {
+      background: 'yellow',
     },
     imgContainer: {
       backgroundImage: `url(${img})`,
@@ -50,7 +53,11 @@ const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete }) => {
   }
 
   return (
-    <Paper container className={classes.root} onClick={() => handleClick(id)}>
+    <Paper
+      container
+      className={classes.root + ' ' + (selectedModel === id && classes.selected)}
+      onClick={() => handleClick(id)}
+    >
       <Grid item className={classes.imgContainer} />
       <Grid item className={classes.dataContainer}>
         <Grid>{name}</Grid>
