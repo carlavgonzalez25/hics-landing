@@ -1,13 +1,18 @@
 import React from 'react'
 import { Grid, Paper } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+//import PropTypes from 'prop-types'
 
 const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete, selectedModel }) => {
   const useStyles = makeStyles((theme) => ({
     root: {
-      width: '350px',
+      width: '370px',
       height: '400px',
       margin: '0.5rem',
+      [theme.breakpoints.up('lg')]: {
+        margin: '0.5rem 0.7rem',
+        maxWidth: '1440px',
+      },
       '&:hover': {
         boxShadow: '2px 2px 2px grey',
         transform: 'translate(-1px, -1px)',
@@ -63,10 +68,10 @@ const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete, selecte
         <Grid>{name}</Grid>
         <ul className={classes.list}>
           <Grid container>
-            {Object.keys(rooms).map((e) => (
-              <li className={classes.roomContainer} key={e}>
-                <span>{e}</span>
-                <span className={classes.quantity}>{rooms[e]}</span>
+            {rooms.map((e) => (
+              <li className={classes.roomContainer} key={e.idAmbiente}>
+                <span>{e.nombre}</span>
+                <span className={classes.quantity}>{e.cantidad}</span>
               </li>
             ))}
           </Grid>

@@ -1,6 +1,6 @@
 import React from 'react'
 import { makeStyles, Grid, Button } from '@material-ui/core'
-import Search from './Search'
+//import Search from './Search'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next'
 
@@ -40,9 +40,7 @@ const Header = () => {
       <Grid item className={classes.item + ' ' + classes.title}>
         {t('panel.title')}
       </Grid>
-      <Grid item className={classes.item}>
-        <Search />
-      </Grid>
+
       <Grid item className={classes.flagContainer}>
         <Button onClick={() => changeLanguage('es')} size="small">
           <img src={language_sp} alt="spanish language selector" />

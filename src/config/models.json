@@ -1,0 +1,114 @@
+{
+  "Modelo": [
+    {
+      "idModelo": 0,
+      "nombre": "Modelo parana",
+      "archivo": "url",
+      "ambiente": [
+        {
+          "idAmbiente": 0,
+          "nombre": "Bathroom",
+          "cantidad": "2"
+        },
+        {
+          "idAmbiente": 1,
+          "nombre": "Bedroom",
+          "cantidad": "3"
+        },
+        {
+          "idAmbiente": 2,
+          "nombre": "Kitchen",
+          "cantidad": "1"
+        }
+      ]
+    },
+    {
+      "idModelo": 1,
+      "nombre": "Modelo Santa Fe",
+      "archivo": "url",
+      "ambiente": [
+        {
+          "idAmbiente": 0,
+          "nombre": "Bathroom",
+          "cantidad": "1"
+        },
+        {
+          "idAmbiente": 1,
+          "nombre": "Bedroom",
+          "cantidad": "2"
+        },
+        {
+          "idAmbiente": 2,
+          "nombre": "Kitchen",
+          "cantidad": "1"
+        }
+      ]
+    },
+    {
+      "idModelo": 2,
+      "nombre": "Modelo Cape Coral",
+      "archivo": "url",
+      "ambiente": [
+        {
+          "idAmbiente": 0,
+          "nombre": "Bathroom",
+          "cantidad": "1"
+        },
+        {
+          "idAmbiente": 1,
+          "nombre": "Bedroom",
+          "cantidad": "3"
+        },
+        {
+          "idAmbiente": 2,
+          "nombre": "Kitchen",
+          "cantidad": "2"
+        }
+      ]
+    },
+    {
+      "idModelo": 3,
+      "nombre": "Modelo Santa Fe",
+      "archivo": "url",
+      "ambiente": [
+        {
+          "idAmbiente": 0,
+          "nombre": "Bathroom",
+          "cantidad": "1"
+        },
+        {
+          "idAmbiente": 1,
+          "nombre": "Bedroom",
+          "cantidad": "2"
+        },
+        {
+          "idAmbiente": 2,
+          "nombre": "Kitchen",
+          "cantidad": "1"
+        }
+      ]
+    },
+    {
+      "idModelo": 4,
+      "nombre": "Modelo Santa Fe",
+      "archivo": "url",
+      "ambiente": [
+        {
+          "idAmbiente": 0,
+          "nombre": "Bathroom",
+          "cantidad": "1"
+        },
+        {
+          "idAmbiente": 1,
+          "nombre": "Bedroom",
+          "cantidad": "2"
+        },
+        {
+          "idAmbiente": 2,
+          "nombre": "Kitchen",
+          "cantidad": "1"
+        }
+      ]
+    }
+  ]
+}

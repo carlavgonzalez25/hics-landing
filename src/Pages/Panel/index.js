@@ -10,9 +10,17 @@ import { makeStyles } from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: '0 1rem 3rem 1rem',
+    background: '#f5f5f5',
+  },
+  sectionContainer: {
+    maxWidth: '1440px',
+    margin: 'auto',
   },
   cardContainer: {
     marginBottom: '2rem',
+    [theme.breakpoints.up('lg')]: {
+      padding: '0 5rem',
+    },
   },
   button: {
     marginLeft: 'auto',
@@ -60,7 +68,6 @@ const Panel = () => {
 
     if (activeStep === 0) {
       // Etapa de seleccion de modelo. Debe haber uno seleccionado
-      console.log('Modelos Seleccionado')
 
       setCompleted((prevCompleted) => ({
         ...prevCompleted,
@@ -85,49 +92,51 @@ const Panel = () => {
 
   return (
     <Grid container className={classes.root}>
-      <Header />
-      <Steps steps={steps} isStepComplete={isStepComplete} activeStep={activeStep} />
-      <Grid container className={classes.cardContainer}>
-        {activeStep === 0 && (
-          <ModelSelection handleModel={handleModel} handleComplete={handleComplete} selectedModel={selectedModel} />
-        )}
+      <Grid container className={classes.sectionContainer}>
+        <Header />
+        <Steps steps={steps} isStepComplete={isStepComplete} activeStep={activeStep} />
+        <Grid container className={classes.cardContainer}>
+          {activeStep === 0 && (
+            <ModelSelection handleModel={handleModel} handleComplete={handleComplete} selectedModel={selectedModel} />
+          )}
 
-        {
-          // el activeStep == 1 debe redirigir al configurador.
-        }
+          {
+            // el activeStep == 1 debe redirigir al configurador.
+          }
 
-        {activeStep === 2 && <DataEntry />}
-      </Grid>
-      <Grid>
-        {allStepsCompleted() ? (
-          <div>
-            <Typography className={classes.instructions}>Done</Typography>
-            <Button onClick={handleReset}>{t('button.reset')}</Button>
-          </div>
-        ) : (
-          <div>
-            <Typography className={classes.instructions}>{steps[activeStep]}</Typography>
+          {activeStep === 1 && <DataEntry />}
+        </Grid>
+        <Grid>
+          {allStepsCompleted() ? (
             <div>
-              <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
-                {t('buttons.back')}
-              </Button>
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleNext}
-                className={classes.button}
-                disabled={!completed[activeStep]}
-              >
-                {t('buttons.next')}
-              </Button>
-              {activeStep !== steps.length && completed.hasOwnProperty(activeStep) && (
-                <Typography variant="caption" className={classes.completed}>
-                  Step {activeStep + 1} already completed
-                </Typography>
-              )}
+              <Typography className={classes.instructions}>Done</Typography>
+              <Button onClick={handleReset}>{t('button.reset')}</Button>
             </div>
-          </div>
-        )}
+          ) : (
+            <div>
+              <Typography className={classes.instructions}>{steps[activeStep]}</Typography>
+              <div>
+                <Button disabled={activeStep === 0} onClick={handleBack} className={classes.button}>
+                  {t('buttons.back')}
+                </Button>
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={handleNext}
+                  className={classes.button}
+                  disabled={!completed[activeStep]}
+                >
+                  {t('buttons.next')}
+                </Button>
+                {activeStep !== steps.length && completed.hasOwnProperty(activeStep) && (
+                  <Typography variant="caption" className={classes.completed}>
+                    Step {activeStep + 1} already completed
+                  </Typography>
+                )}
+              </div>
+            </div>
+          )}
+        </Grid>
       </Grid>
     </Grid>
   )

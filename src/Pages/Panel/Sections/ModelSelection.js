@@ -5,8 +5,10 @@ import CardModelo from '../Components/CardModelo'
 const modelSelection = (props) => {
   return (
     <Fragment>
-      {Object.keys(models).map((e) => (
-        <CardModelo key={models[e].id} name={models[e].name} rooms={models[e].rooms} id={models[e].id} {...props} />
+      {models.Modelo.map((e) => (
+        <Fragment>
+          <CardModelo key={e.idModelo} name={e.nombre} rooms={e.ambiente} id={e.idModelo} {...props} />
+        </Fragment>
       ))}
     </Fragment>
   )

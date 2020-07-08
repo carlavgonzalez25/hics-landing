@@ -5,6 +5,7 @@ import { Stepper, Step, StepLabel } from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
+    background: '#f5f5f5',
   },
   button: {
     marginRight: theme.spacing(1),
@@ -26,7 +27,7 @@ const Steps = ({ steps, activeStep, isStepComplete }) => {
 
   return (
     <div className={classes.root}>
-      <Stepper alternativeLabel nonLinear activeStep={activeStep}>
+      <Stepper alternativeLabel nonLinear activeStep={activeStep} className={classes.root}>
         {steps.map((label, index) => {
           return (
             <Step key={label}>
