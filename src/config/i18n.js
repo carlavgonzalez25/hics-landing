@@ -65,7 +65,8 @@ export default {
           username: 'Username',
           password: 'Password',
           mail: 'Mail',
-          name: 'Name and lastname',
+          name: 'Name or Company Name',
+          reference: 'Reference',
           address: 'Address',
         },
         buttons: {
@@ -141,7 +142,8 @@ export default {
           username: 'Nombre de usuario',
           password: 'Contraseña',
           mail: 'Mail',
-          name: 'Nombre y apellido',
+          name: 'Nombre o Razón Social',
+          reference: 'Referencia',
           address: 'Dirección',
         },
         buttons: {

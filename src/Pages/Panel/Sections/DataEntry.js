@@ -2,20 +2,20 @@ import React, { useState, useEffect } from 'react'
 import {
   Typography,
   TextField,
-  FormControl,
-  Select,
-  MenuItem,
+  // FormControl,
+  //Select,
+  // MenuItem,
   Button,
   Grid,
-  IconButton,
+  //IconButton,
   Paper,
 } from '@material-ui/core'
-import AddCircleIcon from '@material-ui/icons/AddCircle'
-import AddClientForm from '../Components/AddClientForm'
+//import AddCircleIcon from '@material-ui/icons/AddCircle'
+//import AddClientForm from '../Components/AddClientForm'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core'
 
-import users from 'config/users'
+//import users from 'config/users'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,8 +32,10 @@ const useStyles = makeStyles((theme) => ({
   },
   clientSelection: {
     display: 'flex',
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+  },
+  clientForm: {
+    width: '100%',
   },
   clientInfo: {
     marginTop: '2rem',
@@ -59,23 +61,24 @@ const useStyles = makeStyles((theme) => ({
 
 const DataEntry = () => {
   const { t } = useTranslation()
-  const [selectedClient, setSelectedClient] = useState('')
-  const [clientList, setClientList] = useState('')
+  // const [selectedClient, setSelectedClient] = useState('')
+  // const [clientList, setClientList] = useState('')
   const [projectInfo, setProjectInfo] = useState({})
-  const [viewClientForm, setViewClientForm] = useState(false)
+  // const [viewClientForm, setViewClientForm] = useState(false)
+  const [clientInfo, setClientInfo] = useState('')
 
   const classes = useStyles()
 
   useEffect(() => {
     //  get user info from server
-    setClientList(users)
+    // setClientList(users)
   }, [])
 
-  const handleClientChange = (e) => {
+  /*const handleClientChange = (e) => {
     // Pedir el user con el id indicado y almacenar toda la info aqui
 
     setSelectedClient(e.target.value)
-  }
+  }*/
 
   const handleInputs = (e) => {
     let key = e.target.name
@@ -89,11 +92,20 @@ const DataEntry = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     // Aqui debo enviar toda la informacion
+
+    let data = JSON.stringify({ project: projectInfo, client: clientInfo })
+
+    console.log(data)
   }
 
-  const handleAddUser = (e) => {
-    console.log('Agregar usuario')
-    setViewClientForm(true)
+  const handleClientInputs = (e) => {
+    let key = e.target.name
+    let value = e.target.value
+
+    setClientInfo((prevInfo) => ({
+      ...prevInfo,
+      [key]: value,
+    }))
   }
 
   return (
@@ -101,21 +113,48 @@ const DataEntry = () => {
       <Grid container direction="column">
         <Paper className={classes.paper}>
           <Grid item className={classes.clientSelection}>
-            <Typography className={classes.paragraph}> {t('dataEntry.client')}</Typography>
-            <FormControl className={classes.formControl}>
-              <Select value={selectedClient} onChange={handleClientChange}>
+            <Typography variant="h6" className={classes.mb}>
+              {t('dataEntry.client')}
+            </Typography>
+
+            {/*<FormControl className={classes.formControl}>
+              <Select value={/*selectedClient} onChange={handleClientChange}>
                 {Object.keys(clientList).map((e) => (
                   <MenuItem value={clientList[e].id}>{clientList[e].name}</MenuItem>
                 ))}
-              </Select>
-            </FormControl>
-            <IconButton color="primary" aria-label="add user" component="span" onClick={handleAddUser}>
-              <AddCircleIcon />
-            </IconButton>
+                </Select>
+            </FormControl>*/}
+            <form className={classes.clientForm}>
+              <Grid container direction="column">
+                <TextField
+                  className={classes.mb}
+                  value={clientInfo.name}
+                  onChange={handleClientInputs}
+                  name="Name"
+                  variant="outlined"
+                  label={t('dataEntry.name')}
+                />
+                <TextField
+                  className={classes.mb}
+                  value={clientInfo.lastname}
+                  onChange={handleClientInputs}
+                  name="Reference"
+                  variant="outlined"
+                  label={t('dataEntry.reference')}
+                />
+                <TextField
+                  className={classes.mb}
+                  value={clientInfo.mail}
+                  onChange={handleClientInputs}
+                  name="observations"
+                  variant="outlined"
+                  label={t('dataEntry.observations')}
+                />
+              </Grid>
+            </form>
           </Grid>
-          {viewClientForm && <AddClientForm toggleClientForm={setViewClientForm} />}
 
-          {selectedClient !== '' && (
+          {/*selectedClient !== '' && (
             <Grid item className={classes.clientInfo}>
               <Typography>{t('dataEntry.clientInfo')}</Typography>
               <ul>
@@ -131,7 +170,7 @@ const DataEntry = () => {
                 </li>
               </ul>
             </Grid>
-          )}
+          )*/}
         </Paper>
 
         <Grid item className={classes.projectData}>
@@ -148,6 +187,7 @@ const DataEntry = () => {
                   name="alias"
                   variant="outlined"
                   label={t('dataEntry.alias')}
+                  required
                 />
                 <TextField
                   multiline
@@ -156,18 +196,17 @@ const DataEntry = () => {
                   onChange={handleInputs}
                   name="observations"
                   variant="outlined"
-                  required
                   rows="2"
                   label={t('dataEntry.observations')}
                 />
               </Grid>
-              <Button color="primary" type="submit" onClick={handleSubmit}>
-                {t('buttons.save')}
-              </Button>
             </form>
           </Paper>
         </Grid>
       </Grid>
+      <Button variant="contained" color="primary" type="submit" onClick={handleSubmit}>
+        {t('buttons.save')}
+      </Button>
     </Grid>
   )
 }

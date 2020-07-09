@@ -86,20 +86,19 @@ const AddClientForm = ({ toggleClientForm }) => {
             />
             <TextField
               className={classes.mb}
-              value={clientInfo.address}
+              value={clientInfo.lastname}
               onChange={handleInputs}
-              name="address"
+              name="Reference"
               variant="outlined"
-              label={t('dataEntry.address')}
+              label={t('dataEntry.reference')}
             />
             <TextField
               className={classes.mb}
               value={clientInfo.mail}
               onChange={handleInputs}
-              name="mail"
+              name="observations"
               variant="outlined"
-              label={t('dataEntry.mail')}
-              type="mail"
+              label={t('dataEntry.observations')}
             />
             <Button type="submit" onClick={handleSubmit} color="primary">
               {t('buttons.add')}
