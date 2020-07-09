@@ -35,6 +35,13 @@ export default {
         partners: {
           title: 'Partners',
         },
+        buttons: {
+          myProfile: 'My Profile',
+          newProject: 'New Project',
+        },
+        header: {
+          title: 'HICS VYDA CAPITAL ADMIN PANEL',
+        },
       },
     },
     es: {
@@ -71,6 +78,13 @@ export default {
         },
         partners: {
           title: 'Partners',
+        },
+        buttons: {
+          myProfile: 'Mi Perfil',
+          newProject: 'Nuevo Proyecto',
+        },
+        header: {
+          title: 'HICS VYDA CAPITAL ADMIN PANEL',
         },
       },
     },
