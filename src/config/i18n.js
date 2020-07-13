@@ -38,6 +38,8 @@ export default {
         buttons: {
           myProfile: 'My Profile',
           newProject: 'New Project',
+          logout: 'Logout',
+          edit: 'Edit',
         },
         header: {
           title: 'HICS VYDA CAPITAL ADMIN PANEL',
@@ -82,6 +84,8 @@ export default {
         buttons: {
           myProfile: 'Mi Perfil',
           newProject: 'Nuevo Proyecto',
+          logout: 'Salir',
+          edit: 'Editar',
         },
         header: {
           title: 'HICS VYDA CAPITAL ADMIN PANEL',
