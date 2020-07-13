@@ -6,10 +6,15 @@ import { Button } from '@material-ui/core'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    minWidth: '200px',
-    background: [theme.palette.secondary],
+    minWidth: '153px',
+    width: 'fit-content',
+    //background: [theme.palette.secondary],
     position: 'absolute',
-    top: '30px',
+    top: '66px',
+    background: 'yellow',
+    '& ul': {
+      paddingLeft: '0.5rem',
+    },
   },
 }))
 

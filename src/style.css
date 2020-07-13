@@ -8,6 +8,12 @@ body {
   background-color: #fff !important;
 }
 
+ul {
+  margin-block-start: unset;
+  margin-block-end: unset;
+  padding-inline-start: unset;
+}
+
 ul li {
   list-style: none;
 }

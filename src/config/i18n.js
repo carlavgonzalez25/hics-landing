@@ -40,9 +40,18 @@ export default {
           newProject: 'New Project',
           logout: 'Logout',
           edit: 'Edit',
+          add: 'Add',
         },
         header: {
           title: 'HICS VYDA CAPITAL ADMIN PANEL',
+        },
+        sections: {
+          projects: 'Projects',
+          models: 'Models',
+          land: 'Land',
+          investors: 'Investors',
+          agents: 'Agents',
+          users: 'Users',
         },
       },
     },
@@ -86,9 +95,19 @@ export default {
           newProject: 'Nuevo Proyecto',
           logout: 'Salir',
           edit: 'Editar',
+          add: 'Nuevo',
         },
         header: {
           title: 'HICS VYDA CAPITAL ADMIN PANEL',
+        },
+
+        sections: {
+          projects: 'Proyectos',
+          models: 'Modelos',
+          land: 'Terrenos',
+          investors: 'Inversores',
+          agents: 'Agentes',
+          users: 'Usuarios',
         },
       },
     },
