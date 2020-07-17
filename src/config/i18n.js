@@ -41,6 +41,7 @@ export default {
           logout: 'Logout',
           edit: 'Edit',
           add: 'Add',
+          collapse: 'Collapse',
         },
         header: {
           title: 'HICS VYDA CAPITAL ADMIN PANEL',
@@ -52,6 +53,7 @@ export default {
           investors: 'Investors',
           agents: 'Agents',
           users: 'Users',
+          dashboard: 'Dashboard',
         },
       },
     },
@@ -96,6 +98,7 @@ export default {
           logout: 'Salir',
           edit: 'Editar',
           add: 'Nuevo',
+          collapse: 'Colapsar',
         },
         header: {
           title: 'HICS VYDA CAPITAL ADMIN PANEL',
@@ -108,6 +111,7 @@ export default {
           investors: 'Inversores',
           agents: 'Agentes',
           users: 'Usuarios',
+          dashboard: 'Dashboard',
         },
       },
     },

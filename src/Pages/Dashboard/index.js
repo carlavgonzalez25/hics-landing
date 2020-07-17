@@ -6,23 +6,37 @@ import Models from './Sections/Models'
 import Home from './Sections/Home'
 import { Grid } from '@material-ui/core'
 //import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { makeStyles } from '@material-ui/core'
+
+const useStyles = makeStyles((theme) => ({
+  container: {
+    flexWrap: 'nowrap',
+  },
+  sectionContainer: {
+    display: 'flex',
+    flex: 'auto',
+    padding: '1rem',
+  },
+}))
 
 const Dashboard = () => {
-  const [section, setSection] = useState('models')
+  const [section, setSection] = useState('projects')
 
-  const changeSection = (section) => {
-    setSection(section)
+  const classes = useStyles()
+
+  const changeSection = (newSection) => {
+    setSection(newSection)
   }
 
   return (
     <Grid container>
       <Header />
-      <Grid container>
-        <LeftMenu setSection={changeSection} />
-        <Grid item>
+      <Grid container className={classes.container}>
+        <LeftMenu changeSection={changeSection} />
+        <Grid item className={classes.sectionContainer}>
           {section === 'home' && <Home />}
           {section === 'models' && <Models />}
-          {section === 'project' && <Projects />}
+          {section === 'projects' && <Projects />}
         </Grid>
       </Grid>
 
@@ -30,7 +44,7 @@ const Dashboard = () => {
         <Route path="/projects" component={Projects} />
         <Route path="/models" component={Models} />
       </Router>
-*/}
+      */}
     </Grid>
   )
 }
