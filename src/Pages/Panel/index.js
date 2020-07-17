@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import Header from './Components/Header'
 import Steps from './Components/Steps'
 import ModelSelection from './Sections/ModelSelection'
+import ConfigurationSection from './Sections/Configuration'
 import DataEntry from './Sections/DataEntry'
 import { Grid, Button, Typography } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
@@ -91,11 +92,13 @@ const Panel = () => {
         {activeStep === 0 && (
           <ModelSelection handleModel={handleModel} handleComplete={handleComplete} selectedModel={selectedModel} />
         )}
-
-        {
-          // el activeStep == 1 debe redirigir al configurador.
-        }
-
+        {activeStep === 1 && (
+          <ConfigurationSection
+            handleModel={handleModel}
+            handleComplete={handleComplete}
+            selectedModel={selectedModel}
+          />
+        )}
         {activeStep === 2 && <DataEntry />}
       </Grid>
       <Grid>
