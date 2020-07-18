@@ -15,7 +15,7 @@ import DraftsIcon from '@material-ui/icons/Drafts'
 import SendIcon from '@material-ui/icons/Send'
 import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
-import StarBorder from '@material-ui/icons/StarBorder'
+import Check from '@material-ui/icons/Check'
 
 const modeloEjemplo = {
   idModelo: 1,
@@ -33,10 +33,11 @@ const modeloEjemplo = {
               idOpcion: 1,
               nombre: 'The Pompano',
               foto: 'url',
+              default: true,
             },
             {
-              idOpcion: 1,
-              nombre: 'The Pompano',
+              idOpcion: 2,
+              nombre: 'Another',
               foto: 'url',
             },
           ],
@@ -54,6 +55,7 @@ const modeloEjemplo = {
               idOpcion: 2,
               nombre: 'Providence Espresso',
               foto: 'url',
+              default: true,
             },
             {
               idOpcion: 3,
@@ -81,6 +83,15 @@ const useStyles = makeStyles((theme) => ({
   nested: {
     paddingLeft: theme.spacing(4),
   },
+  terminacionesSection: {
+    backgroundColor: 'red',
+    width: '33%',
+  },
+  planoSection: {
+    backgroundColor: 'yellow',
+    width: '67%',
+    minHeight: 800,
+  },
 }))
 
 const ConfigurationSection = (props) => {
@@ -89,23 +100,61 @@ const ConfigurationSection = (props) => {
   const { selectedModel, handleModel, handleComplete } = props
 
   const handleClick = (id) => {
-    setOpen(id)
+    setOpen(id === open ? null : id)
   }
 
   const classes = useStyles()
 
   useEffect(() => {
     axios.get(`/${selectedModel}`).catch((e) => {
-      setModel(modeloEjemplo)
+      setModel(addSelected(modeloEjemplo))
     })
-  })
+  }, [])
 
-  return <>{!isEmpty(model) && model.ambientes.map((amb) => MostrarOpciones({ amb, classes, open, handleClick }))}</>
+  const handleChangeOption = (amb_i, term_i, idOpcion) => {
+    let m = { ...model }
+    m.ambientes[amb_i].terminaciones[term_i].selected = idOpcion
+    setModel(m)
+  }
+
+  const addSelected = (model) => {
+    let m = { ...model }
+    m.ambientes.forEach((ambiente, i) => {
+      ambiente.terminaciones.forEach((term, j) => {
+        for (let k = 0; k < term.opciones.length; k++) {
+          if (term.opciones[k].default) {
+            m.ambientes[i].terminaciones[j].selected = term.opciones[k].idOpcion
+            break
+          }
+        }
+      })
+    })
+    console.log(m)
+    return m
+  }
+
+  return (
+    <>
+      <div className={classes.terminacionesSection}>
+        {!isEmpty(model) &&
+          model.ambientes.map((amb, amb_i) =>
+            MostrarOpciones({
+              amb,
+              classes,
+              open,
+              handleClick,
+              handleChangeOption: (term_i, idOpcion) => handleChangeOption(amb_i, term_i, idOpcion),
+            })
+          )}
+      </div>
+      <div className={classes.planoSection}></div>
+    </>
+  )
 }
 
-const MostrarOpciones = ({ amb, classes, open, handleClick }) => {
-  return amb.terminaciones.map((term) => (
-    <>
+const MostrarOpciones = ({ amb, classes, open, handleClick, handleChangeOption }) => {
+  return amb.terminaciones.map((term, term_i) => (
+    <Fragment key={term.id}>
       <ListItem button onClick={() => handleClick(term.id)}>
         <ListItemIcon>
           <InboxIcon />
@@ -114,18 +163,21 @@ const MostrarOpciones = ({ amb, classes, open, handleClick }) => {
         {open === term.id ? <ExpandLess /> : <ExpandMore />}
       </ListItem>
       <Collapse in={open === term.id} timeout="auto" unmountOnExit>
-        <List component="div" disablePadding>
-          {term.opciones.map((opt) => (
-            <ListItem button className={classes.nested}>
-              <ListItemIcon>
-                <StarBorder />
-              </ListItemIcon>
+        <List component="div" disablePadding style={{ width: '100%' }}>
+          {term.opciones.map((opt, i) => (
+            <ListItem
+              key={opt.idOpcion}
+              button
+              className={classes.nested}
+              onClick={() => handleChangeOption(term_i, opt.idOpcion)}
+            >
+              <ListItemIcon>{opt.idOpcion == term.selected && <Check />}</ListItemIcon>
               <ListItemText primary={opt.nombre} />
             </ListItem>
           ))}
         </List>
       </Collapse>
-    </>
+    </Fragment>
   ))
 }
 
