@@ -9,10 +9,9 @@ import List from '@material-ui/core/List'
 import ListItem from '@material-ui/core/ListItem'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import ListItemSecondaryAction from '@material-ui/core/ListItemSecondaryAction'
 import Collapse from '@material-ui/core/Collapse'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
-import DraftsIcon from '@material-ui/icons/Drafts'
-import SendIcon from '@material-ui/icons/Send'
 import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import Check from '@material-ui/icons/Check'
@@ -32,13 +31,15 @@ const modeloEjemplo = {
             {
               idOpcion: 1,
               nombre: 'The Pompano',
-              foto: 'url',
+              foto:
+                'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ929mUfyEo6AdIWjgTE1WfL0ogMGVDJtW0_A&usqp=CAU',
               default: true,
             },
             {
               idOpcion: 2,
               nombre: 'Another',
-              foto: 'url',
+              foto:
+                'https://previews.123rf.com/images/zhan1999/zhan19991702/zhan1999170200167/74778719-madera-de-construcci%C3%B3n-textura-de-madera-industrial-maderas-culo-de-fondo.jpg',
             },
           ],
         },
@@ -49,23 +50,25 @@ const modeloEjemplo = {
             {
               idOpcion: 1,
               nombre: 'Portland Chestnut',
-              foto: 'url',
+              foto: 'https://s3.amazonaws.com/bvsystem_tmp/pages/1584/original/kitchen-cabinets.jpg?1323890014',
             },
             {
               idOpcion: 2,
               nombre: 'Providence Espresso',
-              foto: 'url',
+              foto:
+                'https://hgtvhome.sndimg.com/content/dam/images/hgrm/fullset/2013/1/9/0/drury_BarzyckKitchen-wiht-stock-kitchen-cabinets_s4x3.jpg.rend.hgtvcom.616.462.suffix/1405450016426.jpeg',
               default: true,
             },
             {
               idOpcion: 3,
               nombre: 'SC Shaker Cinder',
-              foto: 'url',
+              foto: 'https://www.corvinsfloorcoverings.com/clientcontent/cys_common_content/cabinets02-01.jpg',
             },
             {
               idOpcion: 4,
               nombre: 'Liberty Shaker White',
-              foto: 'url',
+              foto: 'https://paulmarcotteandsons.com/files/2019/01/andale_cherry_cafe_choc._1.jpg?w=1060&h=706&a=t',
+              premium: true,
             },
           ],
         },
@@ -84,22 +87,25 @@ const useStyles = makeStyles((theme) => ({
     paddingLeft: theme.spacing(4),
   },
   terminacionesSection: {
-    backgroundColor: 'red',
     width: '33%',
   },
   planoSection: {
-    backgroundColor: 'yellow',
     width: '67%',
     minHeight: 800,
+    backgroundPosition: 'center',
+    backgroundSize: 'cover',
+    backgroundRepeat: 'no-repeat',
   },
 }))
 
 const ConfigurationSection = (props) => {
   const [model, setModel] = useState({})
   const [open, setOpen] = useState(null)
+  const [image, setImage] = useState(null)
   const { selectedModel, handleModel, handleComplete } = props
 
-  const handleClick = (id) => {
+  const handleClick = (id, foto) => {
+    setImage(foto)
     setOpen(id === open ? null : id)
   }
 
@@ -111,9 +117,11 @@ const ConfigurationSection = (props) => {
     })
   }, [])
 
-  const handleChangeOption = (amb_i, term_i, idOpcion) => {
+  const handleChangeOption = (amb_i, term_i, idOpcion, foto) => {
     let m = { ...model }
     m.ambientes[amb_i].terminaciones[term_i].selected = idOpcion
+    m.ambientes[amb_i].terminaciones[term_i].foto = foto
+    setImage(foto)
     setModel(m)
   }
 
@@ -124,6 +132,7 @@ const ConfigurationSection = (props) => {
         for (let k = 0; k < term.opciones.length; k++) {
           if (term.opciones[k].default) {
             m.ambientes[i].terminaciones[j].selected = term.opciones[k].idOpcion
+            m.ambientes[i].terminaciones[j].foto = term.opciones[k].foto
             break
           }
         }
@@ -143,11 +152,18 @@ const ConfigurationSection = (props) => {
               classes,
               open,
               handleClick,
-              handleChangeOption: (term_i, idOpcion) => handleChangeOption(amb_i, term_i, idOpcion),
+              handleChangeOption: (term_i, idOpcion, foto) => handleChangeOption(amb_i, term_i, idOpcion, foto),
             })
           )}
       </div>
-      <div className={classes.planoSection}></div>
+      <div
+        className={classes.planoSection}
+        style={{
+          backgroundImage: `url(${image})`,
+        }}
+      >
+        {/* <img src={image} /> */}
+      </div>
     </>
   )
 }
@@ -155,7 +171,7 @@ const ConfigurationSection = (props) => {
 const MostrarOpciones = ({ amb, classes, open, handleClick, handleChangeOption }) => {
   return amb.terminaciones.map((term, term_i) => (
     <Fragment key={term.id}>
-      <ListItem button onClick={() => handleClick(term.id)}>
+      <ListItem button onClick={() => handleClick(term.id, term.foto)}>
         <ListItemIcon>
           <InboxIcon />
         </ListItemIcon>
@@ -169,10 +185,11 @@ const MostrarOpciones = ({ amb, classes, open, handleClick, handleChangeOption }
               key={opt.idOpcion}
               button
               className={classes.nested}
-              onClick={() => handleChangeOption(term_i, opt.idOpcion)}
+              onClick={() => handleChangeOption(term_i, opt.idOpcion, opt.foto)}
             >
               <ListItemIcon>{opt.idOpcion == term.selected && <Check />}</ListItemIcon>
               <ListItemText primary={opt.nombre} />
+              {opt.premium && <ListItemSecondaryAction>Premium</ListItemSecondaryAction>}
             </ListItem>
           ))}
         </List>
