@@ -1,0 +1,111 @@
+
+[{idModelo: 1, nombre: "Miami FLorida", plano: "localhost:8000/store/imagenes/mansion.jpg",…},…]
+
+0: {idModelo: 1, nombre: "Miami FLorida", plano: "localhost:8000/store/imagenes/mansion.jpg",…}
+ambientes: [{idAmbiente: 1, AmbienteNombre: "Bedroom", cantAmbientes: 2},…]
+0: {idAmbiente: 1, AmbienteNombre: "Bedroom", cantAmbientes: 2}
+AmbienteNombre: "Bedroom"
+cantAmbientes: 2
+idAmbiente: 1
+1: {idAmbiente: 6, AmbienteNombre: "Kitchen", cantAmbientes: 1}
+2: {idAmbiente: 7, AmbienteNombre: "Laundry", cantAmbientes: 1}
+fechaAlta: "2020-06-26"
+idModelo: 1
+livingArea: 248.5
+nombre: "Miami FLorida"
+plano: "localhost:8000/store/imagenes/mansion.jpg"
+totalArea: 256.3
+1: {idModelo: 2, nombre: "Modelo Alaska", plano: "localhost:8000/store/imagenes/Fedesche.jpg",…}
+/*-------------*/
+
+getModelos:
+
+[{idModelo: 1, nombre: "Miami FLorida", plano: "localhost:8000/store/imagenes/mansion.jpg",
+ambientes: [{idAmbiente: 1, AmbienteNombre: "Bedroom", cantAmbientes: 2}, {idAmbiente: 6, AmbienteNombre: "Kitchen", cantAmbientes: 1},
+{idAmbiente: 7, AmbienteNombre: "Laundry", cantAmbientes: 1}], fechaAlta: "2020-06-26", idModelo: 1,
+    livingArea: 248.5, nombre: "Miami FLorida",  plano: "localhost:8000/store/imagenes/mansion.jpg", totalArea: 256.3}]
+
+
+//----------------
+
+    getModelosId
+
+//-------------------------
+
+
+    0: [{idAmbiente: 1, nombre: "Bedroom", alias: "Habitacion",…},…]
+0: {idAmbiente: 1, nombre: "Bedroom", alias: "Habitacion",…}
+alias: "Habitacion"
+idAmbiente: 1
+nombre: "Bedroom"
+terminaciones: [{idTerminacion: 2, nombre: "Aberturas",…}]
+0: {idTerminacion: 2, nombre: "Aberturas",…}
+idTerminacion: 2
+nombre: "Aberturas"
+opciones: [{idopterminacion: 8, nombre: "Abertura metalica", costo: 5600,…},…]
+0: {idopterminacion: 8, nombre: "Abertura metalica", costo: 5600,…}
+costo: 5600
+foto: "localhost:8000/store/imagenes/amfotofemo.jpg"
+idopterminacion: 8
+nombre: "Abertura metalica"
+1: {idopterminacion: 9, nombre: "Abertura Madera", costo: 4500, foto: null}
+1: {idAmbiente: 1, nombre: "Bedroom", alias: "HabPeqeña",…}
+2: {idAmbiente: 6, nombre: "Kitchen", alias: "Cocina",…}
+3: {idAmbiente: 7, nombre: "Laundry", alias: "Quico",…}
+idModelo: 1
+livingArea: 248.5
+nombre: "Miami FLorida"
+totalArea: 256.3
+
+//----
+
+0: [{idAmbiente: 1, nombre: "Bedroom", alias: "Habitacion", idModelo: 1,
+    livingArea: 248.5, nombre: "Miami FLorida", totalArea: 256.3
+    terminaciones: 
+        [{idTerminacion: 2, nombre: "Aberturas",opciones: [{idopterminacion: 8, nombre: "Abertura metalica", costo: 5600,foto: "localhost:8000/store/imagenes/amfotofemo.jpg"
+        },{idopterminacion: 9, nombre: "Abertura Madera", costo: 4500, foto: null}]}, 
+    ]},{idAmbiente: 1, nombre: "Bedroom", alias: "HabPeqeña",terminaciones: [{...}, {...}]}]
+
+
+    //-------------
+
+    getProyectos
+
+    //------
+
+    [{idProyecto: 1, nombre: "Proyecto Consorcio", apellido: null, razonSocial: null,…},…]
+0: {idProyecto: 1, nombre: "Proyecto Consorcio", apellido: null, razonSocial: null,…}
+alias: "PC-Listado"
+cliente: {idAgente: 1, nombre: "Federico", apellido: "Schenone", razonsocial: null}
+apellido: "Schenone"
+idAgente: 1
+nombre: "Federico"
+razonsocial: null
+estado: {idEstadoProyecto: 1, nombre: "Pendiente"}
+idEstadoProyecto: 1
+nombre: "Pendiente"
+fechaAlta: "2020-06-30"
+fechacontrato: "2020-06-23"
+idProyecto: 1
+nombre: "Proyecto Consorcio"
+nrocontrato: 0
+observaciones: ""
+precio: 1500000
+razonSocial: null
+terreno: {idTerreno: 1, nombre: "La baxada"}
+idTerreno: 1
+nombre: "La baxada"
+usuario: {idUsuario: 1, nombre: "User"}
+idUsuario: 1
+nombre: "User"
+1: {idProyecto: 2, nombre: "Vivienda familiar.", apellido: null, razonSocial: null,…}
+2: {idProyecto: 3, nombre: "Viviendas APV", apellido: null, razonSocial: null,…}
+
+
+[{idProyecto: 1, nombre: "Proyecto Consorcio", apellido: null, razonSocial: null, alias: 'PC-Listado', 
+    cliente: {idAgente: 1, nombre: "Federico", apellido: "Schenone", razonsocial: null}, 
+    estado: {idEstadoProyecto: 1, nombre: "Pendiente"}, 
+    fechaAlta: "2020-06-30", fechacontrato: "2020-06-23", idProyecto: 1, nombre: "Proyecto Consorcio", nrocontrato: 0, observaciones: "", precio: 1500000, razonSocial: null
+    terreno: {idTerreno: 1, nombre: "La baxada"},
+    usuario: {idUsuario: 1, nombre: "User"}
+}, {...}, {...}]

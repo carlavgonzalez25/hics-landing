@@ -1,0 +1,23 @@
+[
+  {
+    "name": "529 NW 19th Ter, Cape Coral, FL 33993",
+    "city": "Cape Coral, FL 33993",
+    "area": "10,018 sqft",
+    "attributes": { "canal": true, "services": true, "floodable": true, "vegetation": false },
+    "id": "1"
+  },
+  {
+    "name": "2014 NW 21st St, Cape Coral, 33993",
+    "city": "Cape Coral, FL 33993",
+    "area": "0,018 swft",
+    "attributes": { "canal": true, "services": true, "floodable": false, "vegetation": false },
+    "id": "2"
+  },
+  {
+    "name": "919 nw 12th Ave",
+    "city": "Miami, USA",
+    "area": "0,018 swft",
+    "attributes": { "canal": false, "services": false, "floodable": false, "vegetation": false },
+    "id": "3"
+  }
+]

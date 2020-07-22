@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Header from './Components/Header'
 import Steps from './Components/Steps'
 import ModelSelection from './Sections/ModelSelection'
 import DataEntry from './Sections/DataEntry'
+import LandSelection from './Sections/LandSelection'
 import { Grid, Button, Typography } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core'
@@ -11,6 +12,7 @@ const useStyles = makeStyles((theme) => ({
   root: {
     padding: '0 1rem 3rem 1rem',
     background: '#f5f5f5',
+    minHeight: '100vh',
   },
   sectionContainer: {
     maxWidth: '1440px',
@@ -36,8 +38,9 @@ const Panel = () => {
   const [activeStep, setActiveStep] = useState(0)
   const [completed, setCompleted] = useState({})
   const [selectedModel, setSelectedModel] = useState('')
+  //const [data, setData] = useState('')
 
-  const steps = [t('steps.first'), t('steps.second'), t('steps.third')]
+  const steps = [t('steps.first'), t('steps.second'), t('steps.third'), t('steps.fourth')]
 
   //----------------------------
 
@@ -65,15 +68,12 @@ const Panel = () => {
 
   const handleComplete = () => {
     //Validar en cada etapa si se completo o no
+    // la validacion la hace cada componente / etapa
 
-    if (activeStep === 0) {
-      // Etapa de seleccion de modelo. Debe haber uno seleccionado
-
-      setCompleted((prevCompleted) => ({
-        ...prevCompleted,
-        [activeStep]: true,
-      }))
-    }
+    setCompleted((prevCompleted) => ({
+      ...prevCompleted,
+      [activeStep]: true,
+    }))
   }
 
   const handleReset = () => {
@@ -104,7 +104,8 @@ const Panel = () => {
             // el activeStep == 1 debe redirigir al configurador.
           }
 
-          {activeStep === 1 && <DataEntry />}
+          {activeStep === 1 && <LandSelection handleComplete={handleComplete} />}
+          {activeStep === 2 && <DataEntry />}
         </Grid>
         <Grid>
           {allStepsCompleted() ? (

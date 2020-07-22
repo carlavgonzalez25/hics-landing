@@ -1,9 +1,15 @@
 import React from 'react'
-import { Grid, Paper } from '@material-ui/core'
+import { Grid, Paper, Button, Typography } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core/styles'
+import WcIcon from '@material-ui/icons/Wc'
+import RestaurantIcon from '@material-ui/icons/Restaurant'
+import HotelOutlinedIcon from '@material-ui/icons/HotelOutlined'
+//import RemoveFromQueueOutlinedIcon from '@material-ui/icons/RemoveFromQueueOutlined'
+import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined'
+
 //import PropTypes from 'prop-types'
 
-const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete, selectedModel }) => {
+const CardModelo = ({ img, name, rooms, id, livingArea, totalArea, handleModel, handleComplete, selectedModel }) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       width: '370px',
@@ -47,14 +53,50 @@ const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete, selecte
       marginTop: '1rem',
       alignItems: 'center',
     },
+    areaContainer: {
+      alignItems: 'flex-end',
+    },
     quantity: {},
+    selectButton: {
+      marginLeft: 'auto',
+      padding: '0.25rem 1.5rem',
+    },
   }))
 
   const classes = useStyles()
 
-  const handleClick = (id) => {
+  const handleSelect = (id) => {
     handleModel(id)
     handleComplete()
+  }
+
+  const handleClick = (id) => {
+    /*
+    hacer el request para este modelo en particular
+    Mostrar vista de modelo 
+    */
+  }
+
+  const returnIcon = (room) => {
+    let icon
+    switch (room) {
+      case 'Bedroom':
+        icon = <HotelOutlinedIcon />
+        break
+      case 'Bathroom':
+        icon = <WcIcon />
+        break
+      case 'Kitchen':
+        icon = <RestaurantIcon />
+        break
+      case 'Garage':
+        icon = <DriveEtaOutlinedIcon />
+        break
+      default:
+        icon = room
+        break
+    }
+    return icon
   }
 
   return (
@@ -65,17 +107,34 @@ const CardModelo = ({ img, name, rooms, id, handleModel, handleComplete, selecte
     >
       <Grid item className={classes.imgContainer} />
       <Grid item className={classes.dataContainer}>
-        <Grid>{name}</Grid>
-        <ul className={classes.list}>
-          <Grid container>
-            {rooms.map((e) => (
-              <li className={classes.roomContainer} key={e.idAmbiente}>
-                <span>{e.nombre}</span>
-                <span className={classes.quantity}>{e.cantidad}</span>
-              </li>
-            ))}
+        <Typography variant="subtitle">{name}</Typography>
+        <Grid container>
+          {rooms.map((e) => (
+            <Grid item className={classes.roomContainer} key={e.idAmbiente}>
+              {returnIcon(e.AmbienteNombre)}
+              <span className={classes.quantity}>{e.cantAmbientes}</span>
+            </Grid>
+          ))}
+        </Grid>
+        <Grid container direction="row" className={classes.areaContainer}>
+          <Grid item className={classes.roomContainer} key="15">
+            totalArea
+            <span className={classes.quantity}>{totalArea}</span>
           </Grid>
-        </ul>
+          <Grid item className={classes.roomContainer} key="16">
+            livingArea
+            <span className={classes.quantity}>{livingArea}</span>
+          </Grid>
+          <Button
+            size="small"
+            variant="contained"
+            color="primary"
+            className={classes.selectButton}
+            onClick={() => handleSelect(id)}
+          >
+            Select
+          </Button>
+        </Grid>
       </Grid>
     </Paper>
   )

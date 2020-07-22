@@ -1,114 +1,67 @@
-{
-  "Modelo": [
-    {
-      "idModelo": 0,
-      "nombre": "Modelo parana",
-      "archivo": "url",
-      "ambiente": [
-        {
-          "idAmbiente": 0,
-          "nombre": "Bathroom",
-          "cantidad": "2"
-        },
-        {
-          "idAmbiente": 1,
-          "nombre": "Bedroom",
-          "cantidad": "3"
-        },
-        {
-          "idAmbiente": 2,
-          "nombre": "Kitchen",
-          "cantidad": "1"
-        }
-      ]
-    },
-    {
-      "idModelo": 1,
-      "nombre": "Modelo Santa Fe",
-      "archivo": "url",
-      "ambiente": [
-        {
-          "idAmbiente": 0,
-          "nombre": "Bathroom",
-          "cantidad": "1"
-        },
-        {
-          "idAmbiente": 1,
-          "nombre": "Bedroom",
-          "cantidad": "2"
-        },
-        {
-          "idAmbiente": 2,
-          "nombre": "Kitchen",
-          "cantidad": "1"
-        }
-      ]
-    },
-    {
-      "idModelo": 2,
-      "nombre": "Modelo Cape Coral",
-      "archivo": "url",
-      "ambiente": [
-        {
-          "idAmbiente": 0,
-          "nombre": "Bathroom",
-          "cantidad": "1"
-        },
-        {
-          "idAmbiente": 1,
-          "nombre": "Bedroom",
-          "cantidad": "3"
-        },
-        {
-          "idAmbiente": 2,
-          "nombre": "Kitchen",
-          "cantidad": "2"
-        }
-      ]
-    },
-    {
-      "idModelo": 3,
-      "nombre": "Modelo Santa Fe",
-      "archivo": "url",
-      "ambiente": [
-        {
-          "idAmbiente": 0,
-          "nombre": "Bathroom",
-          "cantidad": "1"
-        },
-        {
-          "idAmbiente": 1,
-          "nombre": "Bedroom",
-          "cantidad": "2"
-        },
-        {
-          "idAmbiente": 2,
-          "nombre": "Kitchen",
-          "cantidad": "1"
-        }
-      ]
-    },
-    {
-      "idModelo": 4,
-      "nombre": "Modelo Santa Fe",
-      "archivo": "url",
-      "ambiente": [
-        {
-          "idAmbiente": 0,
-          "nombre": "Bathroom",
-          "cantidad": "1"
-        },
-        {
-          "idAmbiente": 1,
-          "nombre": "Bedroom",
-          "cantidad": "2"
-        },
-        {
-          "idAmbiente": 2,
-          "nombre": "Kitchen",
-          "cantidad": "1"
-        }
-      ]
-    }
-  ]
-}
+[
+  {
+    "idModelo": 1,
+    "nombre": "Miami FLorida",
+    "plano": "localhost:8000/store/imagenes/mansion.jpg",
+    "ambientes": [
+      {
+        "idAmbiente": 1,
+        "AmbienteNombre": "Bedroom",
+        "cantAmbientes": 2
+      },
+      {
+        "idAmbiente": 8,
+        "AmbienteNombre": "Bathroom",
+        "cantAmbientes": 2
+      },
+      {
+        "idAmbiente": 6,
+        "AmbienteNombre": "Kitchen",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 7,
+        "AmbienteNombre": "Laundry",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 5,
+        "AmbienteNombre": "Garage",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 2,
+        "AmbienteNombre": "Foyer",
+        "cantAmbientes": 1
+      }
+    ],
+    "fechaAlta": "2020-06-26",
+    "livingArea": 248.5,
+    "totalArea": 256.3
+  },
+  {
+    "idModelo": 2,
+    "nombre": "Parana",
+    "plano": "localhost:8000/store/imagenes/mansion.jpg",
+    "ambientes": [
+      {
+        "idAmbiente": 1,
+        "AmbienteNombre": "Bedroom",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 6,
+        "AmbienteNombre": "Kitchen",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 7,
+        "AmbienteNombre": "Laundry",
+        "cantAmbientes": 1
+      }
+    ],
+    "fechaAlta": "2020-06-26",
+    "livingArea": 281.5,
+    "totalArea": 222.3
+  }
+]

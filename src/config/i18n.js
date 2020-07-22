@@ -50,7 +50,8 @@ export default {
         steps: {
           first: 'Select model',
           second: 'Configure',
-          third: 'Data Entry',
+          third: 'Land Selection',
+          fourth: 'Data Entry',
         },
         dataEntry: {
           client: 'Select Client',
@@ -74,6 +75,13 @@ export default {
           back: 'Back',
           save: 'Guardar',
           add: 'Add',
+        },
+        land: {
+          title: 'Land',
+          name: 'Name',
+          city: 'City',
+          area: 'Area',
+          attributes: 'Attributes',
         },
       },
     },
@@ -127,7 +135,8 @@ export default {
         steps: {
           first: 'Selección de modelo',
           second: 'Personalización',
-          third: 'Carga de datos',
+          third: 'Land Selection',
+          fourth: 'Data Entry',
         },
         dataEntry: {
           client: 'Selecccione un cliente',
@@ -151,6 +160,13 @@ export default {
           back: 'Anterior',
           save: 'Guardar',
           add: 'Agregar',
+        },
+        land: {
+          title: 'Terrenos',
+          name: 'Nombre',
+          city: 'Ciudad',
+          area: 'Superficie',
+          attributes: 'Atributos',
         },
       },
     },
