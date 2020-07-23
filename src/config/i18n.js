@@ -42,6 +42,7 @@ export default {
           edit: 'Edit',
           add: 'Add',
           collapse: 'Collapse',
+          remove: 'Remove',
         },
         header: {
           title: 'HICS VYDA CAPITAL ADMIN PANEL',
@@ -99,6 +100,7 @@ export default {
           edit: 'Editar',
           add: 'Nuevo',
           collapse: 'Colapsar',
+          remove: 'Eliminar',
         },
         header: {
           title: 'HICS VYDA CAPITAL ADMIN PANEL',

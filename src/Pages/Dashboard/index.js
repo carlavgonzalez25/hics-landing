@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, Fragment } from 'react'
 import LeftMenu from './Components/LeftMenu'
 import Header from './Components/Header'
 import Projects from './Sections/Projects'
@@ -11,11 +11,6 @@ import { makeStyles } from '@material-ui/core'
 const useStyles = makeStyles((theme) => ({
   container: {
     flexWrap: 'nowrap',
-  },
-  sectionContainer: {
-    display: 'flex',
-    flex: 'auto',
-    padding: '1rem',
   },
 }))
 
@@ -33,11 +28,11 @@ const Dashboard = () => {
       <Header />
       <Grid container className={classes.container}>
         <LeftMenu changeSection={changeSection} />
-        <Grid item className={classes.sectionContainer}>
+        <Fragment item className={classes.sectionContainer}>
           {section === 'home' && <Home />}
           {section === 'models' && <Models />}
           {section === 'projects' && <Projects />}
-        </Grid>
+        </Fragment>
       </Grid>
 
       {/*      <Router>

@@ -18,7 +18,7 @@ const useStyles = makeStyles(() => ({
   },
 }))
 
-const SectionHeader = ({ title }) => {
+const SectionHeader = ({ title, isEditable, isRemovable }) => {
   const { t } = useTranslation()
   const classes = useStyles()
 
@@ -29,8 +29,14 @@ const SectionHeader = ({ title }) => {
       </Typography>
       <Grid item className={classes.buttonContainer}>
         <Button startIcon={<AddCircleOutlineOutlinedIcon />}> {t('buttons.add')} </Button>
-        <Button startIcon={<EditOutlinedIcon />}> {t('buttons.edit')} </Button>
-        <Button startIcon={<DeleteOutlinedIcon />}> {t('buttons.remove')} </Button>
+        <Button startIcon={<EditOutlinedIcon />} disabled={!isEditable}>
+          {' '}
+          {t('buttons.edit')}{' '}
+        </Button>
+        <Button startIcon={<DeleteOutlinedIcon />} disabled={!isRemovable}>
+          {' '}
+          {t('buttons.remove')}{' '}
+        </Button>
       </Grid>
     </Grid>
   )

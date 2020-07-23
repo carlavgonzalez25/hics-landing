@@ -12,7 +12,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     position: 'relative',
     width: '100%',
-    minHeight: 'calc(100vh - 66px)',
+    height: 'calc(100vh - 70px)',
+    overflowY: 'auto',
+    padding: '1rem',
   },
 }))
 
@@ -20,11 +22,22 @@ const Projects = () => {
   const [checked, setChecked] = useState({})
   const [pagination, setPagination] = useState({ offset: 0, data: [], perPage: 10, currentPage: 0 })
   const [data, setData] = useState([])
+  const [isEditable, setIsEditable] = useState(false)
+  const [isRemovable, setIsRemovable] = useState(false)
 
   useEffect(() => {
     recieveData()
     data.map((e) => {})
   }, [])
+
+  useEffect(() => {
+    let aux = 0
+    Object.keys(checked).map((e) => {
+      checked[e] === true && aux++
+    })
+    aux === 1 ? setIsEditable(true) : setIsEditable(false)
+    aux >= 1 ? setIsRemovable(true) : setIsRemovable(false)
+  })
 
   const handleCheckbox = (data) => {
     console.log('data ' + data)
@@ -60,8 +73,8 @@ const Projects = () => {
   const { t } = useTranslation()
 
   return (
-    <Grid container direction="column" className={classes.root}>
-      <SectionHeader title={t('sections.projects')} />
+    <Grid container direction="row" className={classes.root}>
+      <SectionHeader title={t('sections.projects')} isEditable={isEditable} isRemovable={isRemovable} />
       <ProjectCard
         name="Proyecto"
         client="Cliente"
