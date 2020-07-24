@@ -15,6 +15,7 @@ import InboxIcon from '@material-ui/icons/MoveToInbox'
 import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import Check from '@material-ui/icons/Check'
+import AmbientSelector from '../Components/AmbientSelector'
 
 const modeloEjemplo = {
   idModelo: 1,
@@ -22,7 +23,7 @@ const modeloEjemplo = {
   ambientes: [
     {
       idAmbiente: 1,
-      nombre: 'Cocina',
+      nombre: 'Bedroom',
       terminaciones: [
         {
           id: 28,
@@ -74,7 +75,16 @@ const modeloEjemplo = {
         },
       ],
     },
+    {
+      idAmbiente: 5,
+      nombre: 'Bathroom',
+      terminaciones: [],
+    },
   ],
+  idModelo: 2,
+  nombre: 'Modelo Alaska',
+  livingArea: null,
+  totalArea: null,
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -161,9 +171,8 @@ const ConfigurationSection = (props) => {
         style={{
           backgroundImage: `url(${image})`,
         }}
-      >
-        {/* <img src={image} /> */}
-      </div>
+      ></div>
+      {!isEmpty(model) && <AmbientSelector ambientes={model.ambientes.map((amb) => amb.nombre)} />}
     </>
   )
 }
