@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Landing from './Pages/Landing'
 import Login from './Pages/Login'
 import Panel from './Pages/Panel'
+import Dashboard from './Pages/Dashboard'
 
 const App = () => {
   return (
@@ -11,6 +12,7 @@ const App = () => {
       <Route exact path="/" component={Landing} />
       <Route path="/login" component={Login} />
       <Route path="/panel" component={Panel} />
+      <Route path="/Dashboard" component={Dashboard} />
       {/* </Layout> */}
     </Router>
   )
