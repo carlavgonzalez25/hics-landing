@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Header from './Components/Header'
 import Steps from './Components/Steps'
 import ModelSelection from './Sections/ModelSelection'
+import ConfigurationSection from './Sections/Configuration'
 import DataEntry from './Sections/DataEntry'
 import LandSelection from './Sections/LandSelection'
 import { Grid, Button, Typography } from '@material-ui/core'
@@ -105,12 +106,15 @@ const Panel = () => {
             />
           )}
 
-          {
-            // el activeStep == 1 debe redirigir al configurador.
-          }
-
           {activeStep === 1 && <LandSelection handleComplete={handleComplete} />}
-          {activeStep === 2 && <DataEntry />}
+          {activeStep === 2 && (
+            <ConfigurationSection
+              handleModel={handleModel}
+              handleComplete={handleComplete}
+              selectedModel={selectedModel}
+            />
+          )}
+          {activeStep === 3 && <DataEntry />}
         </Grid>
         <Grid>
           {allStepsCompleted() ? (
