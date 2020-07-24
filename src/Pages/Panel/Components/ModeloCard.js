@@ -9,11 +9,22 @@ import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined'
 
 //import PropTypes from 'prop-types'
 
-const CardModelo = ({ img, name, rooms, id, livingArea, totalArea, handleModel, handleComplete, selectedModel }) => {
+const ModeloCard = ({
+  img,
+  name,
+  rooms,
+  id,
+  livingArea,
+  totalArea,
+  handleModel,
+  handleComplete,
+  selectedModel,
+  showSingleView,
+  handleNext,
+}) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       width: '370px',
-      height: '400px',
       margin: '0.5rem',
       [theme.breakpoints.up('lg')]: {
         margin: '0.5rem 0.7rem',
@@ -33,11 +44,14 @@ const CardModelo = ({ img, name, rooms, id, livingArea, totalArea, handleModel, 
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       width: '100%',
-      height: '250px',
+      height: '270px',
       background: 'grey',
+      '&:hover': {
+        cursor: 'pointer',
+      },
     },
     dataContainer: {
-      height: '150px',
+      height: '193px',
       width: '100%',
       padding: '1rem 1.2rem',
     },
@@ -68,9 +82,11 @@ const CardModelo = ({ img, name, rooms, id, livingArea, totalArea, handleModel, 
   const handleSelect = (id) => {
     handleModel(id)
     handleComplete()
+    handleNext()
   }
 
   const handleClick = (id) => {
+    showSingleView(true, id)
     /*
     hacer el request para este modelo en particular
     Mostrar vista de modelo 
@@ -100,14 +116,10 @@ const CardModelo = ({ img, name, rooms, id, livingArea, totalArea, handleModel, 
   }
 
   return (
-    <Paper
-      container
-      className={classes.root + ' ' + (selectedModel === id && classes.selected)}
-      onClick={() => handleClick(id)}
-    >
-      <Grid item className={classes.imgContainer} />
+    <Paper className={classes.root + ' ' + (selectedModel === id && classes.selected)}>
+      <Grid item className={classes.imgContainer} onClick={() => handleClick(id)} />
       <Grid item className={classes.dataContainer}>
-        <Typography variant="subtitle">{name}</Typography>
+        <Typography variant="subtitle2">{name}</Typography>
         <Grid container>
           {rooms.map((e) => (
             <Grid item className={classes.roomContainer} key={e.idAmbiente}>
@@ -118,11 +130,11 @@ const CardModelo = ({ img, name, rooms, id, livingArea, totalArea, handleModel, 
         </Grid>
         <Grid container direction="row" className={classes.areaContainer}>
           <Grid item className={classes.roomContainer} key="15">
-            totalArea
+            Total Area
             <span className={classes.quantity}>{totalArea}</span>
           </Grid>
           <Grid item className={classes.roomContainer} key="16">
-            livingArea
+            Living Area
             <span className={classes.quantity}>{livingArea}</span>
           </Grid>
           <Button
@@ -140,4 +152,4 @@ const CardModelo = ({ img, name, rooms, id, livingArea, totalArea, handleModel, 
   )
 }
 
-export default CardModelo
+export default ModeloCard

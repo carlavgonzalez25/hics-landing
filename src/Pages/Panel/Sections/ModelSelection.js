@@ -1,11 +1,15 @@
 import React, { Fragment, useEffect, useState } from 'react'
 import models from 'config/models'
-import CardModelo from '../Components/CardModelo'
+import ModeloCard from '../Components/ModeloCard'
+
+import ModelSingle from '../Components/ModelSingle'
 
 const ModelSelection = (props) => {
   const [data, setData] = useState([])
   const [isLoaded, setIsLoaded] = useState(false)
   const [error, setError] = useState(null)
+  const [isViewingModel, setIsViewingModel] = useState({ id: null, visible: false })
+  const [singleData, setSingleData] = useState({})
 
   useEffect(() => {
     fetch('http://52.14.23.178/api/getModelos')
@@ -21,25 +25,51 @@ const ModelSelection = (props) => {
           setError(error)
         }
       )
+    //setData(models)
+    //setIsLoaded(true)
   }, [])
+
+  const showSingleView = (visible, id) => {
+    console.log(id)
+    setIsViewingModel({ visible: visible, id: id })
+  }
 
   return (
     <Fragment>
       {isLoaded ? (
-        data.map((e) => (
-          <Fragment>
-            <CardModelo
-              key={e.idModelo}
-              name={e.nombre}
-              rooms={e.ambientes}
-              id={e.idModelo}
-              img={e.archivo}
-              livingArea={e.livingArea}
-              totalArea={e.totalArea}
-              {...props}
-            />
-          </Fragment>
-        ))
+        isViewingModel.visible ? (
+          data.map(
+            (e) =>
+              e.idModelo === isViewingModel.id && (
+                <ModelSingle
+                  name={e.nombre}
+                  rooms={e.ambientes}
+                  id={e.idModelo}
+                  img={e.archivo}
+                  livingArea={e.livingArea}
+                  totalArea={e.totalArea}
+                  showSingleView={showSingleView}
+                  {...props}
+                />
+              )
+          )
+        ) : (
+          data.map((e) => (
+            <Fragment>
+              <ModeloCard
+                key={e.idModelo}
+                name={e.nombre}
+                rooms={e.ambientes}
+                id={e.idModelo}
+                img={e.archivo}
+                livingArea={e.livingArea}
+                totalArea={e.totalArea}
+                showSingleView={showSingleView}
+                {...props}
+              />
+            </Fragment>
+          ))
+        )
       ) : (
         <h1> CARGANDO...</h1>
       )}

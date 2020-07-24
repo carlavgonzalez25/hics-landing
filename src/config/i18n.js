@@ -73,8 +73,9 @@ export default {
         buttons: {
           next: 'Next',
           back: 'Back',
-          save: 'Guardar',
+          save: 'Save',
           add: 'Add',
+          select: 'Select',
         },
         land: {
           title: 'Land',
@@ -160,6 +161,7 @@ export default {
           back: 'Anterior',
           save: 'Guardar',
           add: 'Agregar',
+          select: 'Seleccionar',
         },
         land: {
           title: 'Terrenos',

@@ -58,6 +58,8 @@ const Panel = () => {
 
   const handleNext = () => {
     //Solo me deja avanzar si el step actual fue completado y si no estoy en el ultimo step
+    console.log(completed)
+    console.log(completed.hasOwnProperty(activeStep))
 
     if (completed.hasOwnProperty(activeStep) && !isLastStep()) setActiveStep(activeStep + 1)
   }
@@ -67,13 +69,11 @@ const Panel = () => {
   }
 
   const handleComplete = () => {
-    //Validar en cada etapa si se completo o no
-    // la validacion la hace cada componente / etapa
-
     setCompleted((prevCompleted) => ({
       ...prevCompleted,
       [activeStep]: true,
     }))
+    console.log(activeStep)
   }
 
   const handleReset = () => {
@@ -97,7 +97,12 @@ const Panel = () => {
         <Steps steps={steps} isStepComplete={isStepComplete} activeStep={activeStep} />
         <Grid container className={classes.cardContainer}>
           {activeStep === 0 && (
-            <ModelSelection handleModel={handleModel} handleComplete={handleComplete} selectedModel={selectedModel} />
+            <ModelSelection
+              handleModel={handleModel}
+              handleComplete={handleComplete}
+              selectedModel={selectedModel}
+              handleNext={handleNext}
+            />
           )}
 
           {

@@ -63,5 +63,70 @@
     "fechaAlta": "2020-06-26",
     "livingArea": 281.5,
     "totalArea": 222.3
+  },
+  {
+    "idModelo": 1,
+    "nombre": "Miami FLorida",
+    "plano": "localhost:8000/store/imagenes/mansion.jpg",
+    "ambientes": [
+      {
+        "idAmbiente": 1,
+        "AmbienteNombre": "Bedroom",
+        "cantAmbientes": 2
+      },
+      {
+        "idAmbiente": 8,
+        "AmbienteNombre": "Bathroom",
+        "cantAmbientes": 2
+      },
+      {
+        "idAmbiente": 6,
+        "AmbienteNombre": "Kitchen",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 7,
+        "AmbienteNombre": "Laundry",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 5,
+        "AmbienteNombre": "Garage",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 2,
+        "AmbienteNombre": "Foyer",
+        "cantAmbientes": 1
+      }
+    ],
+    "fechaAlta": "2020-06-26",
+    "livingArea": 248.5,
+    "totalArea": 256.3
+  },
+  {
+    "idModelo": 2,
+    "nombre": "Parana",
+    "plano": "localhost:8000/store/imagenes/mansion.jpg",
+    "ambientes": [
+      {
+        "idAmbiente": 1,
+        "AmbienteNombre": "Bedroom",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 6,
+        "AmbienteNombre": "Kitchen",
+        "cantAmbientes": 1
+      },
+      {
+        "idAmbiente": 7,
+        "AmbienteNombre": "Laundry",
+        "cantAmbientes": 1
+      }
+    ],
+    "fechaAlta": "2020-06-26",
+    "livingArea": 281.5,
+    "totalArea": 222.3
   }
 ]
