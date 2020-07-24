@@ -124,6 +124,7 @@ const ConfigurationSection = (props) => {
     axios.get(`/${selectedModel}`).catch((e) => {
       setModel(addSelected(modeloEjemplo))
     })
+    handleComplete()
   }, [])
 
   const handleChangeOption = (amb_i, term_i, idOpcion, foto) => {
