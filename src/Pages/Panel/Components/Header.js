@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { makeStyles, Grid, Button } from '@material-ui/core'
 //import Search from './Search'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next'
+import { Redirect } from 'react-router-dom'
 
 import { language_en, language_sp } from 'img'
 
@@ -34,6 +35,15 @@ const Header = () => {
   const classes = useStyles()
   const { t } = useTranslation()
   const changeLanguage = (lan) => i18n.changeLanguage(lan)
+  const [exit, setExit] = useState()
+
+  useEffect(() => {
+    setExit(false)
+  }, [])
+
+  const goToPanel = () => {
+    setExit(true)
+  }
 
   return (
     <Grid className={classes.root}>
@@ -48,6 +58,10 @@ const Header = () => {
         <Button onClick={() => changeLanguage('en')} size="small">
           <img src={language_en} alt="english language selector" />
         </Button>
+        <Button onClick={goToPanel} size="small">
+          {t('buttons.back')}
+        </Button>
+        {exit && <Redirect to="/dashboard" />}
       </Grid>
     </Grid>
   )

@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Dashboard = () => {
-  const [section, setSection] = useState('projects')
+  const [section, setSection] = useState('home')
 
   const classes = useStyles()
 
@@ -34,12 +34,6 @@ const Dashboard = () => {
           {section === 'projects' && <Projects />}
         </Fragment>
       </Grid>
-
-      {/*      <Router>
-        <Route path="/projects" component={Projects} />
-        <Route path="/models" component={Models} />
-      </Router>
-      */}
     </Grid>
   )
 }

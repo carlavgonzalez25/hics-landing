@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, Fragment } from 'react'
 import {
   Typography,
   TextField,
-  // FormControl,
+  FormControlLabel,
   //Select,
   // MenuItem,
   Button,
@@ -14,6 +14,9 @@ import {
 //import AddClientForm from '../Components/AddClientForm'
 import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core'
+import axios from 'axios'
+import Radio from '@material-ui/core/Radio'
+import RadioGroup from '@material-ui/core/RadioGroup'
 
 //import users from 'config/users'
 
@@ -48,6 +51,10 @@ const useStyles = makeStyles((theme) => ({
       },
     },
   },
+  radioGroup: {
+    display: 'flex',
+    flexDirection: 'row',
+  },
   paragraph: {
     marginRight: '1rem',
   },
@@ -65,7 +72,9 @@ const DataEntry = () => {
   // const [clientList, setClientList] = useState('')
   const [projectInfo, setProjectInfo] = useState({})
   // const [viewClientForm, setViewClientForm] = useState(false)
-  const [clientInfo, setClientInfo] = useState('')
+  const [clientInfo, setClientInfo] = useState({})
+  const [companyInfo, setCompanyInfo] = useState({})
+  const [selectedValue, setSelectedValue] = useState('')
 
   const classes = useStyles()
 
@@ -102,10 +111,51 @@ const DataEntry = () => {
     let key = e.target.name
     let value = e.target.value
 
-    setClientInfo((prevInfo) => ({
-      ...prevInfo,
-      [key]: value,
-    }))
+    selectedValue === '1' &&
+      setClientInfo((prevInfo) => ({
+        ...prevInfo,
+        [key]: value,
+      }))
+
+    selectedValue === '2' &&
+      setCompanyInfo((prevInfo) => ({
+        ...prevInfo,
+        [key]: value,
+      }))
+  }
+
+  const handleRadioChange = (e) => {
+    setSelectedValue(e.target.value)
+  }
+
+  const saveClient = (e) => {
+    e.preventDefault()
+
+    selectedValue === '1' &&
+      axios
+        .post('http://52.14.23.178/api/saveCliente', {
+          idTipoAgente: 1,
+          ...clientInfo,
+        })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
+
+    selectedValue === '2' &&
+      axios
+        .post('http://52.14.23.178/api/saveCliente', {
+          idTipoAgente: 2,
+          ...companyInfo,
+        })
+        .then(function (response) {
+          console.log(response)
+        })
+        .catch(function (error) {
+          console.log(error)
+        })
   }
 
   return (
@@ -116,61 +166,87 @@ const DataEntry = () => {
             <Typography variant="h6" className={classes.mb}>
               {t('dataEntry.client')}
             </Typography>
-
-            {/*<FormControl className={classes.formControl}>
-              <Select value={/*selectedClient} onChange={handleClientChange}>
-                {Object.keys(clientList).map((e) => (
-                  <MenuItem value={clientList[e].id}>{clientList[e].name}</MenuItem>
-                ))}
-                </Select>
-            </FormControl>*/}
             <form className={classes.clientForm}>
+              {
+                <RadioGroup
+                  aria-label="Select type of client"
+                  name="Select"
+                  value={selectedValue}
+                  onChange={handleRadioChange}
+                  className={classes.radioGroup}
+                >
+                  <FormControlLabel value="1" control={<Radio color="primary" />} label="Persona Física" />
+                  <FormControlLabel value="2" control={<Radio color="primary" />} label="Persona Jurídica" />
+                </RadioGroup>
+              }
+
               <Grid container direction="column">
-                <TextField
-                  className={classes.mb}
-                  value={clientInfo.name}
-                  onChange={handleClientInputs}
-                  name="Name"
-                  variant="outlined"
-                  label={t('dataEntry.name')}
-                />
-                <TextField
-                  className={classes.mb}
-                  value={clientInfo.lastname}
-                  onChange={handleClientInputs}
-                  name="Reference"
-                  variant="outlined"
-                  label={t('dataEntry.reference')}
-                />
-                <TextField
-                  className={classes.mb}
-                  value={clientInfo.mail}
-                  onChange={handleClientInputs}
-                  name="observations"
-                  variant="outlined"
-                  label={t('dataEntry.observations')}
-                />
+                {selectedValue === '1' && (
+                  <Fragment>
+                    <TextField
+                      className={classes.mb}
+                      value={clientInfo.nombre}
+                      onChange={handleClientInputs}
+                      name="nombre"
+                      variant="outlined"
+                      label={t('dataEntry.name')}
+                      required
+                    />
+                    <TextField
+                      className={classes.mb}
+                      value={clientInfo.apellido}
+                      onChange={handleClientInputs}
+                      name="apellido"
+                      variant="outlined"
+                      label={t('dataEntry.lastname')}
+                      required
+                    />
+                    <TextField
+                      className={classes.mb}
+                      value={clientInfo.referencia}
+                      onChange={handleClientInputs}
+                      name="referencia"
+                      variant="outlined"
+                      label={t('dataEntry.reference')}
+                    />
+                    <TextField
+                      className={classes.mb}
+                      value={clientInfo.observaciones}
+                      onChange={handleClientInputs}
+                      name="observaciones"
+                      variant="outlined"
+                      label={t('dataEntry.observations')}
+                    />
+                  </Fragment>
+                )}
+                {selectedValue === '2' && (
+                  <Fragment>
+                    <TextField
+                      className={classes.mb}
+                      value={companyInfo.razonsocial}
+                      onChange={handleClientInputs}
+                      name="razonsocial"
+                      variant="outlined"
+                      label={t('dataEntry.company')}
+                      required
+                    />
+                    <TextField
+                      className={classes.mb}
+                      value={companyInfo.observaciones}
+                      onChange={handleClientInputs}
+                      name="observaciones"
+                      variant="outlined"
+                      label={t('dataEntry.observations')}
+                    />
+                  </Fragment>
+                )}
               </Grid>
+              <Button type="submit" variant="contained" color="primary" onClick={saveClient}>
+                {' '}
+                {t('buttons.save')}
+              </Button>
             </form>
           </Grid>
-
-          {/*selectedClient !== '' && (
-            <Grid item className={classes.clientInfo}>
-              <Typography>{t('dataEntry.clientInfo')}</Typography>
-              <ul>
-                <li>
-                  <span>{t('dataEntry.id')} </span>
-                  <span>{clientList[selectedClient].name}</span>
-                </li>
-                <li>
-                  <span>{t('dataEntry.location')} </span>
-                  <span>{clientList[selectedClient].address}</span>
-                  <span>{clientList[selectedClient].country}</span>
-                  <span>{clientList[selectedClient].city}</span>
-                </li>
-              </ul>
-            </Grid>
-          )*/}
         </Paper>
 
         <Grid item className={classes.projectData}>

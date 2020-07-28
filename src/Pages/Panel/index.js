@@ -106,14 +106,14 @@ const Panel = () => {
             />
           )}
 
-          {activeStep === 1 && <LandSelection handleComplete={handleComplete} />}
-          {activeStep === 2 && (
+          {activeStep === 1 && (
             <ConfigurationSection
               handleModel={handleModel}
               handleComplete={handleComplete}
               selectedModel={selectedModel}
             />
           )}
+          {activeStep === 2 && <LandSelection handleComplete={handleComplete} />}
           {activeStep === 3 && <DataEntry />}
         </Grid>
         <Grid>

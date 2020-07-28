@@ -70,7 +70,7 @@ const ProjectCard = ({ name, user, client, id, title, handleCheckbox, checked })
   ) : (
     <Grid container className={classes.root + ' ' + classes.hover}>
       <Checkbox color="primary" onChange={handleChange} id={id} checked={checked} />
-      <Grid item className={classes.items + ' ' + classes.project} onClick={() => handleClick(id)}>
+      <Grid item className={classes.items + ' ' + classes.project} onClick={!title && (() => handleClick(id))}>
         {name}
       </Grid>
       <Grid item className={classes.items + ' ' + classes.user} onClick={() => handleClick(user.id)}>

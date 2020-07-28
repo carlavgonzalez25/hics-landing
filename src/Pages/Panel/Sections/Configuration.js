@@ -15,6 +15,7 @@ import ExpandLess from '@material-ui/icons/ExpandLess'
 import ExpandMore from '@material-ui/icons/ExpandMore'
 import Check from '@material-ui/icons/Check'
 import AmbientSelector from '../Components/AmbientSelector'
+import { Grid } from '@material-ui/core'
 
 const modeloEjemplo = {
   idModelo: 1,
@@ -89,7 +90,7 @@ const modeloEjemplo = {
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    maxWidth: 360,
+    //maxWidth: 360,
     backgroundColor: theme.palette.background.paper,
   },
   nested: {
@@ -153,7 +154,7 @@ const ConfigurationSection = (props) => {
   }
 
   return (
-    <>
+    <Grid container className={classes.root}>
       <div className={classes.terminacionesSection}>
         {!isEmpty(model) &&
           model.ambientes.map((amb, amb_i) =>
@@ -173,7 +174,7 @@ const ConfigurationSection = (props) => {
         }}
       ></div>
       {!isEmpty(model) && <AmbientSelector ambientes={model.ambientes.map((amb) => amb.nombre)} />}
-    </>
+    </Grid>
   )
 }
 

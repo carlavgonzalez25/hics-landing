@@ -10,6 +10,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'relative',
     width: '100%',
     height: '100vh',
+    margin: 'auto',
   },
 }))
 
@@ -17,9 +18,9 @@ const Models = () => {
   const classes = useStyles()
 
   return (
-    <Grid container className={classes.root}>
+    <h3 container className={classes.root}>
       SECCION MODELO
-    </Grid>
+    </h3>
   )
 }
 

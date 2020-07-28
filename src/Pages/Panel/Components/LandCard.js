@@ -3,6 +3,7 @@ import { makeStyles } from '@material-ui/core/styles'
 import { Grid, Checkbox, Button } from '@material-ui/core'
 import Radio from '@material-ui/core/Radio'
 import { PropTypes } from 'prop-types'
+import Chip from '@material-ui/core/Chip'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -41,25 +42,10 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const LandCard = ({
-  name,
-  city,
-  area,
-  canal,
-  services,
-  floodable,
-  vegetation,
-  title,
-  attributes,
-  id,
-  selectedValue,
-  setSelected,
-}) => {
+const LandCard = ({ name, city, area, title, attributesTitle, id, selectedValue, setSelected, attributes }) => {
   const classes = useStyles()
 
-  const badges = (attr) => {
-    // Crear badges segun los atributos que tenga
-  }
+  const badges = (attr, value) => value === true && <Chip label={attr} color="primary" />
 
   const handleChange = (id) => {
     setSelected(id)
@@ -78,7 +64,7 @@ const LandCard = ({
         {area}
       </Grid>
       <Grid item className={`${classes.attributes} ${classes.itemsTitle}`}>
-        {attributes}
+        {attributesTitle}
       </Grid>
     </Grid>
   ) : (
@@ -101,7 +87,7 @@ const LandCard = ({
         {area}
       </Grid>
       <Grid item className={classes.items + ' ' + classes.attributes}>
-        {canal + ' ' + services + ' ' + floodable + ' ' + vegetation}
+        {Object.keys(attributes).map((e) => badges(e, attributes[e]))}
       </Grid>
     </Grid>
   )

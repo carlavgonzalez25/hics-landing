@@ -50,7 +50,7 @@ const LandSelection = ({ handleComplete }) => {
           name={t('land.name')}
           city={t('land.city')}
           area={t('land.area')}
-          attributes={t('land.attributes')}
+          attributesTitle={t('land.attributes')}
           title
         />
       </Grid>
@@ -62,7 +62,7 @@ const LandSelection = ({ handleComplete }) => {
             name={e.name}
             city={e.city}
             area={e.area}
-            {...e.attributes}
+            attributes={e.attributes}
             setSelected={setSelectedRadio}
             selectedValue={selected}
           />

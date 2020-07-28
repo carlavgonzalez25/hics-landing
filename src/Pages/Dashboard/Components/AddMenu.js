@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Grid } from '@material-ui/core'
 import { makeStyles } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@material-ui/core'
+import { Redirect } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -22,14 +23,22 @@ const useStyles = makeStyles((theme) => ({
 const AddMenu = () => {
   const classes = useStyles()
   const { t } = useTranslation()
+  const [newProject, setNewProject] = useState()
 
-  const handleClickNewProject = (e) => {}
+  useEffect(() => {
+    setNewProject(false)
+  }, [])
+
+  const handleClickNewProject = () => {
+    setNewProject(true)
+  }
 
   return (
     <Grid container direction="column" className={classes.root}>
       <ul>
         <li>
           <Button onClick={handleClickNewProject}>{t('buttons.newProject')}</Button>
+          {newProject && <Redirect to="/panel" />}
         </li>
       </ul>
     </Grid>
