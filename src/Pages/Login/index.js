@@ -35,6 +35,7 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
   },
   logoContainer: {
+    alignItems: 'center',
     marginBottom: '3rem',
     '& img': {
       marginLeft: '2rem',

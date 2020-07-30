@@ -5,43 +5,68 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { setMotive } from 'redux/actions'
 import { connect } from 'react-redux'
+import { arrow } from '../../../img'
 
 const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
   const useStyles = makeStyles((theme) => ({
     img: {
       backgroundImage: `url(${img})`,
-      backgroundPosition: 'center',
+      backgroundPosition: 'top center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
       width: '100vw',
       height: '100vh',
     },
-    ctText: {
-      display: 'flex',
-      flexDirection: 'column',
-      justifyContent: 'flex-end',
-      alignContent: 'flex-end',
+    headerContainer: {
+      width: '100vw',
+      height: '137px',
+    },
+    textContainer: {
+      height: '100%',
+      justifySelf: 'flex-end',
       width: '100%',
-      height: '200px',
-      padding: '1rem',
-      backgroundColor: '#FFF',
-      marginTop: 'auto',
-      marginLeft: 'auto',
-      [theme.breakpoints.up('md')]: {
-        marginBottom: '3rem',
-        padding: '3rem ',
-        width: '614px',
-        height: '300px',
+      display: 'flex',
+      position: 'relative',
+      alignItems: 'center',
+      justifyContent: 'center',
+      [theme.breakpoints.up('lg')]: {
+        width: 'calc(100vw - 641px)',
       },
     },
-    sectionTitle: {
-      textTransform: 'uppercase',
+    opacity: {
+      width: '100%',
+      height: '100%',
+      background: '#9BA4AA',
+      mixBlendMode: 'multiply',
+    },
+    text: {
+      color: theme.palette.secondary.main,
+      width: '100%',
+      position: 'absolute',
+      top: 0,
       fontFamily: '"Poppins", sans-serif',
-      fontWeight: 500,
-      fontSize: '0.775rem',
-      letterSpacing: '0.00714em',
-      [theme.breakpoints.up('md')]: {
-        fontSize: '0.875rem',
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+
+      padding: '0.5rem',
+      [theme.breakpoints.up('sm')]: {
+        padding: '2rem',
+        transform: 'translateY(16%)',
+      },
+    },
+    titleContainer: {
+      height: '100%',
+      display: 'flex',
+      alignItems: 'center',
+      margin: '0 auto',
+      textTransform: 'uppercase',
+      [theme.breakpoints.up('lg')]: {
+        marginLefet: 'auto',
+        marginRight: '0',
+      },
+      '& img': {
+        margin: '0 2rem',
       },
     },
     title: {
@@ -52,17 +77,45 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
         fontSize: '2.125rem',
       },
     },
-    p: {
-      display: 'flex',
-      fontFamily: '"Poppins", sans-serif',
-      fontWeight: 400,
-      fontSize: '0.725rem',
-      [theme.breakpoints.up('md')]: {
-        fontSize: '1rem',
-      },
+    containerWbackground: {
+      background: theme.palette.primary.main,
+      width: '100%',
+      height: '100%',
+      mixBlendMode: 'multiply',
     },
-    accent: {
-      color: '#01A5E0',
+    positionAbsolute: {
+      position: 'absolute',
+      top: '30px',
+    },
+    positionRelative: {
+      position: 'relative',
+      height: '100%',
+      width: '230px',
+    },
+    headerTitles: {
+      padding: '1rem',
+    },
+    contactContainer: {
+      display: 'flex',
+      alignItems: 'flex-start',
+    },
+    sectionTitleConstruction: {
+      color: theme.palette.secondary.dark,
+    },
+    sectionTitleDevelopment: {
+      color: theme.palette.secondary.main,
+    },
+    sectionTitleLoans: {
+      color: theme.palette.primary.light,
+    },
+    titleConstruction: {
+      color: theme.palette.primary.main,
+    },
+    titleDevelopment: {
+      color: theme.palette.primary.main,
+    },
+    titleLoans: {
+      color: theme.palette.secondary.main,
     },
   }))
 
@@ -75,13 +128,25 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
 
   return (
     <Grid container xs={12} className={classes.img}>
-      <Grid item className={classes.ctText}>
-        <Typography className={classes.sectionTitle}>{sectionTitle}</Typography>
-        <Typography className={classes.accent + ' ' + classes.title}>{title}</Typography>
-        <Typography className={classes.p}>{text}</Typography>
-        <a href="#contactForm" onClick={() => setForm(title)}>
-          <Typography className={classes.accent + ' ' + classes.p}>{t('services.knowMore')}</Typography>
-        </a>
+      <Grid container className={classes.headerContainer}>
+        <Grid item className={classes.titleContainer}>
+          <img src={arrow} />
+          <Grid container direction="column" className={layout === 'Loans' ? classes.positionRelative : null}>
+            <div className={layout === 'Loans' ? classes.containerWbackground : null}> </div>
+            <div className={`${layout === 'Loans' ? classes.positionAbsolute : null} ${classes.headerTitles} `}>
+              <Typography variant="body2" className={classes[`sectionTitle${layout}`]}>
+                {sectionTitle}
+              </Typography>
+              <Typography variant="h6" className={classes[`title${layout}`]}>
+                {title}
+              </Typography>
+            </div>
+          </Grid>
+        </Grid>
+        <Grid item className={classes.textContainer}>
+          <div className={classes.opacity}> </div>
+          <span className={classes.text}>{text}</span>
+        </Grid>
       </Grid>
     </Grid>
   )
@@ -98,3 +163,14 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Service)
+
+{
+  /*
+     <Grid item className={classes.ctText}>
+    <Typography className={classes.p}>{text}</Typography>
+    <a href="#contactForm" onClick={() => setForm(title)}>
+      <Typography className={classes.accent + ' ' + classes.p}>{t('services.knowMore')}</Typography>
+    </a>
+  </Grid>
+  */
+}

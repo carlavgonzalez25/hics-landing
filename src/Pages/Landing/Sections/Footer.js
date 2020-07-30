@@ -1,38 +1,38 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
-import Button from '@material-ui/core/Button'
-import { Link } from 'react-router-dom'
 import { makeStyles } from '@material-ui/core/styles'
 import { useTranslation } from 'react-i18next'
 import { logo_hicsvyda } from 'img'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '240px',
-    backgroundColor: '#434343',
+    height: '13vh',
+    backgroundColor: '#C6CED3',
     display: 'flex',
     justifyContent: 'space-between',
     padding: '1rem',
     [theme.breakpoints.up('md')]: {
-      padding: '3rem 7rem',
+      padding: '0.8rem 6rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      padding: '2rem 6rem',
     },
   },
   containerLogoMenu: {
     display: 'flex',
-    justifyContent: 'flex-start',
+    width: '100%',
+    justifyContent: 'space-between',
     alignItems: 'center',
     [theme.breakpoints.up('md')]: {
-      borderBottom: 'solid 1px #868686',
+      /*borderBottom: 'solid 1px #868686',*/
     },
   },
-  logo: {
-    flexGrow: '1',
-  },
+
   img: {
     margin: '0 1rem',
+    width: '200px',
   },
   menu: {
-    flexGrow: '2',
     borderLeft: 'solid 1px #868686',
     [theme.breakpoints.up('md')]: {
       borderLeft: 'none',
@@ -40,14 +40,19 @@ const useStyles = makeStyles((theme) => ({
     '& ul': {
       display: 'flex',
       flexDirection: 'column',
+      paddingLeft: '2rem',
       [theme.breakpoints.up('md')]: {
+        flexDirection: 'row',
+      },
+      [theme.breakpoints.up('sm')]: {
         flexDirection: 'row',
       },
       '& li': {
         marginRight: '2rem',
         flexGrow: '2',
-        color: '#FFF',
-        marginBottom: '1rem',
+        textTransform: 'uppercase',
+        color: '#586066',
+        marginBottom: '0.3rem',
         [theme.breakpoints.up('md')]: {
           marginBottom: '0',
         },
@@ -73,13 +78,6 @@ const useStyles = makeStyles((theme) => ({
     height: '40px',
     width: '140px',
     borderRadius: '0px',
-  },
-
-  login: {
-    display: 'block',
-    [theme.breakpoints.up('md')]: {
-      display: 'none',
-    },
   },
 }))
 
@@ -110,16 +108,8 @@ const Footer = ({ moveScroller }) => {
                 {t('contact.title')}
               </div>
             </li>
-            <li className={classes.login}>Login</li>
           </ul>
         </Grid>
-      </Grid>
-      <Grid container className={classes.containerLogin}>
-        <Link to="/login">
-          <Button className={classes.button} variant="contained" color="primary">
-            Log in
-          </Button>
-        </Link>
       </Grid>
     </footer>
   )

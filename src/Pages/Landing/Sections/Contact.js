@@ -5,9 +5,7 @@ import { useTranslation } from 'react-i18next'
 
 //Components
 import ContactBox from '../Components/ContactBox'
-import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
-import Form from '../Components/Form'
 
 import { makeStyles } from '@material-ui/core/styles'
 import { bg_contactOffice, bg_contactForm } from 'img'
@@ -28,29 +26,15 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     justifyContent: 'center',
-    padding: '2rem 0 0 0',
     alignContent: 'flex-start',
   },
   office: {
     [theme.breakpoints.up('md')]: {
-      backgroundImage: `url(${bg_contactOffice})`,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      height: '100vh',
-      marginBottom: '16rem',
+      background: 'grey',
+      height: '45vh',
     },
   },
-  form: {
-    [theme.breakpoints.up('md')]: {
-      backgroundImage: `url(${bg_contactForm})`,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      height: '100vh',
-      marginBottom: '16rem',
-    },
-  },
+
   containerContactBox: {
     justifyContent: 'center',
     padding: '0 1rem',
@@ -63,30 +47,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Contact = ({ layout }) => {
+const Contact = () => {
   const { t } = useTranslation()
   const classes = useStyles()
 
   return (
     <Fragment>
-      {layout === 'office' && (
-        <Grid container className={classes.container + ' ' + classes.office} id="contact-office">
-          <Typography className={classes.title}>{t('contact.title')}</Typography>
-          <Grid container className={classes.containerContactBox}>
-            {contactInfo.map((info) => (
-              <ContactBox {...info} />
-            ))}
-          </Grid>
+      <Grid container className={classes.container + ' ' + classes.office} id="contact-office">
+        <Grid container className={classes.containerContactBox}>
+          {contactInfo.map((info) => (
+            <ContactBox {...info} />
+          ))}
         </Grid>
-      )}
-      {layout === 'form' && (
-        <Grid container className={classes.container + ' ' + classes.form} id="contact-form">
-          <Typography className={classes.title}>{t('contact.title')}</Typography>
-          <Grid container className={classes.containerForm}>
-            <Form></Form>
-          </Grid>
-        </Grid>
-      )}
+      </Grid>
     </Fragment>
   )
 }

@@ -1,59 +1,64 @@
 import React, { useEffect, useState } from 'react'
 import i18n from 'i18next'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, AppBar, Toolbar, useMediaQuery } from '@material-ui/core'
+import { Button, AppBar, Toolbar, useMediaQuery, Grid } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import { logo_hicsvyda, texto_hicsvidacapital, logo_hicscapital_mobile } from 'img'
 import { language_sp, language_en } from 'img'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: '1',
-    padding: '0 2rem',
-    position: 'fixed !important',
+    padding: '0',
     top: '0',
     width: '100% !important',
+    height: '75px',
     transition: 'all 0.3s',
-    [theme.breakpoints.up('md')]: {
-      padding: '0 4rem',
+    transform: 'unset !important',
+    [theme.breakpoints.up('lg')]: {
+      padding: '0',
     },
   },
   toolbar: {
     display: 'flex',
     justifyContent: 'space-around',
-    [theme.breakpoints.up('md')]: {
+    padding: '0',
+    [theme.breakpoints.up('lg')]: {
       justifyContent: 'space-between',
     },
   },
   menuButton: {
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
   },
+  brandContainer: {
+    display: 'flex',
+    alignItems: 'center',
+  },
   logo: {
-    width: '50px',
+    width: '222px',
     margin: '0.4rem',
     display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'unset',
+    [theme.breakpoints.up('lg')]: {
+      display: 'flex',
+      margin: '0 5rem',
     },
   },
   textoLogo: {
+    height: '75px',
     marginLeft: '1rem',
-    transform: 'translateY(-50%)',
-    position: 'absolute',
-    top: '50%',
     display: 'none',
-    [theme.breakpoints.up('md')]: {
-      display: 'unset',
-      width: '125px',
+    [theme.breakpoints.up('lg')]: {
+      display: 'flex',
     },
   },
   logoMobile: {
     height: '40px',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
   },
@@ -62,8 +67,13 @@ const useStyles = makeStyles((theme) => ({
   },
   containerMenu: {
     display: 'none',
-    [theme.breakpoints.up('md')]: {
+    [theme.breakpoints.up('lg')]: {
       display: 'flex',
+      width: '100%',
+      justifyContent: 'flex-end',
+      alignItems: 'center',
+      height: '75px',
+      background: '#EEEFF1',
     },
     '& ul': {
       display: 'flex',
@@ -72,17 +82,31 @@ const useStyles = makeStyles((theme) => ({
         '& div': {
           color: '#000',
           cursor: 'pointer',
+          textTransform: 'uppercase',
         },
       },
     },
+  },
+  languageContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    marginBottom: '0.6rem',
+  },
+  loginButton: {
+    background: theme.palette.primary.dark,
+    margin: '0 1rem',
+    color: 'white',
+    borderRadius: '0px',
+    padding: '0.8rem 1.9rem',
   },
   mobileContainer: {
     display: 'flex',
     flexDirection: 'column',
     background: theme.palette.secondary.main,
     position: 'absolute',
-    left: '0',
+    left: '45px',
     top: '55px',
+    zIndex: '999',
     padding: '1rem 1rem 1rem 0.3rem',
     '& ul': {
       display: 'flex',
@@ -117,18 +141,21 @@ const Header = ({ moveScroller }) => {
   }
 
   return (
-    <AppBar position="static" color="secondary" className={classes.root} id="home">
+    <header position="static" color="secondary" className={classes.root} id="home">
       <Toolbar className={classes.toolbar}>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <MenuIcon color="primary" onClick={onClick} />
         </IconButton>
-        <div>
+        <div className={classes.brandContainer}>
           <img src={logo_hicsvyda} alt="logo hics vyda" className={classes.logo} />
           <img src={texto_hicsvidacapital} alt="logo hics vyda" className={classes.textoLogo} />
           <img src={logo_hicscapital_mobile} alt="logo hics vida" className={classes.logoMobile} />
         </div>
 
-        <div className={classes.containerMenu + ' ' + (showMenu && classes.mobileContainer)} id="menuMobile">
+        <div
+          className={(showMenu === true ? classes.mobileContainer : null) + ' ' + classes.containerMenu}
+          id="menuMobile"
+        >
           <ul>
             <li>
               <div onClick={() => moveScroller(0)}>{t('home')}</div>
@@ -148,9 +175,14 @@ const Header = ({ moveScroller }) => {
               <img src={language_en} alt="english language selector" />
             </Button>
           </div>
+          <Link to="/login">
+            <Button variant="contained" className={classes.loginButton}>
+              LOG IN
+            </Button>
+          </Link>
         </div>
       </Toolbar>
-    </AppBar>
+    </header>
   )
 }
 

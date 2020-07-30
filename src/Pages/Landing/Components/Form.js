@@ -9,23 +9,25 @@ import { connect } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor: '#FFF',
     width: '100%',
     display: 'flex',
+    position: 'absolute',
+    top: 0,
     flexDirection: 'column',
-    margin: '2rem 1rem',
-    padding: '2rem',
-    borderBottom: '2px solid #01A5E0',
     boxShadow: ' 0px 3px 6px #00000029',
-    [theme.breakpoints.up('md')]: {
-      width: '50%',
-      margin: '2rem auto',
+    padding: '1rem 5rem',
+    [theme.breakpoints.up('md')]: {},
+  },
+  textField: {
+    '& label': {
+      color: 'white',
     },
   },
   button: {
     borderRadius: '0px',
-    width: '180px',
+    width: '113px',
     margin: '2rem auto 0rem auto',
+    backgroundColor: '#9BA4AA',
     [theme.breakpoints.up('md')]: {
       margin: '3rem 0 1rem 0',
     },
@@ -45,10 +47,31 @@ const Form = ({ form, setMotive }) => {
 
   return (
     <form className={classes.root} noValidate autoComplete="off" id="contactForm">
-      <TextField id="name" label={t('contact.name')} style={{ margin: 8 }} fullWidth required margin="normal" />
-      <TextField id="mail" label={t('contact.mail')} style={{ margin: 8 }} fullWidth required margin="normal" />
-      <TextField id="phone" label={t('contact.tel')} style={{ margin: 8 }} fullWidth margin="normal" />
       <TextField
+        className={classes.textField}
+        id="name"
+        label={t('contact.name')}
+        style={{ margin: 8 }}
+        required
+        margin="normal"
+      />
+      <TextField
+        className={classes.textField}
+        id="mail"
+        label={t('contact.mail')}
+        style={{ margin: 8 }}
+        required
+        margin="normal"
+      />
+      <TextField
+        className={classes.textField}
+        id="phone"
+        label={t('contact.tel')}
+        style={{ margin: 8 }}
+        margin="normal"
+      />
+      <TextField
+        className={classes.textField}
         id="motive"
         label={t('contact.motive')}
         style={{ margin: 8 }}
@@ -58,7 +81,7 @@ const Form = ({ form, setMotive }) => {
         onChange={handleChange}
         value={form.value}
       />
-      <Button className={classes.button} variant="contained" color="primary">
+      <Button className={classes.button} variant="contained">
         <Typography variant="subtitle2" className={classes.p}>
           {t('contact.send')}
         </Typography>

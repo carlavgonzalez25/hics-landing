@@ -48,15 +48,15 @@ export const mainTheme = {
   // },
   palette: {
     primary: {
-      // light: will be calculated from palette.primary.main,
-      main: '#01A5E0',
-      // dark: will be calculated from palette.primary.main,
+      light: '#0096B2',
+      main: '#0A67B2',
+      dark: '#1B2653',
       // contrastText: will be calculated to contrast with palette.primary.main
     },
     secondary: {
       //light: '#0066ff',
       main: '#fff',
-      // dark: will be calculated from palette.secondary.main,
+      dark: '#9BA4AA',
       contrastText: '#ffcc00',
     },
     //   // Used by `getContrastText()` to maximize the contrast between

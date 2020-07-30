@@ -8,26 +8,30 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'center',
-    height: '51vh',
+    flexDirection: 'row',
+    height: '25vh',
     [theme.breakpoints.up('md')]: {
-      height: '60vh',
+      height: '30vh',
     },
   },
   title: {
-    margin: 'auto',
     fontFamily: '"Poppins", sans-serif',
-    fontWeight: '700',
-    fontSize: '1.525rem',
+    color: '#9BA4AA',
+    textTransform: 'uppercase',
+    padding: '0.5rem 0 0 0.5rem',
+    fontSize: '1rem',
     [theme.breakpoints.up('md')]: {
-      fontSize: '3rem',
+      fontSize: '1.25rem',
+      padding: '2rem 0 0 2rem',
     },
   },
   item: {
     margin: 'auto',
     display: 'flex',
     alignItems: 'center',
+    width: '70%',
+    padding: '0 3rem',
+    justifyContent: 'space-around',
   },
   img: {
     filter: 'grayscale(1)',
@@ -42,9 +46,9 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   logoHics: {
-    width: '160px',
+    width: '90px',
     [theme.breakpoints.up('md')]: {
-      width: '250px',
+      width: '110px',
     },
   },
   logoVyda: {
@@ -52,7 +56,7 @@ const useStyles = makeStyles((theme) => ({
     marginTop: '1rem',
     marginLeft: '2rem',
     [theme.breakpoints.up('md')]: {
-      width: '300px',
+      width: '220px',
     },
   },
 }))
@@ -66,7 +70,7 @@ const Partners = () => {
 
   return (
     <Grid container className={classes.root} id="partners">
-      <Typography variant="h3" className={classes.title}>
+      <Typography variant="h6" className={classes.title}>
         {t('partners.title')}
       </Typography>
       <Grid item className={classes.item}>
