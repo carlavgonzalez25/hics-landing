@@ -81,6 +81,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
+/**/
+
 const Footer = ({ moveScroller }) => {
   const { t } = useTranslation()
 
