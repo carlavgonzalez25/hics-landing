@@ -10,16 +10,18 @@ import { servicios_1, servicios_2, servicios_3, bg_contactForm } from 'img'
 import 'style.css'
 
 const Landing = () => {
-  const handlePageChange = (number) => {
-    setLocalCurrentPage(number)
-  }
   const [localCurrentPage, setLocalCurrentPage] = useState(null)
   const { t } = useTranslation()
+  const handlePageChange = (number) => {
+    setLocalCurrentPage(null)
+    //El problema es cuando está en transición a una sección y apretamos rápido otra sección, queda "tildado". De esta manera forzamos una actualización
+    setTimeout(() => setLocalCurrentPage(number), 1)
+  }
 
   return (
     <div className="Landing">
       <Header moveScroller={handlePageChange} />
-      <ReactPageScroller pageOnChange={handlePageChange} customPageNumber={localCurrentPage}>
+      <ReactPageScroller customPageNumber={localCurrentPage}>
         <MySlider />
         <Service
           title={t('services.title_construction')}
