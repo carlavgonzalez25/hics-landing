@@ -25,9 +25,8 @@ const ContactBox = (props) => {
     },
     card: {
       display: 'flex',
-      margin: '0.2rem 0.2rem',
       boxShadow: '8px 7px 9px -4px rgba(0,0,0,0.2)',
-      height: '17vh',
+      height: '100%',
       flexDirection: 'row',
       [theme.breakpoints.up('md')]: {
         flexDirection: 'column',
@@ -36,18 +35,19 @@ const ContactBox = (props) => {
       },
     },
     cardContent: {
-      padding: '1rem',
+      padding: '0.5rem',
       paddingBottom: '0 !important',
+      height: 'fit-content',
       [theme.breakpoints.up('lg')]: {
         height: '150px',
-        paddingLeft: '2.8rem',
+        padding: '1rem 1rem 1rem 2.8rem',
       },
     },
     cardTitle: {
       textTransform: 'uppercase',
       fontFamily: '"Poppins", sans-serif',
       fontWeight: '800',
-      fontSize: '0.825',
+      fontSize: '0.825rem',
       [theme.breakpoints.up('lg')]: {
         fontSize: '1rem',
       },
@@ -70,7 +70,7 @@ const ContactBox = (props) => {
       backgroundSize: 'cover',
       overflow: 'hidden',
       minWidth: '30%',
-      height: '100px',
+      height: '100%',
       [theme.breakpoints.up('xl')]: {
         height: '130px',
       },
@@ -78,7 +78,7 @@ const ContactBox = (props) => {
         height: '120px',
       },
       [theme.breakpoints.up('md')]: {
-        width: '100%',
+        height: '130px',
       },
     },
     ctTextIcon: {
@@ -143,11 +143,11 @@ const ContactBox = (props) => {
               {mail}
             </Typography>
           </Grid>
-          <Grid item className={classes.ctTextIcon}>
+          {/*<Grid item className={classes.ctTextIcon}>
             <Typography gutterBottom className={classes.cardText}>
               {time}
             </Typography>
-          </Grid>
+          </Grid>*/}
         </CardContent>
       </Card>
     </Grid>

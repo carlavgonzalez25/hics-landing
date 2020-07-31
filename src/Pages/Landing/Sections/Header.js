@@ -25,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
   },
   toolbar: {
     display: 'flex',
+    margin: 'auto 0 auto 0',
 
     padding: '0',
     [theme.breakpoints.up('lg')]: {

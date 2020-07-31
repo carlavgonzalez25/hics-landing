@@ -29,9 +29,10 @@ const useStyles = makeStyles((theme) => ({
     alignContent: 'center',
   },
   office: {
+    height: '60%',
     [theme.breakpoints.up('md')]: {
       background: 'grey',
-      height: '45%',
+      height: '55%',
     },
   },
 

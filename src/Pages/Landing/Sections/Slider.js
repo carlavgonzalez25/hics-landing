@@ -25,9 +25,48 @@ const MySlider = () => {
     />
   )
 
+  const ArrowComponent = ({ onClick, direction }) => {
+    return direction === 'left' ? (
+      <i
+        style={{
+          /*border: '1px solid white',
+          padding: '1em',
+          backgroundColor: 'black',*/
+          border: 'solid #fff',
+          borderWidth: '0 5px 5px 0',
+          display: 'inline-block',
+          padding: '3px',
+          height: '30px',
+          width: '30px',
+          cursor: 'pointer',
+          marginLeft: '1em',
+          transform: 'rotate(135deg)',
+        }}
+        onClick={onClick}
+      />
+    ) : (
+      direction === 'right' && (
+        <i
+          style={{
+            border: 'solid #fff',
+            borderWidth: '0 5px 5px 0',
+            display: 'inline-block',
+            padding: '3px',
+            height: '30px',
+            width: '30px',
+            cursor: 'pointer',
+            marginRight: '1em',
+            transform: 'rotate(-45deg)',
+          }}
+          onClick={onClick}
+        />
+      )
+    )
+  }
+
   return (
     <div className={classes.root} id="slider">
-      <Slider hasArrows setSlideCustom={setSlideCustom}>
+      <Slider hasArrows ArrowComponent={ArrowComponent} setSlideCustom={setSlideCustom}>
         <Slide imgUrl={slide_1} text={t('slider.slide1')} title={true} mode={2} />
         <Slide imgUrl={slide_2} text={t('slider.slide2')} title={false} mode={1} />
         <Slide imgUrl={slide_3} text={t('slider.slide3')} title={false} mode={1} />

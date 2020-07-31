@@ -29,8 +29,10 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
       position: 'relative',
       alignItems: 'center',
       justifyContent: 'center',
+      bottom: '-50vh',
       [theme.breakpoints.up('lg')]: {
-        width: 'calc(100vw - 642px)',
+        width: 'calc(100vw - 625px)',
+        bottom: 'unset',
       },
     },
     opacity: {

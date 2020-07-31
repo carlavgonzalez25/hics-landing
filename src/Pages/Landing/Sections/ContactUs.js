@@ -26,12 +26,14 @@ const ContactUs = ({ title, img }) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
+      width: '100%',
       '& img': {
         marginRight: '1rem',
       },
       [theme.breakpoints.up('md')]: {
         justifyContent: 'flex-end',
         marginLeft: 'auto',
+        width: 'unset',
       },
     },
     headerContainer: {
@@ -62,7 +64,7 @@ const ContactUs = ({ title, img }) => {
       width: '100%',
       position: 'relative',
       [theme.breakpoints.up('md')]: {
-        width: 'calc(100vw - 642px)',
+        width: 'calc(100vw - 625px)',
       },
     },
     opacityForm: {

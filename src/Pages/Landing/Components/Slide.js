@@ -35,7 +35,7 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
       justifyContent: 'center',
       alignItems: 'center',
       [theme.breakpoints.up('lg')]: {
-        width: 'calc(100vw - 642px) !important',
+        width: 'calc(100vw - 625px) !important',
       },
       [theme.breakpoints.up('sm')]: {
         height: '138px',
@@ -62,7 +62,6 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
     text: {
       width: '100%',
       position: 'absolute',
-      top: 0,
       padding: '1rem 1rem 1rem 1rem',
       color: '#FFF',
       fontFamily: '"Poppins", sans-serif',

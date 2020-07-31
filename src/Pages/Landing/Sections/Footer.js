@@ -73,6 +73,10 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     cursor: 'pointer',
+    fontSize: '0.6rem',
+    [theme.breakpoints.up('md')]: {
+      fontSize: '0.8rem',
+    },
   },
   button: {
     height: '40px',

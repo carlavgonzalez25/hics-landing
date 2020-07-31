@@ -22,9 +22,10 @@ const useStyles = makeStyles((theme) => ({
     textTransform: 'uppercase',
     padding: '0.5rem 0 0 0.5rem',
     fontSize: '1rem',
+    width: 'fit-content',
     [theme.breakpoints.up('md')]: {
       fontSize: '1.25rem',
-      padding: '2rem 0 0 2rem',
+      padding: '1.4rem 0 0 2rem',
     },
   },
   item: {
@@ -51,15 +52,22 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   logoHics: {
-    width: '90px',
+    width: '70px',
+
+    [theme.breakpoints.up('sm')]: {
+      width: '80px',
+    },
     [theme.breakpoints.up('md')]: {
       width: '110px',
     },
   },
   logoVyda: {
-    width: '160px',
+    width: '115px',
+    [theme.breakpoints.up('sm')]: {
+      width: '140px',
+    },
     [theme.breakpoints.up('md')]: {
-      width: '220px',
+      width: '195px',
     },
   },
 }))
@@ -69,7 +77,6 @@ const Partners = () => {
   const classes = useStyles()
 
   let variable = null
-  console.log(' variable ' + 5 + variable)
 
   return (
     <Grid container className={classes.root} id="partners">
