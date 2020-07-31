@@ -18,19 +18,21 @@ const useStyles = makeStyles((theme) => ({
     height: '75px',
     transition: 'all 0.3s',
     transform: 'unset !important',
+    boxShadow: '3px 5px 12px -4px rgba(0,0,0,0.75)',
     [theme.breakpoints.up('lg')]: {
       padding: '0',
     },
   },
   toolbar: {
     display: 'flex',
-    justifyContent: 'space-around',
+
     padding: '0',
     [theme.breakpoints.up('lg')]: {
       justifyContent: 'space-between',
     },
   },
   menuButton: {
+    marginLeft: '0',
     [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
@@ -38,6 +40,10 @@ const useStyles = makeStyles((theme) => ({
   brandContainer: {
     display: 'flex',
     alignItems: 'center',
+    margin: 'auto',
+    [theme.breakpoints.up('lg')]: {
+      margin: 'unset',
+    },
   },
   logo: {
     width: '222px',
@@ -58,6 +64,7 @@ const useStyles = makeStyles((theme) => ({
   },
   logoMobile: {
     height: '40px',
+
     [theme.breakpoints.up('lg')]: {
       display: 'none',
     },
@@ -141,7 +148,7 @@ const Header = ({ moveScroller }) => {
   }
 
   return (
-    <header position="static" color="secondary" className={classes.root} id="home">
+    <AppBar position="static" color="secondary" className={classes.root} id="home">
       <Toolbar className={classes.toolbar}>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <MenuIcon color="primary" onClick={onClick} />
@@ -182,7 +189,7 @@ const Header = ({ moveScroller }) => {
           </Link>
         </div>
       </Toolbar>
-    </header>
+    </AppBar>
   )
 }
 

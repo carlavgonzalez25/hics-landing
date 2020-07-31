@@ -6,7 +6,7 @@ import { logo_hicsvyda } from 'img'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: '13vh',
+    height: '15%',
     backgroundColor: '#C6CED3',
     display: 'flex',
     justifyContent: 'space-between',
@@ -80,8 +80,6 @@ const useStyles = makeStyles((theme) => ({
     borderRadius: '0px',
   },
 }))
-
-/**/
 
 const Footer = ({ moveScroller }) => {
   const { t } = useTranslation()

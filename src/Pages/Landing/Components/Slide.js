@@ -35,8 +35,7 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
       justifyContent: 'center',
       alignItems: 'center',
       [theme.breakpoints.up('lg')]: {
-        left: '625px',
-        width: 'calc(100vw - 641px) !important',
+        width: 'calc(100vw - 642px) !important',
       },
       [theme.breakpoints.up('sm')]: {
         height: '138px',

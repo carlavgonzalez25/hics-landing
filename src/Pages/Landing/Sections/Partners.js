@@ -8,10 +8,12 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexDirection: 'row',
-    height: '25vh',
+    flexDirection: 'column',
+    height: '25%',
+    justifyContent: 'space-between',
     [theme.breakpoints.up('md')]: {
-      height: '30vh',
+      height: '30%',
+      justifyContent: 'space-around',
     },
   },
   title: {
@@ -30,8 +32,11 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     alignItems: 'center',
     width: '70%',
-    padding: '0 3rem',
     justifyContent: 'space-around',
+    alignItems: 'center',
+    [theme.breakpoints.up('md')]: {
+      padding: '0 3rem',
+    },
   },
   img: {
     filter: 'grayscale(1)',
@@ -53,8 +58,6 @@ const useStyles = makeStyles((theme) => ({
   },
   logoVyda: {
     width: '160px',
-    marginTop: '1rem',
-    marginLeft: '2rem',
     [theme.breakpoints.up('md')]: {
       width: '220px',
     },
@@ -74,8 +77,12 @@ const Partners = () => {
         {t('partners.title')}
       </Typography>
       <Grid item className={classes.item}>
-        <img src={logo_hicscapital} alt="Logo hics capital" className={classes.img + ' ' + classes.logoHics} />
-        <img src={logo_vydacapital} alt="Logo vyda capital" className={classes.img + ' ' + classes.logoVyda} />
+        <a href="https://hicscapital.com/" target="__blank">
+          <img src={logo_hicscapital} alt="Logo hics capital" className={classes.img + ' ' + classes.logoHics} />
+        </a>
+        <a href="http://vydacapital.com/" target="__blank">
+          <img src={logo_vydacapital} alt="Logo vyda capital" className={classes.img + ' ' + classes.logoVyda} />
+        </a>
       </Grid>
     </Grid>
   )

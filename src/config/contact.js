@@ -54,7 +54,7 @@ export default [
     name: 'Rep. Dominicana',
     address: 'Pedro Duarte 40, Santo Domingo',
     tel: '+1 (809) 414-6025',
-    mail: 'info@hicscapital.com',
+    mail: 'richard@vydacapital.com',
     time: 'Mon-Fri 10-18',
   },
 ]

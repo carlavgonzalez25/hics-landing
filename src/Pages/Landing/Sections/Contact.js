@@ -26,12 +26,12 @@ const useStyles = makeStyles((theme) => ({
   },
   container: {
     justifyContent: 'center',
-    alignContent: 'flex-start',
+    alignContent: 'center',
   },
   office: {
     [theme.breakpoints.up('md')]: {
       background: 'grey',
-      height: '45vh',
+      height: '45%',
     },
   },
 

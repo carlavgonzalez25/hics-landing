@@ -30,7 +30,7 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
       alignItems: 'center',
       justifyContent: 'center',
       [theme.breakpoints.up('lg')]: {
-        width: 'calc(100vw - 641px)',
+        width: 'calc(100vw - 642px)',
       },
     },
     opacity: {
@@ -90,7 +90,7 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
     positionRelative: {
       position: 'relative',
       height: '100%',
-      width: '230px',
+      width: '227px',
     },
     headerTitles: {
       padding: '1rem',

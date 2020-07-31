@@ -191,7 +191,7 @@ const Login = ({ auth, login }) => {
                 >
                   {t('login.login')}
                 </Button>
-                {auth.isAuthenticated && <Redirect to="/dashboard" />}
+                {/*auth.isAuthenticated && <Redirect to="/dashboard" />*/}
               </Grid>
             </Grid>
           </form>

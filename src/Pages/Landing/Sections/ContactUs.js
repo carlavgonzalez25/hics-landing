@@ -23,17 +23,15 @@ const ContactUs = ({ title, img }) => {
       },
     },
     leftContainer: {
-      width: '100%',
       display: 'flex',
       alignItems: 'center',
-      margin: '0 auto',
       justifyContent: 'center',
       '& img': {
         marginRight: '1rem',
       },
       [theme.breakpoints.up('md')]: {
-        width: 'calc(100vw - 830px)',
         justifyContent: 'flex-end',
+        marginLeft: 'auto',
       },
     },
     headerContainer: {
@@ -55,7 +53,7 @@ const ContactUs = ({ title, img }) => {
       textTransform: 'uppercase',
     },
     opacity: {
-      width: '230px',
+      width: '227px',
       height: '136px',
       background: '#576066',
       mixBlendMode: 'multiply',
@@ -64,7 +62,7 @@ const ContactUs = ({ title, img }) => {
       width: '100%',
       position: 'relative',
       [theme.breakpoints.up('md')]: {
-        width: '830px',
+        width: 'calc(100vw - 642px)',
       },
     },
     opacityForm: {

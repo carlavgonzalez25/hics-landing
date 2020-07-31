@@ -24,7 +24,7 @@ ul li {
 
 .Landing header#home + div {
   width: 100% !important;
-  height: calc(100vh - 75px) !important;
+  /* height: calc(100vh - 75px) !important;
   position: relative;
-  /*top: 75px;*/
+  top: 75px;*/
 }

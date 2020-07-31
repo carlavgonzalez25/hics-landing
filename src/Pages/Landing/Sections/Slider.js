@@ -7,9 +7,7 @@ import { useTranslation } from 'react-i18next'
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: 'calc(100vh - 75px)',
-    /* position: 'relative',
-    top: '75px',*/
+    height: '100vh',
   },
 }))
 

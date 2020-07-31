@@ -6,9 +6,9 @@ export default {
         slider: {
           slide1: 'CREATING VALUE TOGETHER',
           slide2:
-            'HICS VYDA CAPITAL, is a Joint Venture between HICS CAPITAL & VYDA CAPITAL, unifying professionals with more than 30 years of successful experience and prestigious trajectory in Construction Business, Technology, Mortgage Loans, Asset Management and Financial Investments.',
+            'HICS VYDA CAPITAL is a Joint Venture between HICS CAPITAL & VYDA CAPITAL, unifying professionals with more than 30 years of successful experience and prestigious trajectory in Construction Business, Technology, Mortgage Loans, Asset Management and Financial Investments.',
           slide3:
-            'With the focus on our clients and their financial tranquility, we work with the objective of identifying solid and predictable investment opportunities, which allow our Partners and Clients to invest with their own funds and those of third parties, in profitable, reliable businesses, that contribute to consolidate and increase their assets over time. We focus on investing capital in tangible assets (Hard Assets)',
+            'With focus on our clients and their financial tranquility, we work with the objective of identifying solid and predictable investment opportunities, which allow our Partners and Clients to invest with their own funds and those of third parties, in profitable, reliable businesses, that contribute to consolidate and increase their assets over time. We focus on investing capital in tangible assets',
         },
         office: '{{place}} office',
         services: {
@@ -18,7 +18,7 @@ export default {
             'We invest in the construction of single-family and multi-family homes, in non-speculative areas of growth, generating convenient contributions, under high standards of quality and safety.',
           title_urbanDevelopment: 'Urban Development',
           text_urbanDevelopment:
-            'We invest in land with strategic potential, for its subsequent urban development. Safe, stable, medium-term investments with very convenient and advisable returns in a good and balanced investment portfolio.',
+            'We acquire land with strategic potential, for subsequent urban development. Safe, stable, medium-term investments with very convenient and advisable returns in a good and balanced investment portfolio.',
           title_loans: 'Mortgage Loans',
           text_loans:
             'We provide credits for the acquisition of single-family units, guaranteed with mortgages on the properties, with high levels of security and financial returns. Designed for institutions, companies and individuals, whose interest is to preserve their capital, while receiving an attractive rate of return with low levels of risk.',
@@ -29,7 +29,7 @@ export default {
           name: 'Lastname and Name',
           mail: 'Email',
           tel: 'Telephone (optional)',
-          motive: 'Why do you want to contact us?',
+          motive: 'Motive of contact',
           send: 'Send',
         },
         partners: {
@@ -111,9 +111,9 @@ export default {
         slider: {
           slide1: 'CREATING VALUE TOGETHER',
           slide2:
-            'HICS VYDA CAPITAL, es el resultado del Joint Venture de HICS CAPITAL y VYDA CAPITAL, unificando a profesionales con más de 30 años de exitosa experiencia y prestigiosa trayectoria en negocios de construcción, tecnología, préstamos hipotecarios, gestión de activos e inversiones financieras.',
+            'HICS VYDA CAPITAL es el resultado del Joint Venture de HICS CAPITAL y VYDA CAPITAL, unificando a profesionales con más de 30 años de exitosa experiencia y prestigiosa trayectoria en negocios de construcción, tecnología, préstamos hipotecarios, gestión de activos e inversiones financieras.',
           slide3:
-            'Con el enfoque en nuestros clientes y su tranquilidad financiera, trabajamos con el objetivo de identificar oportunidades de inversión sólidas y predecibles, que permitan a nuestros Socios y Clientes invertir con sus propios fondos y los de terceros, en negocios rentables y confiables, que contribuyen a consolidar y aumentar sus activos con el tiempo. Nos enfocamos en invertir capital en activos tangibles (activos duros)',
+            'Con el foco puesto en nuestros clientes y su tranquilidad financiera, trabajamos con el objetivo de identificar oportunidades sólidas y previsibles de inversión, que permitan a nuestros Socios y Clientes invertir con fondos propios y de terceros en negocios rentables, confiables y contribuir a consolidar sus patrimonios. \n Nos enfocamos en invertir capital en Activos Tangibles',
         },
         office: 'Oficina en {{place}}',
         services: {
@@ -123,10 +123,10 @@ export default {
             'Invertimos en la construcción de viviendas unifamiliares o multifamiliares, en áreas de crecimiento y economía real no especulativa, generando contribuciones convenientes, bajo altos estándares de calidad y seguridad',
           title_urbanDevelopment: 'Desarrollo Urbano',
           text_urbanDevelopment:
-            'Adquirimos en tierras con potencialidad estratégica, para su posterior desarrollo urbano. INversiones seguras, estables, de mediano plazo y retornos muy convenientes y aconsejables en una buena cartera de inversiones',
+            'Adquirimos tierras con potencialidad estratégica, para su posterior desarrollo urbano. Inversiones seguras, estables, de mediano plazo, retornos muy convenientes y aconsejables en una buena cartera de inversiones',
           title_loans: 'Préstamos hipotecarios',
           text_loans:
-            'Brindamos en creditos para la compra de unidades unifamiliares, garantizadas con Hipotecas con altos niveles de seguridad y retorno financieros. Pensado para instituciones, empresas y particulares cuyo interés sea preservar su patrimonio y contar cojn una tasa de retorno atractiva con bajo nivel de riesgo',
+            'Brindamos creditos para la compra de unidades unifamiliares, garantizadas con Hipotecas con altos niveles de seguridad y retorno financieros. Pensado para instituciones, empresas y particulares cuyo interés sea preservar su patrimonio y contar con una tasa de retorno atractiva con bajo nivel de riesgo',
           knowMore: 'Saber más',
         },
         contact: {
@@ -134,7 +134,7 @@ export default {
           name: 'Nombre y Apellido',
           mail: 'Email',
           tel: 'Telefono (opcional)',
-          motive: 'Por qué nos queres contactar?',
+          motive: 'Motivo de contacto',
           send: 'Enviar',
         },
         partners: {
