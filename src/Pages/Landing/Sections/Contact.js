@@ -57,7 +57,7 @@ const Contact = () => {
       <Grid container className={classes.container + ' ' + classes.office} id="contact-office">
         <Grid container className={classes.containerContactBox}>
           {contactInfo.map((info) => (
-            <ContactBox {...info} />
+            <ContactBox key={info.name} {...info} />
           ))}
         </Grid>
       </Grid>

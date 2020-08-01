@@ -21,10 +21,3 @@ ul li {
 #home {
   top: 0;
 }
-
-.Landing header#home + div {
-  width: 100% !important;
-  /* height: calc(100vh - 75px) !important;
-  position: relative;
-  top: 75px;*/
-}

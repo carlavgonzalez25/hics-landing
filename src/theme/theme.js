@@ -1,4 +1,5 @@
 export const mainTheme = {
+  headerHeight: 75,
   breakpoints: {
     keys: ['xs', 'sm', 'md', 'lg', 'xl'],
     values: {

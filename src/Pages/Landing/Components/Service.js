@@ -14,8 +14,8 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
       backgroundPosition: 'top center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      width: '100vw',
-      height: '100vh',
+      width: '100%',
+      height: '100%',
     },
     headerContainer: {
       width: '100vw',
