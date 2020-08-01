@@ -11,7 +11,7 @@ import { makeStyles } from '@material-ui/core/styles'
 
 const ContactBox = (props) => {
   const { t } = useTranslation()
-  const { icon, imgUrl, name, address, tel, mail, time, flag } = props
+  const { imgUrl, name, address, tel, mail } = props
 
   //Pongo esto aqui dentro poruqe necesito usar como background image un elemento enviado como props.
   //no se me ocurre otra manera de resolverlo
@@ -125,7 +125,7 @@ const ContactBox = (props) => {
         <CardContent className={classes.cardContent}>
           <Grid item className={classes.ctTextIcon}>
             <Typography gutterBottom className={classes.cardTitle}>
-              {t('office', { place: name })}
+              {name != 'Usa' ? t('office', { place: name }) : t('usaOffice')}
             </Typography>
           </Grid>
           <Grid item className={classes.ctTextIcon}>

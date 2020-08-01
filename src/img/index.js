@@ -26,6 +26,9 @@ import logo_hicscapital_mobile from './logo.png'
 import arrow from './arrow.png'
 import creating from './creating.png'
 import creating_mobile from './creating-mobile.png'
+import creating_login from './creating_login.png'
+import login_bg from './bg_login.jpg'
+import logo_login from './logo_hicsvyda_big.png'
 
 export {
   servicios_1,
@@ -56,4 +59,7 @@ export {
   arrow,
   creating,
   creating_mobile,
+  creating_login,
+  login_bg,
+  logo_login,
 }
