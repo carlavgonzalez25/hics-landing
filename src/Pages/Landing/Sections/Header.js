@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) => ({
     padding: '0',
     top: '0',
     width: '100% !important',
-    height: '75px',
+    height: theme.headerHeight,
     transition: 'all 0.3s',
     transform: 'unset !important',
     boxShadow: '3px 5px 12px -4px rgba(0,0,0,0.75)',
@@ -149,7 +149,7 @@ const Header = ({ moveScroller }) => {
   }
 
   return (
-    <AppBar position="static" color="secondary" className={classes.root} id="home">
+    <AppBar position="fixed" color="secondary" className={classes.root} id="home">
       <Toolbar className={classes.toolbar}>
         <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
           <MenuIcon color="primary" onClick={onClick} />

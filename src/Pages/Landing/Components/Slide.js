@@ -22,7 +22,7 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
       backgroundSize: 'cover',
-      height: '100vh',
+      height: '100%',
       display: 'flex',
       alignItems: 'flex-start',
     },

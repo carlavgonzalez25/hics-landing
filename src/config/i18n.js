@@ -30,6 +30,10 @@ export default {
           mail: 'Email',
           tel: 'Telephone (optional)',
           motive: 'Motive of contact',
+          nameError: 'This field is required',
+          mailError: 'This field is required',
+          telError: 'Telephone should be only numbers',
+          motiveError: 'This field is required',
           send: 'Send',
         },
         partners: {
@@ -135,6 +139,10 @@ export default {
           mail: 'Email',
           tel: 'Telefono (opcional)',
           motive: 'Motivo de contacto',
+          nameError: 'Este campo es obligatorio',
+          mailError: 'Este campo es obligatorio',
+          telError: 'El teléfono debería contener números',
+          motiveError: 'Este campo es obligatorio',
           send: 'Enviar',
         },
         partners: {
