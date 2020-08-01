@@ -67,12 +67,6 @@ const ContactUs = ({ title, img }) => {
         width: 'calc(100vw - 625px)',
       },
     },
-    opacityForm: {
-      width: '100%',
-      height: '385px',
-      background: '#9BA4AA',
-      mixBlendMode: 'multiply',
-    },
   }))
 
   const classes = useStyles()
@@ -89,7 +83,6 @@ const ContactUs = ({ title, img }) => {
         </div>
       </Grid>
       <Grid item className={classes.rightContainer}>
-        <div className={classes.opacityForm}> </div>
         <Form />
       </Grid>
     </Grid>

@@ -16,6 +16,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-hook-form": "^6.2.0",
     "react-i18next": "^11.3.4",
     "react-page-scroller": "^2.0.7-beta",
     "react-redux": "^7.1.3",
