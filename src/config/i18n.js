@@ -11,6 +11,7 @@ export default {
             'With focus on our clients and their financial tranquility, we work with the objective of identifying solid and predictable investment opportunities, which allow our Partners and Clients to invest with their own funds and those of third parties, in profitable, reliable businesses, that contribute to consolidate and increase their assets over time. We focus on investing capital in tangible assets',
         },
         office: '{{place}} office',
+        usaOffice: 'usa main office',
         services: {
           title: 'Our services',
           title_construction: 'Construction',
@@ -120,6 +121,7 @@ export default {
             'Con el foco puesto en nuestros clientes y su tranquilidad financiera, trabajamos con el objetivo de identificar oportunidades sólidas y previsibles de inversión, que permitan a nuestros Socios y Clientes invertir con fondos propios y de terceros en negocios rentables, confiables y contribuir a consolidar sus patrimonios. \n Nos enfocamos en invertir capital en Activos Tangibles',
         },
         office: 'Oficina en {{place}}',
+        usaOffice: 'Usa oficina central',
         services: {
           title: 'Nuestros servicios',
           title_construction: 'Construcción',

@@ -21,7 +21,7 @@ export default [
       time: icon_clock,
       mail: icon_envelope,
     },
-    name: 'Usa Main',
+    name: 'Usa',
     address: '1001 Brickwell Ave, 32 Floor, Miami Florida',
     tel: '+1 (609)287 7400',
     mail: 'info@hicsvydacapital.com',

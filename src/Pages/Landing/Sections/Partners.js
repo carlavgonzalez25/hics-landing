@@ -13,7 +13,12 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: 'space-between',
     [theme.breakpoints.up('md')]: {
       height: '30%',
-      justifyContent: 'space-around',
+      flexDirection: 'row',
+      justifyContent: 'unset',
+    },
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: 'column',
+      justifyContent: 'space-between',
     },
   },
   title: {
@@ -37,6 +42,10 @@ const useStyles = makeStyles((theme) => ({
     alignItems: 'center',
     [theme.breakpoints.up('md')]: {
       padding: '0 3rem',
+      margin: 'unset',
+    },
+    [theme.breakpoints.up('lg')]: {
+      margin: 'auto',
     },
   },
   img: {
