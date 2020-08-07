@@ -2,7 +2,7 @@ import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import Landing from './Pages/Landing'
 import Login from './Pages/Login'
-import Panel from './Pages/Panel'
+import Panel from './Pages/Panel/Router'
 import Dashboard from './Pages/Dashboard'
 
 const App = () => {

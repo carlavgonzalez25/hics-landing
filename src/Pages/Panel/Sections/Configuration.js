@@ -112,7 +112,7 @@ const ConfigurationSection = (props) => {
   const [model, setModel] = useState({})
   const [open, setOpen] = useState(null)
   const [image, setImage] = useState(null)
-  const { selectedModel, handleModel, handleComplete } = props
+  const { selectedModel, handleModel } = props
 
   const handleClick = (id, foto) => {
     setImage(foto)
@@ -125,7 +125,6 @@ const ConfigurationSection = (props) => {
     axios.get(`/${selectedModel}`).catch((e) => {
       setModel(addSelected(modeloEjemplo))
     })
-    handleComplete()
   }, [])
 
   const handleChangeOption = (amb_i, term_i, idOpcion, foto) => {
@@ -173,7 +172,6 @@ const ConfigurationSection = (props) => {
           backgroundImage: `url(${image})`,
         }}
       ></div>
-      {!isEmpty(model) && <AmbientSelector ambientes={model.ambientes.map((amb) => amb.nombre)} />}
     </Grid>
   )
 }

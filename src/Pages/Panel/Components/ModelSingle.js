@@ -9,21 +9,9 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack'
 import { useTranslation } from 'react-i18next'
 import Slider from '@farbenmeer/react-spring-slider'
 import modelSlider from 'config/modelSlider'
-import { grey } from '@material-ui/core/colors'
+import styled from 'styled-components'
 
-const ModelSingle = ({
-  img,
-  name,
-  rooms,
-  id,
-  livingArea,
-  totalArea,
-  handleModel,
-  handleComplete,
-  selectedModel,
-  showSingleView,
-  handleNext,
-}) => {
+const ModelSingle = ({ img, name, rooms, id, livingArea, totalArea, handleModel, showSingleView }) => {
   const useStyles = makeStyles((theme) => ({
     cardContainer: {
       height: '500px',
@@ -91,18 +79,16 @@ const ModelSingle = ({
   }
   const handleSelect = (id) => {
     handleModel(id)
-    handleComplete()
-    handleNext()
   }
   const hideView = () => {
-    showSingleView(false, null)
+    showSingleView(null)
   }
 
   const classes = useStyles()
   const { t } = useTranslation()
 
   return (
-    <Grid container className={classes.root}>
+    <Container container className={classes.root}>
       <Button startIcon={<ArrowBackIcon />} onClick={hideView}></Button>
       <Grid container className={classes.cardContainer}>
         <Grid item direction="column" className={classes.dataContainer}>
@@ -144,8 +130,13 @@ const ModelSingle = ({
           </Slider>
         </Grid>
       </Grid>
-    </Grid>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  width: 100%;
+  max-width: 1000px;
+`
 
 export default ModelSingle

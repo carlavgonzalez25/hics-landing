@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const LandSelection = ({ handleComplete }) => {
+const LandSelection = () => {
   const [data, setData] = useState([])
   const [selected, setSelected] = useState('')
 
@@ -39,7 +39,6 @@ const LandSelection = ({ handleComplete }) => {
     // Get data from server
 
     setData(terrenos)
-    handleComplete()
   }, [])
 
   return (

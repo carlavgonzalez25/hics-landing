@@ -9,19 +9,7 @@ import DriveEtaOutlinedIcon from '@material-ui/icons/DriveEtaOutlined'
 
 //import PropTypes from 'prop-types'
 
-const ModeloCard = ({
-  img,
-  name,
-  rooms,
-  id,
-  livingArea,
-  totalArea,
-  handleModel,
-  handleComplete,
-  selectedModel,
-  showSingleView,
-  handleNext,
-}) => {
+const ModeloCard = ({ img, name, rooms, id, livingArea, totalArea, handleModel, selectedModel, showSingleView }) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       width: '370px',
@@ -36,7 +24,7 @@ const ModeloCard = ({
       },
     },
     selected: {
-      background: 'yellow',
+      border: '5px solid #0b67b2',
     },
     imgContainer: {
       backgroundImage: `url(${img})`,
@@ -81,12 +69,10 @@ const ModeloCard = ({
 
   const handleSelect = (id) => {
     handleModel(id)
-    handleComplete()
-    handleNext()
   }
 
   const handleClick = (id) => {
-    showSingleView(true, id)
+    showSingleView(id)
     /*
     hacer el request para este modelo en particular
     Mostrar vista de modelo 
@@ -116,7 +102,7 @@ const ModeloCard = ({
   }
 
   return (
-    <Paper className={classes.root + ' ' + (selectedModel === id && classes.selected)}>
+    <Paper className={classes.root + ' ' + (selectedModel == id && classes.selected)}>
       <Grid item className={classes.imgContainer} onClick={() => handleClick(id)} />
       <Grid item className={classes.dataContainer}>
         <Typography variant="subtitle2">{name}</Typography>

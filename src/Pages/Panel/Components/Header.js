@@ -4,20 +4,11 @@ import { makeStyles, Grid, Button } from '@material-ui/core'
 import i18n from 'i18next'
 import { useTranslation } from 'react-i18next'
 import { Redirect } from 'react-router-dom'
+import styled from 'styled-components'
 
 import { language_en, language_sp } from 'img'
 
 const useStyles = makeStyles({
-  root: {
-    width: '100%',
-    height: '50px',
-    display: 'flex',
-    justifyContent: 'center',
-    padding: '2rem ',
-    alignItems: 'center',
-    margin: '2rem 0 2rem 0',
-    // boxShadow: '0px 2px 1px -1px rgba(0,0,0,0.2), 0px 1px 1px 0px rgba(0,0,0,0.14), 0px 1px 3px 0px rgba(0,0,0,0.12)',
-  },
   item: {
     paddingRight: '2rem',
   },
@@ -46,11 +37,10 @@ const Header = () => {
   }
 
   return (
-    <Grid className={classes.root}>
+    <Container>
       <Grid item className={classes.item + ' ' + classes.title}>
         {t('panel.title')}
       </Grid>
-
       <Grid item className={classes.flagContainer}>
         <Button onClick={() => changeLanguage('es')} size="small">
           <img src={language_sp} alt="spanish language selector" />
@@ -63,8 +53,19 @@ const Header = () => {
         </Button>
         {exit && <Redirect to="/dashboard" />}
       </Grid>
-    </Grid>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: ${(props) => props.theme.headerHeight}px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`
 
 export default Header

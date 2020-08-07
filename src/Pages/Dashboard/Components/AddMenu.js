@@ -12,7 +12,6 @@ const useStyles = makeStyles((theme) => ({
     //background: [theme.palette.secondary],
     position: 'absolute',
     top: '66px',
-    background: 'yellow',
     zIndex: '999',
     '& ul': {
       paddingLeft: '0.5rem',

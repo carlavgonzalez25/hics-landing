@@ -6,7 +6,6 @@ const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
     background: '#f5f5f5',
-    marginBottom: '2rem',
   },
   button: {
     marginRight: theme.spacing(1),
@@ -23,16 +22,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Steps = ({ steps, activeStep, isStepComplete }) => {
+const Steps = ({ steps, activeStep, onClickStep }) => {
   const classes = useStyles()
-
   return (
     <div className={classes.root}>
       <Stepper alternativeLabel nonLinear activeStep={activeStep} className={classes.root}>
         {steps.map((label, index) => {
           return (
-            <Step key={label}>
-              <StepLabel completed={isStepComplete(index)}>{label}</StepLabel>
+            <Step key={label} onClick={onClickStep(index)}>
+              <StepLabel>{label}</StepLabel>
             </Step>
           )
         })}

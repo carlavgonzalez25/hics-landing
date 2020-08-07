@@ -11,7 +11,6 @@ const useStyles = makeStyles((theme) => ({
     //background: [theme.palette.secondary],
     position: 'absolute',
     top: '66px',
-    background: 'yellow',
     zIndex: '999',
   },
 }))
