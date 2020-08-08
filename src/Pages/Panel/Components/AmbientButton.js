@@ -48,7 +48,6 @@ const useStyles = makeStyles({
 })
 const AmbientSelector = ({ name }) => {
   const classes = useStyles({ name })
-  console.log(name)
   return (
     <div className={[classes.container]}>
       <span className={name === 'General' ? classes.general : classes.circle}></span>

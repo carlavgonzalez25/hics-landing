@@ -1,4 +1,12 @@
-import { LOGIN, SET_MOTIVE, SET_ACTIVESTEP, SET_COMPLETED } from '../../actionTypes'
+import {
+  LOGIN,
+  SET_MOTIVE,
+  SET_ACTIVESTEP,
+  SET_MODELS,
+  SET_SELECTED_MODEL,
+  NEXT_ACTIVESTEP,
+  BACK_ACTIVESTEP,
+} from '../../actionTypes'
 
 //Auth
 export const login = (payload) => (dispatch) => {
@@ -15,6 +23,18 @@ export const setActiveStep = (payload) => (dispatch) => {
   dispatch({ type: SET_ACTIVESTEP, payload })
 }
 
-export const setCompleted = (payload) => (dispatch) => {
-  dispatch({ type: SET_COMPLETED, payload })
+export const nextActiveStep = (payload) => (dispatch) => {
+  dispatch({ type: NEXT_ACTIVESTEP, payload })
+}
+
+export const backActiveStep = (payload) => (dispatch) => {
+  dispatch({ type: BACK_ACTIVESTEP, payload })
+}
+
+export const setModels = (payload) => (dispatch) => {
+  dispatch({ type: SET_MODELS, payload })
+}
+
+export const setSelectedModel = (payload) => (dispatch) => {
+  dispatch({ type: SET_SELECTED_MODEL, payload })
 }

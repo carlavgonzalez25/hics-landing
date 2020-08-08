@@ -7,7 +7,7 @@ import styled from 'styled-components'
 const ModelSelection = (props) => {
   const [detailedModel, setDetailedModel] = useState()
   const { models } = props
-  console.log(models)
+
   const showSingleView = (id) => {
     setDetailedModel(models.find((e) => e.idModelo === id))
   }

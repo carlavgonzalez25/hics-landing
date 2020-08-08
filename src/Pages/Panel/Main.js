@@ -8,6 +8,8 @@ import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core'
 import styled from 'styled-components'
 import { useParams, useHistory } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { setModels, setActiveStep, setSelectedModel } from '../../redux/actions'
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -18,28 +20,34 @@ const useStyles = makeStyles((theme) => ({
   },
 }))
 
-const Panel = (props) => {
+const Panel = () => {
   const { t } = useTranslation()
   const classes = useStyles()
   const history = useHistory()
-  let { id, step } = useParams()
-  id = parseInt(id)
-  step = parseInt(step)
+  let { routeid, routestep } = useParams()
+  const dispatch = useDispatch()
+  let models = useSelector((state) => state.panel.models)
+  let step = useSelector((state) => state.panel.activeStep)
+  let id = useSelector((state) => state.panel.selectedModel)
+
   const steps = [t('steps.first'), t('steps.second'), t('steps.third'), t('steps.fourth')]
   const [isLoading, setIsLoading] = useState(true)
-  const [models, setModels] = useState([])
 
   useEffect(() => {
     fetchModels()
   }, [])
 
   useEffect(() => {
-    let step_ = parseInt(step)
-    let id_ = parseInt(id)
+    if (isLoading) return
+    let step_ = parseInt(routestep)
+    let id_ = parseInt(routeid)
     step_ = step_ > 0 && step_ < steps.length ? step_ : 0
-    id_ = [1, 2].find((e) => e === id_) ? id_ : 0
-    resetRoute(id_, step_)
-  }, [id, step])
+    id_ = models.find((m) => m.idModelo === id_) ? id_ : 0
+    dispatch(setActiveStep(step_))
+    dispatch(setSelectedModel(id_))
+  }, [isLoading])
+
+  useEffect(() => resetRoute(id, step), [id, step])
 
   const fetchModels = () => {
     setIsLoading(true)
@@ -48,8 +56,7 @@ const Panel = (props) => {
       .then(
         (result) => {
           setIsLoading(false)
-          setModels(result)
-          // setDetailedModel(result[0])
+          dispatch(setModels(result))
         },
         (error) => {
           setIsLoading(false)
@@ -59,23 +66,25 @@ const Panel = (props) => {
 
   //----------------------------
 
-  const resetRoute = (id_ = 0, step_ = 0) => {
-    if (step_ !== step) history.push(`/panel/new/${id_}/${step_}`)
-    else history.replace(`/panel/new/${id_}/${step_}`)
+  const resetRoute = (id, step) => {
+    if (routestep !== step) history.push(`/panel/new/${id}/${step}`)
+    else history.replace(`/panel/new/${id}/${step}`)
   }
 
   const onClickStep = (step_) => () => {
-    history.push(`/panel/new/${id}/${step_}`)
+    // history.push(`/panel/new/${id}/${step_}`)
+    dispatch(setActiveStep(step_))
   }
 
-  const nextStep = () => () => {
-    history.push(`/panel/new/${id}/${step + 1}`)
-  }
+  // const nextStep = () => () => {
+  //   history.push(`/panel/new/${id}/${step + 1}`)
+  // }
 
   const handleModel = (id) => {
-    history.replace(`/panel/new/${id}/${step}`)
+    dispatch(setSelectedModel(id))
+    // history.replace(`/panel/new/${id}/${step}`)
 
-    if (step === 0) history.replace(`/panel/new/${id}/${1}`)
+    // if (step === 0) history.replace(`/panel/new/${id}/${1}`)
   }
   //-------------
   return (

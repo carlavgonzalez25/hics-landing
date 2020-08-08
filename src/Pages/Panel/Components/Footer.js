@@ -5,18 +5,14 @@ import styled from 'styled-components'
 
 const Header = (props) => {
   const { t } = useTranslation()
-  const { back, next = true } = props
+  const { back, next } = props
 
   return (
     <Container>
       <Content {...props}>
-        <Btn disabled={!back} onClick={() => back()}>
-          {t('buttons.back')}
-        </Btn>
+        {back && <Btn onClick={() => back()}>{t('buttons.back')}</Btn>}
         <ChildrenContainer>{props.children}</ChildrenContainer>
-        <Btn disabled={!next} onClick={() => next()}>
-          {t('buttons.next')}
-        </Btn>
+        {next && <Btn onClick={() => next()}>{t('buttons.next')}</Btn>}
       </Content>
     </Container>
   )
@@ -25,7 +21,7 @@ const Header = (props) => {
 const Btn = styled(Button)`
   marginleft: auto;
   margin: 0.5rem;
-  background: ${(props) => !props.disabled && props.theme.palette.primary.main};
+  background: ${(props) => props.theme.palette.primary.main};
   minwidth: 130px;
 `
 
