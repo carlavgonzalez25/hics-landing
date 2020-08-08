@@ -12,16 +12,9 @@ import { useParams, useHistory } from 'react-router-dom'
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
     display: 'flex',
-    marginBottom: '2rem',
     [theme.breakpoints.up('lg')]: {
       padding: '0 5rem',
     },
-  },
-  button: {
-    marginLeft: 'auto',
-    marginRight: '3rem',
-    background: theme.palette.primary.main,
-    minWidth: '130px',
   },
 }))
 
@@ -66,12 +59,17 @@ const Panel = (props) => {
 
   //----------------------------
 
-  const resetRoute = (id = 0, step = 0) => {
-    history.replace(`/panel/new/${id}/${step}`)
+  const resetRoute = (id_ = 0, step_ = 0) => {
+    if (step_ !== step) history.push(`/panel/new/${id_}/${step_}`)
+    else history.replace(`/panel/new/${id_}/${step_}`)
   }
 
-  const onClickStep = (step) => () => {
-    history.replace(`/panel/new/${id}/${step}`)
+  const onClickStep = (step_) => () => {
+    history.push(`/panel/new/${id}/${step_}`)
+  }
+
+  const nextStep = () => () => {
+    history.push(`/panel/new/${id}/${step + 1}`)
   }
 
   const handleModel = (id) => {
