@@ -1,9 +1,17 @@
-import { SET_ACTIVESTEP, SET_MODELS, SET_SELECTED_MODEL, NEXT_ACTIVESTEP, BACK_ACTIVESTEP } from '../../actionTypes'
+import {
+  SET_ACTIVESTEP,
+  SET_MODELS,
+  SET_SELECTED_MODEL,
+  NEXT_ACTIVESTEP,
+  BACK_ACTIVESTEP,
+  SET_CURRENT_MODEL,
+} from '../../actionTypes'
 
 const initialState = {
   activeStep: 0,
   models: [],
-  selectedModel: null,
+  selectedModel: 0,
+  currentModel: null,
 }
 
 export default function (state = initialState, action) {
@@ -14,6 +22,8 @@ export default function (state = initialState, action) {
       return { ...state, models: action.payload }
     case SET_SELECTED_MODEL:
       return { ...state, selectedModel: action.payload }
+    case SET_CURRENT_MODEL:
+      return { ...state, currentModel: action.payload }
     case NEXT_ACTIVESTEP:
       return { ...state, activeStep: state.activeStep < 3 ? state.activeStep + 1 : 3 }
     case BACK_ACTIVESTEP:

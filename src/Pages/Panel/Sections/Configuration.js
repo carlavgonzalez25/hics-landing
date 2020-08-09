@@ -16,76 +16,80 @@ import ExpandMore from '@material-ui/icons/ExpandMore'
 import Check from '@material-ui/icons/Check'
 import AmbientSelector from '../Components/AmbientSelector'
 import { Grid } from '@material-ui/core'
+import config from 'config/api'
 
-const modeloEjemplo = {
-  idModelo: 1,
-  nombre: 'Modelo Paraná',
-  ambientes: [
-    {
-      idAmbiente: 1,
-      nombre: 'Bedroom',
-      terminaciones: [
-        {
-          id: 28,
-          nombre: 'Sink',
-          opciones: [
-            {
-              idOpcion: 1,
-              nombre: 'The Pompano',
-              foto:
-                'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ929mUfyEo6AdIWjgTE1WfL0ogMGVDJtW0_A&usqp=CAU',
-              default: true,
-            },
-            {
-              idOpcion: 2,
-              nombre: 'Another',
-              foto:
-                'https://previews.123rf.com/images/zhan1999/zhan19991702/zhan1999170200167/74778719-madera-de-construcci%C3%B3n-textura-de-madera-industrial-maderas-culo-de-fondo.jpg',
-            },
-          ],
-        },
-        {
-          id: 1,
-          nombre: 'Cabinets',
-          opciones: [
-            {
-              idOpcion: 1,
-              nombre: 'Portland Chestnut',
-              foto: 'https://s3.amazonaws.com/bvsystem_tmp/pages/1584/original/kitchen-cabinets.jpg?1323890014',
-            },
-            {
-              idOpcion: 2,
-              nombre: 'Providence Espresso',
-              foto:
-                'https://hgtvhome.sndimg.com/content/dam/images/hgrm/fullset/2013/1/9/0/drury_BarzyckKitchen-wiht-stock-kitchen-cabinets_s4x3.jpg.rend.hgtvcom.616.462.suffix/1405450016426.jpeg',
-              default: true,
-            },
-            {
-              idOpcion: 3,
-              nombre: 'SC Shaker Cinder',
-              foto: 'https://www.corvinsfloorcoverings.com/clientcontent/cys_common_content/cabinets02-01.jpg',
-            },
-            {
-              idOpcion: 4,
-              nombre: 'Liberty Shaker White',
-              foto: 'https://paulmarcotteandsons.com/files/2019/01/andale_cherry_cafe_choc._1.jpg?w=1060&h=706&a=t',
-              premium: true,
-            },
-          ],
-        },
-      ],
-    },
-    {
-      idAmbiente: 5,
-      nombre: 'Bathroom',
-      terminaciones: [],
-    },
-  ],
-  idModelo: 2,
-  nombre: 'Modelo Alaska',
-  livingArea: null,
-  totalArea: null,
-}
+import { useDispatch, useSelector } from 'react-redux'
+import { setCurrentModel } from '../../../redux/actions'
+
+// const modeloEjemplo = {
+//   idModelo: 1,
+//   nombre: 'Modelo Paraná',
+//   ambientes: [
+//     {
+//       idAmbiente: 1,
+//       nombre: 'Bedroom',
+//       terminaciones: [
+//         {
+//           id: 28,
+//           nombre: 'Sink',
+//           opciones: [
+//             {
+//               idOpcion: 1,
+//               nombre: 'The Pompano',
+//               foto:
+//                 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQ929mUfyEo6AdIWjgTE1WfL0ogMGVDJtW0_A&usqp=CAU',
+//               default: true,
+//             },
+//             {
+//               idOpcion: 2,
+//               nombre: 'Another',
+//               foto:
+//                 'https://previews.123rf.com/images/zhan1999/zhan19991702/zhan1999170200167/74778719-madera-de-construcci%C3%B3n-textura-de-madera-industrial-maderas-culo-de-fondo.jpg',
+//             },
+//           ],
+//         },
+//         {
+//           id: 1,
+//           nombre: 'Cabinets',
+//           opciones: [
+//             {
+//               idOpcion: 1,
+//               nombre: 'Portland Chestnut',
+//               foto: 'https://s3.amazonaws.com/bvsystem_tmp/pages/1584/original/kitchen-cabinets.jpg?1323890014',
+//             },
+//             {
+//               idOpcion: 2,
+//               nombre: 'Providence Espresso',
+//               foto:
+//                 'https://hgtvhome.sndimg.com/content/dam/images/hgrm/fullset/2013/1/9/0/drury_BarzyckKitchen-wiht-stock-kitchen-cabinets_s4x3.jpg.rend.hgtvcom.616.462.suffix/1405450016426.jpeg',
+//               default: true,
+//             },
+//             {
+//               idOpcion: 3,
+//               nombre: 'SC Shaker Cinder',
+//               foto: 'https://www.corvinsfloorcoverings.com/clientcontent/cys_common_content/cabinets02-01.jpg',
+//             },
+//             {
+//               idOpcion: 4,
+//               nombre: 'Liberty Shaker White',
+//               foto: 'https://paulmarcotteandsons.com/files/2019/01/andale_cherry_cafe_choc._1.jpg?w=1060&h=706&a=t',
+//               premium: true,
+//             },
+//           ],
+//         },
+//       ],
+//     },
+//     {
+//       idAmbiente: 5,
+//       nombre: 'Bathroom',
+//       terminaciones: [],
+//     },
+//   ],
+//   idModelo: 2,
+//   nombre: 'Modelo Alaska',
+//   livingArea: null,
+//   totalArea: null,
+// }
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -112,7 +116,11 @@ const ConfigurationSection = (props) => {
   const [model, setModel] = useState({})
   const [open, setOpen] = useState(null)
   const [image, setImage] = useState(null)
-  const { selectedModel, handleModel } = props
+  const [isLoading, setIsLoading] = useState(true)
+  let currentModel = useSelector((state) => state.panel.currentModel)
+
+  const dispatch = useDispatch()
+  let id = useSelector((state) => state.panel.selectedModel)
 
   const handleClick = (id, foto) => {
     setImage(foto)
@@ -122,13 +130,26 @@ const ConfigurationSection = (props) => {
   const classes = useStyles()
 
   useEffect(() => {
-    axios.get(`/${selectedModel}`).catch((e) => {
-      setModel(addSelected(modeloEjemplo))
-    })
+    fetchModel()
   }, [])
 
+  const fetchModel = () => {
+    setIsLoading(true)
+    fetch(`${config.API_URL}/getModeloId/${id}`)
+      .then((res) => res.json())
+      .then(
+        (result) => {
+          setIsLoading(false)
+          dispatch(setCurrentModel(result))
+        },
+        (error) => {
+          setIsLoading(false)
+        }
+      )
+  }
+
   const handleChangeOption = (amb_i, term_i, idOpcion, foto) => {
-    let m = { ...model }
+    let m = { ...currentModel }
     m.ambientes[amb_i].terminaciones[term_i].selected = idOpcion
     m.ambientes[amb_i].terminaciones[term_i].foto = foto
     setImage(foto)
@@ -136,7 +157,7 @@ const ConfigurationSection = (props) => {
   }
 
   const addSelected = (model) => {
-    let m = { ...model }
+    let m = { ...currentModel }
     m.ambientes.forEach((ambiente, i) => {
       ambiente.terminaciones.forEach((term, j) => {
         for (let k = 0; k < term.opciones.length; k++) {

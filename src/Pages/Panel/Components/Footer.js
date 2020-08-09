@@ -34,11 +34,9 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: red;
 `
 const ChildrenContainer = styled.div`
   flex-grow: 1;
-  background: green;
 `
 
 const Content = styled.div`
@@ -47,7 +45,6 @@ const Content = styled.div`
   height: 100%;
   display: flex;
   flex-direction: row;
-  background: yellow;
 `
 
 export default Header

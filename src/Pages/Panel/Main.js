@@ -10,6 +10,7 @@ import styled from 'styled-components'
 import { useParams, useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { setModels, setActiveStep, setSelectedModel } from '../../redux/actions'
+import config from 'config/api'
 
 const useStyles = makeStyles((theme) => ({
   cardContainer: {
@@ -51,7 +52,7 @@ const Panel = () => {
 
   const fetchModels = () => {
     setIsLoading(true)
-    fetch('http://52.14.23.178/api/getModelos')
+    fetch(`${config.API_URL}/getModelos`)
       .then((res) => res.json())
       .then(
         (result) => {

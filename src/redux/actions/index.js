@@ -4,6 +4,7 @@ import {
   SET_ACTIVESTEP,
   SET_MODELS,
   SET_SELECTED_MODEL,
+  SET_CURRENT_MODEL,
   NEXT_ACTIVESTEP,
   BACK_ACTIVESTEP,
 } from '../../actionTypes'
@@ -37,4 +38,8 @@ export const setModels = (payload) => (dispatch) => {
 
 export const setSelectedModel = (payload) => (dispatch) => {
   dispatch({ type: SET_SELECTED_MODEL, payload })
+}
+
+export const setCurrentModel = (payload) => (dispatch) => {
+  dispatch({ type: SET_CURRENT_MODEL, payload })
 }
