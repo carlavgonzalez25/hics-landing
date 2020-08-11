@@ -18,7 +18,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('lg')]: {
       padding: '0 5rem',
     },
-  },
+  }, //
 }))
 
 const Panel = () => {
