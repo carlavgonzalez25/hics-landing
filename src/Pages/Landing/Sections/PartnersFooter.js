@@ -24,6 +24,6 @@ const PartnersFooter = ({ moveScroller }) => {
       <Footer moveScroller={moveScroller} />
     </Grid>
   )
-}
+} //
 
 export default PartnersFooter
