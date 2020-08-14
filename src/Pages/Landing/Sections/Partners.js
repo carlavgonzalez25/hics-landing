@@ -1,5 +1,5 @@
 import React from 'react'
-import { logo_vydacapital, logo_hicscapital } from 'img'
+import { logo_hicsvyda_vertical, logo_benavente, logo_tarragona } from 'img'
 import Typography from '@material-ui/core/Typography'
 import Grid from '@material-ui/core/Grid'
 import { useTranslation } from 'react-i18next'
@@ -8,9 +8,12 @@ import { makeStyles } from '@material-ui/core/styles'
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
-    flexDirection: 'column',
-    height: '25%',
+    flexDirection: 'row',
+    height: '45%',
     justifyContent: 'space-between',
+    [theme.breakpoints.up('sm')]: {
+      /*flexDirection: 'column',*/
+    },
     [theme.breakpoints.up('md')]: {
       height: '30%',
       flexDirection: 'row',
@@ -30,28 +33,70 @@ const useStyles = makeStyles((theme) => ({
     width: 'fit-content',
     [theme.breakpoints.up('md')]: {
       fontSize: '1.25rem',
-      padding: '1.4rem 0 0 2rem',
+      padding: '1.4rem 0 0 1.1rem',
+      width: '200px',
     },
   },
   item: {
-    margin: 'auto',
+    margin: '0 auto',
     display: 'flex',
-    alignItems: 'center',
     width: '70%',
     justifyContent: 'space-around',
-    alignItems: 'center',
+    alignItems: 'baseline',
+
     [theme.breakpoints.up('md')]: {
-      padding: '0 3rem',
+      padding: '0 0 0.8rem 0',
       margin: 'unset',
+      alignItems: 'flex-end',
     },
     [theme.breakpoints.up('lg')]: {
+      padding: '0 0 1.2rem 0',
+
       margin: 'auto',
+      justifyContent: 'space-between',
+    },
+  },
+  partners: {
+    display: 'flex',
+    flexDirection: 'column',
+    width: '100%',
+    height: '50%',
+    [theme.breakpoints.up('sm')]: {},
+    [theme.breakpoints.up('md')]: {
+      flexDirection: 'row',
+      height: '100%',
+      width: '60%',
+    },
+  },
+  partnerOf: {
+    width: '100%',
+    height: '50%',
+    display: 'flex',
+    flexDirection: 'row',
+    borderLeft: 'thin solid #9BA4AA',
+    [theme.breakpoints.up('sm')]: {
+      width: '100%',
+      height: '100%',
+    },
+    [theme.breakpoints.up('md')]: {
+      width: '40%',
+    },
+    '& a': {
+      display: 'flex',
+      alignItems: 'center',
+      width: '100%',
+      justifyContent: 'center',
+      height: 'fit-content',
+      [theme.breakpoints.up('md')]: {
+        height: 'unset',
+      },
     },
   },
   img: {
     filter: 'grayscale(1)',
     transition: 'all 0.3s',
-    width: '48vw',
+    width: '100%',
+    height: 'auto',
     [theme.breakpoints.up('md')]: {
       width: 'unset',
     },
@@ -60,23 +105,46 @@ const useStyles = makeStyles((theme) => ({
       transition: 'all 0.3s',
     },
   },
-  logoHics: {
-    width: '70px',
+  logoTarragona: {
+    maxWidth: '135px',
+    padding: '0.5rem 0.5rem',
 
     [theme.breakpoints.up('sm')]: {
-      width: '80px',
+      maxWidth: '140px',
+      padding: '0',
     },
     [theme.breakpoints.up('md')]: {
-      width: '110px',
+      maxWidth: '210px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: '240px',
     },
   },
-  logoVyda: {
-    width: '115px',
+  logoBenavente: {
+    maxWidth: '115px',
+    padding: '0.5rem 0.5rem',
     [theme.breakpoints.up('sm')]: {
-      width: '140px',
+      maxWidth: '140px',
+      padding: '0',
     },
     [theme.breakpoints.up('md')]: {
-      width: '195px',
+      maxWidth: '172px',
+      paddingBottom: '0.4rem',
+    },
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: '195px',
+    },
+  },
+  logoHics: {
+    maxWidth: '115px',
+    [theme.breakpoints.up('sm')]: {
+      maxWidth: '120px',
+    },
+    [theme.breakpoints.up('md')]: {
+      maxWidth: '100px',
+    },
+    [theme.breakpoints.up('lg')]: {
+      maxWidth: '155px',
     },
   },
 }))
@@ -85,21 +153,28 @@ const Partners = () => {
   const { t } = useTranslation()
   const classes = useStyles()
 
-  let variable = null
-
   return (
     <Grid container className={classes.root} id="partners">
-      <Typography variant="h6" className={classes.title}>
-        {t('partners.title')}
-      </Typography>
-      <Grid item className={classes.item}>
-        <a href="https://hicscapital.com/" target="__blank">
-          <img src={logo_hicscapital} alt="Logo hics capital" className={classes.img + ' ' + classes.logoHics} />
+      <div className={classes.partners}>
+        <Typography variant="h6" className={classes.title}>
+          {t('partners.title')}
+        </Typography>
+        <Grid item className={classes.item}>
+          <a href="https://tarragona.us/" target="__blank">
+            <img src={logo_tarragona} alt="Logo tarragona" className={classes.img + ' ' + classes.logoTarragona} />
+          </a>
+
+          <img src={logo_benavente} alt="Logo benavente" className={classes.img + ' ' + classes.logoBenavente} />
+        </Grid>
+      </div>
+      <div className={classes.partnerOf}>
+        <Typography variant="h6" className={classes.title}>
+          PARTNER OF
+        </Typography>
+        <a href="https://hicsvydacapital.com/" target="__blank">
+          <img src={logo_hicsvyda_vertical} alt="Logo hics capital" className={classes.img + ' ' + classes.logoHics} />
         </a>
-        <a href="http://vydacapital.com/" target="__blank">
-          <img src={logo_vydacapital} alt="Logo vyda capital" className={classes.img + ' ' + classes.logoVyda} />
-        </a>
-      </Grid>
+      </div>
     </Grid>
   )
 }

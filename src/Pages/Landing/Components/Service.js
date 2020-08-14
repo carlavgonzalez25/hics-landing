@@ -1,6 +1,5 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
-import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { setMotive } from 'redux/actions'
@@ -35,10 +34,16 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
         bottom: 'unset',
       },
     },
-    opacity: {
+    opacityGrey: {
       width: '100%',
       height: '100%',
       background: '#9BA4AA',
+      mixBlendMode: 'multiply',
+    },
+    opacityBlue: {
+      width: '100%',
+      height: '100%',
+      background: '#294472',
       mixBlendMode: 'multiply',
     },
     text: {
@@ -79,11 +84,19 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
         fontSize: '2.125rem',
       },
     },
-    containerWbackground: {
+    serviceTitleCt: {
+      height: '100%',
+      width: '228px',
+    },
+    backgroundBlue: {
       background: theme.palette.primary.main,
       width: '100%',
       height: '100%',
       mixBlendMode: 'multiply',
+    },
+    backgroundGrey: {
+      background: '#666c75a6',
+      height: '100%',
     },
     positionAbsolute: {
       position: 'absolute',
@@ -121,21 +134,24 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
     },
   }))
 
-  const { t } = useTranslation()
   const classes = useStyles()
-
-  const setForm = (text) => {
-    setMotive(text)
-  }
 
   return (
     <Grid container xs={12} className={classes.img}>
       <Grid container className={classes.headerContainer}>
         <Grid item className={classes.titleContainer}>
-          <img src={arrow} />
-          <Grid container direction="column" className={layout === 'Loans' ? classes.positionRelative : null}>
-            <div className={layout === 'Loans' ? classes.containerWbackground : null}> </div>
-            <div className={`${layout === 'Loans' ? classes.positionAbsolute : null} ${classes.headerTitles} `}>
+          <img src={arrow} alt="arrow" />
+          <Grid
+            container
+            direction="column"
+            className={`${layout === 'Loans' ? classes.positionRelative : null} ${classes.serviceTitleCt}`}
+          >
+            <div className={layout === 'Loans' ? classes.backgroundBlue : null}> </div>
+            <div
+              className={`${layout === 'Loans' ? classes.positionAbsolute : null} ${
+                layout === 'Development' ? classes.backgroundGrey : null
+              } ${classes.headerTitles} `}
+            >
               <Typography variant="body2" className={classes[`sectionTitle${layout}`]}>
                 {sectionTitle}
               </Typography>
@@ -146,7 +162,7 @@ const Service = ({ img, title, text, layout, setMotive, sectionTitle }) => {
           </Grid>
         </Grid>
         <Grid item className={classes.textContainer}>
-          <div className={classes.opacity}> </div>
+          <div className={layout === 'Development' ? classes.opacityBlue : classes.opacityGrey}> </div>
           <span className={classes.text}>{text}</span>
         </Grid>
       </Grid>
@@ -165,14 +181,3 @@ const mapDispatchToProps = (dispatch) => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Service)
-
-{
-  /*
-     <Grid item className={classes.ctText}>
-    <Typography className={classes.p}>{text}</Typography>
-    <a href="#contactForm" onClick={() => setForm(title)}>
-      <Typography className={classes.accent + ' ' + classes.p}>{t('services.knowMore')}</Typography>
-    </a>
-  </Grid>
-  */
-}

@@ -1,6 +1,5 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
-import { useTranslation } from 'react-i18next'
 import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { arrow } from '../../../img'
@@ -74,7 +73,7 @@ const ContactUs = ({ title, img }) => {
   return (
     <Grid xs={12} className={classes.img}>
       <Grid item className={classes.leftContainer}>
-        <img src={arrow} />
+        <img src={arrow} alt="arrow" />
         <div className={classes.titleContainer}>
           <div className={classes.opacity}> </div>
           <Typography variant="h6" className={classes.title}>

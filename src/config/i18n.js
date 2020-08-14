@@ -6,9 +6,10 @@ export default {
         slider: {
           slide1: 'CREATING VALUE TOGETHER',
           slide2:
-            'HICS VYDA CAPITAL is a Joint Venture between HICS CAPITAL & VYDA CAPITAL, unifying professionals with more than 30 years of successful experience and prestigious trajectory in Construction Business, Technology, Mortgage Loans, Asset Management and Financial Investments.',
+            'We are a company formed by professionals with more than 30 years of successful experience and prestigious experience in Real Estate Technology Business, mortgage loans and financial investments.',
           slide3:
-            'With focus on our clients and their financial tranquility, we work with the objective of identifying solid and predictable investment opportunities, which allow our Partners and Clients to invest with their own funds and those of third parties, in profitable, reliable businesses, that contribute to consolidate and increase their assets over time. We focus on investing capital in tangible assets',
+            'We work with the objective of identifying solid and predictable investment opportunities, in profitable, reliable businesses. We focus on investing capital in Hard Assets',
+          highlight: 'IDEAS THAT COME TRUE. ',
         },
         office: '{{place}} office',
         usaOffice: 'usa main office',
@@ -16,13 +17,13 @@ export default {
           title: 'Our services',
           title_construction: 'Construction',
           text_construction:
-            'We invest in the construction of single-family and multi-family homes, in non-speculative areas of growth, generating convenient contributions, under high standards of quality and safety.',
+            'We invest in the construction of single-family and multi-family homes, in areas of growth and a non-speculative real economy, generating convenient contributions, under high standards of quality and safety.',
           title_urbanDevelopment: 'Urban Development',
           text_urbanDevelopment:
-            'We acquire land with strategic potential, for subsequent urban development. Safe, stable, medium-term investments with very convenient and advisable returns in a good and balanced investment portfolio.',
+            'We invest in land with strategic potential, for subsequent urban development. Safe, stable, medium-term investments and very convenient and advisable returns on a good investment portfolio',
           title_loans: 'Mortgage Loans',
           text_loans:
-            'We provide credits for the acquisition of single-family units, guaranteed with mortgages on the properties, with high levels of security and financial returns. Designed for institutions, companies and individuals, whose interest is to preserve their capital, while receiving an attractive rate of return with low levels of risk.',
+            'We invest in credits for the purchase of single-family units, guaranteed with Mortgages with high levels of financial security and return.',
           knowMore: 'Know more',
         },
         contact: {
@@ -39,6 +40,7 @@ export default {
         },
         partners: {
           title: 'Partners',
+          partnerOf: 'Partners of',
         },
         login: {
           login: 'Login',

@@ -5,7 +5,7 @@ import { slide_1, slide_2, slide_3 } from 'img'
 import Slide from '../Components/Slide'
 import { useTranslation } from 'react-i18next'
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     height: '100%',
   },
@@ -29,9 +29,6 @@ const MySlider = () => {
     return direction === 'left' ? (
       <i
         style={{
-          /*border: '1px solid white',
-          padding: '1em',
-          backgroundColor: 'black',*/
           border: 'solid #fff',
           borderWidth: '0 5px 5px 0',
           display: 'inline-block',
@@ -69,7 +66,7 @@ const MySlider = () => {
       <Slider hasArrows ArrowComponent={ArrowComponent} setSlideCustom={setSlideCustom}>
         <Slide imgUrl={slide_1} text={t('slider.slide1')} title={true} mode={2} />
         <Slide imgUrl={slide_2} text={t('slider.slide2')} title={false} mode={1} />
-        <Slide imgUrl={slide_3} text={t('slider.slide3')} title={false} mode={1} />
+        <Slide imgUrl={slide_3} text={t('slider.slide3')} highlight={t('slider.highlight')} title={false} mode={1} />
       </Slider>
     </div>
   )

@@ -1,14 +1,12 @@
 import React, { Fragment } from 'react'
 //Config
 import contactInfo from 'config/contact'
-import { useTranslation } from 'react-i18next'
 
 //Components
 import ContactBox from '../Components/ContactBox'
 import Grid from '@material-ui/core/Grid'
 
 import { makeStyles } from '@material-ui/core/styles'
-import { bg_contactOffice, bg_contactForm } from 'img'
 
 const useStyles = makeStyles((theme) => ({
   title: {
@@ -29,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
     alignContent: 'center',
   },
   office: {
-    height: '60%',
+    height: '40%',
     [theme.breakpoints.up('md')]: {
       background: 'grey',
       height: '55%',
@@ -49,7 +47,6 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Contact = () => {
-  const { t } = useTranslation()
   const classes = useStyles()
 
   return (

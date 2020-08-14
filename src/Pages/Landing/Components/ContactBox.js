@@ -30,8 +30,11 @@ const ContactBox = (props) => {
       flexDirection: 'row',
       [theme.breakpoints.up('md')]: {
         flexDirection: 'column',
-        margin: '1rem 1rem',
+        margin: '0 1rem',
         height: 'unset',
+      },
+      [theme.breakpoints.up('lg')]: {
+        margin: '1rem 1rem',
       },
     },
     cardContent: {
@@ -125,7 +128,7 @@ const ContactBox = (props) => {
         <CardContent className={classes.cardContent}>
           <Grid item className={classes.ctTextIcon}>
             <Typography gutterBottom className={classes.cardTitle}>
-              {name != 'Usa' ? t('office', { place: name }) : t('usaOffice')}
+              {name !== 'Usa' ? t('office', { place: name }) : t('usaOffice')}
             </Typography>
           </Grid>
           <Grid item className={classes.ctTextIcon}>

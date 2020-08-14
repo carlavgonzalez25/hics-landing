@@ -1,21 +1,9 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles'
-import { Typography, useMediaQuery } from '@material-ui/core'
-import { creating, creating_mobile } from '../../../img'
+import { Typography } from '@material-ui/core'
+import { creating } from '../../../img'
 
-/*
-const useStyles = makeStyles({
-    root: imgUrl => ({
-      backgroundImage: `url(${imgUrl})`,
-      backgroundPosition: 'center',
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-    })
-  });
-
-*/
-
-const Slide = ({ imgUrl, text, title, color, mode }) => {
+const Slide = ({ imgUrl, text, title, mode, highlight }) => {
   const useStyles = makeStyles((theme) => ({
     root: {
       backgroundImage: `url(${imgUrl})`,
@@ -52,7 +40,7 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
       mixBlendMode: 'multiply',
     },
     solid: {
-      background: '#26255D',
+      background: '#0017338c',
       width: '100%',
       height: '150px',
       [theme.breakpoints.up('lg')]: {
@@ -70,9 +58,12 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
       [theme.breakpoints.up('md')]: {
         width: '80%',
         padding: '1rem 1rem 1rem 1rem',
-        fontSize: '1em',
         marginBottom: '0',
       },
+    },
+    highlight: {
+      fontWeight: '600',
+      color: '#1B2653',
     },
     title: {
       width: '100%',
@@ -90,7 +81,10 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
 
     imageCreating: {
       position: 'absolute',
-      width: '200px',
+      maxWidth: '450px',
+      width: '100%',
+      height: 'auto',
+      padding: '1rem',
 
       [theme.breakpoints.up('md')]: {
         width: '534px',
@@ -100,16 +94,16 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
 
   const classes = useStyles()
 
-  const matches = useMediaQuery((theme) => theme.breakpoints.up('md'))
-
-  const textCard = () => {}
-
   const layout = (mode) =>
     mode === 1 ? (
       <div className={classes.root}>
         <div className={classes.container}>
           <div className={title ? classes.solid : classes.opacity}> </div>
-          <Typography className={title ? classes.title : classes.text}>{text}</Typography>
+
+          <Typography className={title ? classes.title : classes.text}>
+            <span className={classes.highlight}>{highlight}</span>
+            {text}
+          </Typography>
         </div>
       </div>
     ) : (
@@ -117,7 +111,7 @@ const Slide = ({ imgUrl, text, title, color, mode }) => {
         <div className={classes.root}>
           <div className={classes.container + ' ' + (title ? classes.containerTitle : null)}>
             <div className={title ? classes.solid : classes.opacity}> </div>
-            <img src={matches ? creating : creating_mobile} className={classes.imageCreating} />
+            <img src={creating} className={classes.imageCreating} alt="creating value together" />
           </div>
         </div>
       )

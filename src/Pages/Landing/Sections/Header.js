@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import i18n from 'i18next'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, AppBar, Toolbar, useMediaQuery, Grid } from '@material-ui/core'
+import { Button, AppBar, Toolbar, useMediaQuery } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import { logo_hicsvyda, texto_hicsvidacapital, logo_hicscapital_mobile } from 'img'
 import { language_sp, language_en } from 'img'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
-import { Link } from 'react-router-dom'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -53,6 +52,7 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.up('lg')]: {
       display: 'flex',
       margin: '0 5rem',
+      padding: '1.3rem',
     },
   },
   textoLogo: {
@@ -85,6 +85,7 @@ const useStyles = makeStyles((theme) => ({
     },
     '& ul': {
       display: 'flex',
+      margin: 'auto',
       '& li': {
         margin: '0 1rem',
         '& div': {
@@ -99,6 +100,10 @@ const useStyles = makeStyles((theme) => ({
     display: 'flex',
     flexDirection: 'row',
     marginBottom: '0.6rem',
+    [theme.breakpoints.up('lg')]: {
+      flexDirection: 'column',
+      paddingRight: '1rem',
+    },
   },
   loginButton: {
     background: theme.palette.primary.dark,
@@ -183,11 +188,6 @@ const Header = ({ moveScroller }) => {
               <img src={language_en} alt="english language selector" />
             </Button>
           </div>
-          <Link to="/login">
-            <Button variant="contained" className={classes.loginButton}>
-              LOG IN
-            </Button>
-          </Link>
         </div>
       </Toolbar>
     </AppBar>

@@ -30,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
 
   img: {
     margin: '0 1rem',
-    width: '200px',
+    width: '160px',
   },
   menu: {
     borderLeft: 'solid 1px #868686',
