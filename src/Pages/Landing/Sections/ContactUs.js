@@ -4,10 +4,12 @@ import { makeStyles } from '@material-ui/core/styles'
 import Typography from '@material-ui/core/Typography'
 import { arrow } from '../../../img'
 import Form from '../Components/Form'
+import Footer from './Footer'
 
-const ContactUs = ({ title, img }) => {
+const ContactUs = ({ title, img, moveScroller }) => {
   const useStyles = makeStyles((theme) => ({
     img: {
+      position: 'relative',
       backgroundImage: `url(${img})`,
       backgroundPosition: 'center',
       backgroundRepeat: 'no-repeat',
@@ -84,6 +86,7 @@ const ContactUs = ({ title, img }) => {
       <Grid item className={classes.rightContainer}>
         <Form />
       </Grid>
+      <Footer moveScroller={moveScroller} />
     </Grid>
   )
 }
