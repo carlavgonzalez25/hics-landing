@@ -7,7 +7,11 @@ import { logo_hicsvyda } from 'img'
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '15%',
-    backgroundColor: '#C6CED3',
+    width: '100%',
+    backgroundColor: '#00000010',
+    position:  'absolute',
+    bottom: '0px',
+    left: '0px',
     display: 'flex',
     justifyContent: 'space-between',
     padding: '1rem',
@@ -51,7 +55,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight: '2rem',
         flexGrow: '2',
         textTransform: 'uppercase',
-        color: '#586066',
+        color: '#fff',
         marginBottom: '0.3rem',
         [theme.breakpoints.up('md')]: {
           marginBottom: '0',
@@ -107,11 +111,11 @@ const Footer = ({ moveScroller }) => {
                 {t('services.title')}
               </div>
             </li>
-            <li>
+            {/* <li>
               <div className={classes.link} onClick={() => moveScroller(4)}>
                 {t('contact.title')}
               </div>
-            </li>
+            </li> */}
           </ul>
         </Grid>
       </Grid>

@@ -74,7 +74,6 @@ const Form = () => {
   }
 
   const onSubmit = (data) => {
-    console.log(data)
     axios
       .post('http://52.14.23.178/api/sendMail ', data)
       .then((r) => triggerSuccess(true))

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from 'react'
 import i18n from 'i18next'
 import { makeStyles } from '@material-ui/core/styles'
-import { Button, AppBar, Toolbar, useMediaQuery } from '@material-ui/core'
+import { AppBar, Toolbar, useMediaQuery } from '@material-ui/core'
 import { useTranslation } from 'react-i18next'
 import { logo_hicsvyda, texto_hicsvidacapital, logo_hicscapital_mobile } from 'img'
-import { language_sp, language_en } from 'img'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
 
@@ -97,12 +96,13 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   languageContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    marginBottom: '0.6rem',
+    border: 'none',
+    fontSize: '12px',
+    textTransform: 'uppercase',
+    background: 'transparent',
     [theme.breakpoints.up('lg')]: {
-      flexDirection: 'column',
-      paddingRight: '1rem',
+      padding: '4px 2px',
+      margin: '1rem',
     },
   },
   loginButton: {
@@ -117,15 +117,13 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
     background: theme.palette.secondary.main,
     position: 'absolute',
-    left: '45px',
+    left: '0px',
     top: '55px',
     zIndex: '999',
     padding: '1rem 1rem 1rem 0.3rem',
     '& ul': {
       display: 'flex',
       flexDirection: 'column',
-      marginBlockStart: '0',
-      marginBlockEnd: '0',
       paddingInlineStart: '0',
       '& li': {
         marginBottom: '0.5rem',
@@ -135,8 +133,9 @@ const useStyles = makeStyles((theme) => ({
 }))
 
 const Header = ({ moveScroller }) => {
-  const [showMenu, setShowMenu] = useState(false)
 
+  const [showMenu, setShowMenu] = useState(false)
+  
   const matches = useMediaQuery((theme) => theme.breakpoints.up('md'))
 
   useEffect(() => {
@@ -145,7 +144,6 @@ const Header = ({ moveScroller }) => {
     })
   })
 
-  const changeLanguage = (lan) => i18n.changeLanguage(lan)
   const classes = useStyles()
   const { t } = useTranslation()
 
@@ -156,8 +154,8 @@ const Header = ({ moveScroller }) => {
   return (
     <AppBar position="fixed" color="secondary" className={classes.root} id="home">
       <Toolbar className={classes.toolbar}>
-        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-          <MenuIcon color="primary" onClick={onClick} />
+        <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu" onClick={onClick}>
+          <MenuIcon color="primary"  />
         </IconButton>
         <div className={classes.brandContainer}>
           <img src={logo_hicsvyda} alt="logo hics vyda" className={classes.logo} />
@@ -177,17 +175,18 @@ const Header = ({ moveScroller }) => {
               <div onClick={() => moveScroller(1)}>{t('services.title')}</div>
             </li>
             <li>
-              <div onClick={() => moveScroller(4)}>{t('contact.title')}</div>
+              <div onClick={() => moveScroller(3)}>{t('contact.title')}</div>
             </li>
           </ul>
-          <div className={classes.languageContainer}>
-            <Button onClick={() => changeLanguage('es')} size="small">
-              <img src={language_sp} alt="spanish language selector" />
-            </Button>
-            <Button onClick={() => changeLanguage('en')} size="small">
-              <img src={language_en} alt="english language selector" />
-            </Button>
-          </div>
+
+          <select 
+            className={classes.languageContainer}
+            onChange={e => i18n.changeLanguage(e.target.value)}
+          >
+            <option defaultValue={'en'}>english</option>
+            <option value={'es'}>español</option>
+            <option value={'por'}>português</option>
+          </select>
         </div>
       </Toolbar>
     </AppBar>
